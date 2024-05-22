@@ -1,0 +1,158 @@
+// Place your key bindings in this file to override the defaults
+[// Place your key bindings in this file to override the defaults
+
+    {
+
+        "key": "ctrl+shift+alt+k",
+
+        "command": "workbench.action.terminal.resizePaneUp"
+
+    },
+
+    {
+
+        "key": "ctrl+shift+alt+j",
+
+        "command": "workbench.action.terminal.resizePaneDown"
+
+    },
+
+    {
+
+        "key": "ctrl+p",
+
+        "command": "-workbench.action.quickOpen"
+
+    },
+
+    {
+
+        "key": "ctrl+shift+w",
+
+        "command": "-workbench.action.closeWindow"
+
+    },
+
+    {
+
+        "key": "ctrl+shift+alt+down",
+
+        "command": "workbench.action.terminal.switchTerminal"
+
+    },
+
+    {
+
+        "key": "ctrl+f",
+
+        "command": "-actions.find",
+
+        "when": "editorFocus || editorIsOpen"
+
+    },
+
+    {
+
+        "key": "ctrl+shift+f",
+
+        "command": "-workbench.action.terminal.searchWorkspace",
+
+        "when": "terminalFocus && terminalProcessSupported && terminalTextSelected"
+
+    },
+
+    {
+
+        "key": "ctrl+shift+f",
+
+        "command": "workbench.action.terminal.focusFind",
+
+        "when": "terminalFindFocused && terminalHasBeenCreated || terminalFindFocused && terminalProcessSupported || terminalFocusInAny && terminalHasBeenCreated || terminalFocusInAny && terminalProcessSupported"
+
+    },
+
+    {
+
+        "key": "ctrl+f",
+
+        "command": "-workbench.action.terminal.focusFind",
+
+        "when": "terminalFindFocused && terminalHasBeenCreated || terminalFindFocused && terminalProcessSupported || terminalFocusInAny && terminalHasBeenCreated || terminalFocusInAny && terminalProcessSupported"
+
+    },
+
+    {
+
+        "key": "ctrl+e",
+
+        "command": "workbench.action.quickOpen",
+
+        "when": "editorTextFocus"
+
+    },
+
+    {
+
+        "key": "ctrl+e",
+
+        "command": "-workbench.action.quickOpen"
+
+    },
+
+    {
+
+        "key": "ctrl+shift+left",
+
+        "command": "workbench.action.decreaseViewSize"
+
+    },
+
+    {
+
+        "key": "ctrl+shift+right",
+
+        "command": "workbench.action.increaseViewSize"
+
+    },
+
+    {
+
+        "key": "alt+h",
+
+        "command": "workbench.action.terminal.focusPreviousPane",
+
+        "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+
+    },
+
+    {
+
+        "key": "alt+left",
+
+        "command": "-workbench.action.terminal.focusPreviousPane",
+
+        "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+
+    },
+
+    {
+
+        "key": "alt+l",
+
+        "command": "workbench.action.terminal.focusNextPane",
+
+        "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+
+    },
+
+    {
+
+        "key": "alt+right",
+
+        "command": "-workbench.action.terminal.focusNextPane",
+
+        "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+
+    }
+
+]
