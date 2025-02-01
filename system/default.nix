@@ -4,6 +4,7 @@
   imports =
     [ 
       ./configuration.nix
+      # ./stylix.nix
       ./gnome.nix
       ./yazi.nix
       ./nvidia.nix

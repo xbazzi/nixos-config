@@ -1,8 +1,6 @@
 { inputs, pkgs, lib, config, ...  }:
 
 {
-  services.udev.packages = [ pkgs.gnome-settings-daemon ];
-
   dconf = {
     enable = true;
     settings = {
@@ -22,9 +20,9 @@
           pkgs.gnomeExtensions.undecorate.extensionUuid
           pkgs.gnomeExtensions.pastafarian-holy-days.extensionUuid
           pkgs.gnomeExtensions.just-perfection.extensionUuid
-
         ];
       };
+
       "org/gnome/desktop/interface" = {
         color-scheme = "prefer-dark";
       };

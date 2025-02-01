@@ -18,8 +18,8 @@
     pastafarian-holy-days
     just-perfection
   ]) ++ (with pkgs; [
-    gnome-tweaks
-    adwaita-icon-theme
+    # gnome-tweaks
+    # adwaita-icon-theme
   ]);
 }
 

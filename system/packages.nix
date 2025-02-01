@@ -25,6 +25,7 @@
     yazi
   ];
 
+  programs.thunderbird.enable = true;
   # Install firefox.
   programs.noisetorch.enable = true;
 

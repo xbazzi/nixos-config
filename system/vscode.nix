@@ -16,6 +16,7 @@
        vscodevim.vim
        enkia.tokyo-night
        yzhang.markdown-all-in-one
+       vscode-icons-team.vscode-icons
      ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
        {
          name = "remote-ssh-edit";
