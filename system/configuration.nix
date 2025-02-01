@@ -62,6 +62,18 @@
     dina-font
     proggyfonts
   ];
+  
+  # Zsh enable for all users
+  programs.zsh = {
+    enable = true;
+    #promptInit = "source ${pkgs.zsh-powerlevel10k}/share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
+    #initExtra = ''
+    #      [[ ! -f ${./.p10k.zsh} ]] || source ${./.p10k.zsh}
+    #    '';
+  };
+
+  # Zsh default for all users
+  users.defaultUserShell = pkgs.zsh;
 
   # Enable sound with pipewire.
   services.pulseaudio.enable = false;
@@ -87,9 +99,8 @@
     isNormalUser = true;
     description = "Xander Bazzi";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-    #  thunderbird
-    ];
+    # packages = with pkgs; [
+    # ];
   };
 
   # Some programs need SUID wrappers, can be configured further or are
