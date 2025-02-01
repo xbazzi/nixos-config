@@ -12,7 +12,7 @@
     git
     fastfetch
     wget
-    discord-canary
+    discord
     cudaPackages_12.cudatoolkit
     python3
     gimp

@@ -17,7 +17,7 @@
 
     shellAliases =
       let
-        flakePath = "~/nix";
+        flakePath = "~/nixos-config";
       in
       {
         ll = "ls -l";
@@ -29,6 +29,7 @@
         config = "nvim ~/nix/configuration.nix";
         homecfg = "nvim ~/nix/home.nix";
       };
+
     # plugins = [
     #   #{
     #   #  name = "powerlevel10k";
