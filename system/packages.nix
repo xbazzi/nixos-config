@@ -12,7 +12,8 @@
     git
     fastfetch
     wget
-    discord
+    #discord-canary
+    vesktop
     cudaPackages_12.cudatoolkit
     python3
     gimp
@@ -20,6 +21,8 @@
     xclip
     gparted
     htop
+    btop
+    yazi
   ];
 
   # Install firefox.

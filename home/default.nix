@@ -8,6 +8,7 @@
     ./starship.nix
     #./vscode.nix
     ./packages.nix
+    ./dconf.nix
     ./git.nix
     ./zsh.nix
     ./variables.nix
