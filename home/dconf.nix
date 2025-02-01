@@ -1,6 +1,8 @@
 { inputs, pkgs, lib, config, ...  }:
 
 {
+  services.udev.packages = [ pkgs.gnome-settings-daemon ];
+
   dconf = {
     enable = true;
     settings = {

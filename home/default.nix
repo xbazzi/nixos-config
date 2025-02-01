@@ -4,6 +4,7 @@
   imports = [
     ./home.nix
     ./bash.nix
+    ./gtk.nix
     ./tmux.nix
     ./starship.nix
     #./vscode.nix

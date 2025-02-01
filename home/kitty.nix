@@ -10,8 +10,8 @@
       enable_audio_bell = false;
       mouse_hide_wait = "-1.0";
       window_padding_width = 5;
-      background_opacity = "0.8";
-      background_blur = 0;
+      background_opacity = "0.90";
+      background_blur = 5;
       themeFile = "Alucard";
       # symbol_map =
       #   let
