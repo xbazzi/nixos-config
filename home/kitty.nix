@@ -12,7 +12,9 @@
       window_padding_width = 5;
       background_opacity = "0.90";
       background_blur = 5;
-      themeFile = "Alucard";
+      background = "#17041c";
+      hide_window_decorations = true;
+      # themeFile = "Alucard";
       # symbol_map =
       #   let
       #     mappings = [
