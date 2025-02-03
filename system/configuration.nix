@@ -48,6 +48,9 @@
     variant = "";
   };
 
+  # Virtualization
+  virtualisation.docker.enable = true;
+
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
@@ -101,7 +104,12 @@
   users.users.xbazzi = {
     isNormalUser = true;
     description = "Xander Bazzi";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ 
+      "docker"
+      "networkmanager" 
+      "wheel"
+      "wireshark"
+    ];
     # packages = with pkgs; [
     # ];
   };

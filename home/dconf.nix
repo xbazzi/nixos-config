@@ -11,6 +11,7 @@
           "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/"
           "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/"
           "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/"
+          "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/"
         ];
       };
 
@@ -27,7 +28,7 @@
       };
 
       "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2" = {
-        binding = "<Super>i";
+        binding = "<Super>e";
         command = "thunderbird";
         name = "open-thunderbird";
       };
@@ -42,6 +43,12 @@
         binding = "<Super>b";
         command = "kitty -- zsh -c 'btop; exec zsh'";
         name = "open-btop";
+      };
+
+      "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5" = {
+        binding = "<Super>i";
+        command = "firefox";
+        name = "open-firefox";
       };
 
       "org/gnome/shell" = {
