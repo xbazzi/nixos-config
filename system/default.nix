@@ -4,6 +4,8 @@
   imports =
     [ 
       ./configuration.nix
+      ./fonts.nix
+      ./ssh.nix
       # ./stylix.nix
       ./gnome.nix
       ./yazi.nix

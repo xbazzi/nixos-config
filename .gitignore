@@ -3,3 +3,4 @@ config-nixvim
 result
 hardware-configuration.nix
 *.swp
+# ssh.nix
