@@ -14,6 +14,7 @@
     wget
     #discord-canary
     vesktop
+    discord
     cudaPackages_12.cudatoolkit
     python3
     gimp
@@ -32,6 +33,7 @@
     #intellephense
     firefoxpwa
     ffmpeg
+    variety
   ];
 
   programs.nix-ld.enable = true;
@@ -47,4 +49,19 @@
   };
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+  
+  # Install Steam
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
+    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
+    localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
+  };
+
+  # nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+  #     "steam"
+  #     "steam-original"
+  #     "steam-unwrapped"
+  #     "steam-run"
+  #   ];
 }
