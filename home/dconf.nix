@@ -12,6 +12,7 @@
           "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/"
           "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/"
           "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/"
+          "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom6/"
         ];
       };
 
@@ -49,6 +50,11 @@
         binding = "<Super>i";
         command = "firefox";
         name = "open-firefox";
+      };
+      "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5" = {
+        binding = "<Super>y+e";
+        command = "kitty --start-as=normal -- bash -ic 'repo'";
+        name = "open-repos";
       };
 
       "org/gnome/shell" = {

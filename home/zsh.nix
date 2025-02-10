@@ -18,6 +18,11 @@
         fi
         rm -f -- "$tmp"
       }
+      function proj() {
+          lsn -ld ~/repos/* --color=never | \
+          awk '{print $7}' | \
+          fzf --reverse | xargs -I{} code {} -n && exit
+      }
     '';
     history.size = 10000;
     history.ignoreAllDups = true;
