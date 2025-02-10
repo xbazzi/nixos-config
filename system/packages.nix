@@ -34,6 +34,8 @@
     firefoxpwa
     ffmpeg
     variety
+    fzf
+    eza
   ];
 
   programs.nix-ld.enable = true;
