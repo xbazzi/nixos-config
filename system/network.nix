@@ -4,9 +4,9 @@
   # networking.networkmanager.enable = true;
 
 
-  systemd.services."NetworkManager-wait-online" = {
-    serviceConfig.TimeoutStartSec = "20s";
-  };
+  # systemd.services."NetworkManager-wait-online" = {
+  #   serviceConfig.TimeoutStartSec = "20s";
+  # };
 
   networking = {
     hostName = "nixos";
@@ -16,8 +16,9 @@
         address = "10.29.90.110";
         prefixLength = 22;
       }];
+      mtu = 9000;
     };
-    nameservers = [ "10.29.90.1" "10.133.7.1" ];
+    nameservers = [ "10.29.90.1" ];
     search = [ "lan.xbazzi.com" ];
 
     defaultGateway = {
@@ -27,7 +28,7 @@
 
     hosts = {
       "127.0.0.1" = [ "localhost" ];
-      "10.29.90.110" = [ "nixos" "nixos.lan.xbazzi.com" ];
+      "10.29.90.110" = [ "nixos" ];
     };
   };
 

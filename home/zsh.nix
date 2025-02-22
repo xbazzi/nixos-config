@@ -18,8 +18,8 @@
         fi
         rm -f -- "$tmp"
       }
-      function proj() {
-          lsn -ld ~/repos/* --color=never | \
+      function repos() {
+          eza -ld ~/repos/* --color=never | \
           awk '{print $7}' | \
           fzf --reverse | xargs -I{} code {} -n && exit
       }

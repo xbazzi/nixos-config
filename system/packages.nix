@@ -36,6 +36,8 @@
     variety
     fzf
     eza
+    linuxPackages_latest.perf
+    minicom
   ];
 
   programs.nix-ld.enable = true;

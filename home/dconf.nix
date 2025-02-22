@@ -36,7 +36,7 @@
 
       "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3" = {
         binding = "<Super>f";
-        command = "kitty -- zsh -c 'yazi; exec zsh'";
+        command = "kitty -- zsh -c 'exec yazi; exec zsh'";
         name = "open-yazi";
       };
 
@@ -51,10 +51,10 @@
         command = "firefox";
         name = "open-firefox";
       };
-      "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5" = {
-        binding = "<Super>y+e";
-        command = "kitty --start-as=normal -- bash -ic 'repo'";
-        name = "open-repos";
+      "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom6" = {
+        binding = "<Super>y";
+        command = "kitty --start-as=normal -- zsh -ic 'repos'";
+        name = "open-projects";
       };
 
       "org/gnome/shell" = {
