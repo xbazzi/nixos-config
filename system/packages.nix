@@ -24,6 +24,7 @@
     htop
     btop
     yazi
+    google-chrome
     dig
     prismlauncher
     inetutils
