@@ -13,6 +13,7 @@
           "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/"
           "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/"
           "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom6/"
+          "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom7/"
         ];
       };
 
@@ -51,10 +52,17 @@
         command = "firefox";
         name = "open-firefox";
       };
+
       "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom6" = {
         binding = "<Super>y";
         command = "kitty --start-as=normal -- zsh -ic 'repos'";
         name = "open-projects";
+      };
+
+      "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom7" = {
+        binding = "<Primary>q";
+        command = "true";
+        name = "disable-ctrl-q";
       };
 
       "org/gnome/shell" = {
