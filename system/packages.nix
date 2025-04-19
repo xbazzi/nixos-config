@@ -1,6 +1,9 @@
 { config, pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
+    modrinth-app
+    niv
+    sbctl
     vim 
     wget
     xournalpp
