@@ -14,6 +14,7 @@
           "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/"
           "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom6/"
           "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom7/"
+          "/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom8/"
         ];
       };
 
@@ -63,6 +64,12 @@
         binding = "<Primary>q";
         command = "true";
         name = "disable-ctrl-q";
+      };
+
+      "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom8" = {
+        binding = "<Super>u";
+        command = "kitty --start-as=normal -- zsh -ic 'home'";
+        name = "open-home";
       };
 
       "org/gnome/shell" = {

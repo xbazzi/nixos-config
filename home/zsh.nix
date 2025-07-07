@@ -23,6 +23,11 @@
           awk '{print $7}' | \
           fzf --reverse | xargs -I{} code {} -n && exit
       }
+      function home() {
+          eza -ld ~/* --color=never | \
+          awk '{print $7}' | \
+          fzf --reverse | xargs -I{} code {} -n && exit
+      }
     '';
     history.size = 10000;
     history.ignoreAllDups = true;

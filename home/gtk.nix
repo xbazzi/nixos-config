@@ -9,15 +9,15 @@
       package = pkgs.tokyo-night-gtk;
     };
 
-    cursorTheme = {
-      name = "Vimix-Cursors";
-      package = pkgs.vimix-cursor-theme;
-    };
+    # cursorTheme = {
+    #   name = "Vimix-Cursors";
+    #   package = pkgs.vimix-cursors;
+    # };
 
-    iconTheme = {
-      name = "breeze-dark";
-      package = pkgs.breeze-icons;
-    };
+    # iconTheme = {
+    #   name = "breeze-dark";
+      # package = pkgs.breeze-icons;
+    # };
   };
   # home.sessionVariables = {
   #   GTK_THEME = "Tokyonight-Dark-B";

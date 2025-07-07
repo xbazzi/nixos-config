@@ -19,8 +19,8 @@
     just-perfection
     appindicator
   ]) ++ (with pkgs; [
-    vimix-cursors
-    breeze-icons  
+    #vimix-cursors
+    # breeze-icons  
     tokyonight-gtk-theme
     gnome-tweaks
     # adwaita-icon-theme
