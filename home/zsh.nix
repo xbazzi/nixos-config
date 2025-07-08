@@ -28,13 +28,23 @@
           awk '{print $7}' | \
           fzf --reverse | xargs -I{} code {} -n && exit
       }
-    '';
+      function makerole() {
+        mkdir -p "roles/$1/tasks"
+        mkdir -p "roles/$1/defaults"
+        mkdir -p "roles/$1/templates"
+        mkdir -p "roles/$1/handlers"
+        touch "roles/$1/tasks/main.yml"
+        touch "roles/$1/defaults/main.yml"
+        touch "roles/$1/templates/main.yml"
+        touch "roles/$1/handlers/main.yml"
+      }
+      '';
     history.size = 10000;
     history.ignoreAllDups = true;
     history.path = "$HOME/.zsh_history";
     history.ignorePatterns = ["rm *" "pkill *" "cp *"];
 
-    shellAliases =
+      shellAliases =
       let
         flakePath = "~/nixos-config";
       in

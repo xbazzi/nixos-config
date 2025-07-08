@@ -50,8 +50,8 @@
 
       "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5" = {
         binding = "<Super>i";
-        command = "firefox";
-        name = "open-firefox";
+        command = "brave";
+        name = "open-brave";
       };
 
       "org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom6" = {

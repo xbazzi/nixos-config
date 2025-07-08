@@ -48,6 +48,13 @@
          #sha256 = "lcaomgk91hnjwqaw4i0fagtowr8kwv7zhvgcgkokkuy=";
          sha256 = "LcAomgK91hnJWqAW4I0FAgTOwr8Kwv7ZhvGCgkokKuY=";
        }
+       {
+        name = "vscode-postgres";
+        publisher = "ckolkman";
+        version = "1.4.3";
+        sha256 = "OCy2Nc35vmynoKxoUoTL2qyUoiByTMMPebEjySIZihQ=";
+
+       }
      ];
    })
  ];

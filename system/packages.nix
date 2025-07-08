@@ -28,7 +28,7 @@
     htop
     btop
     yazi
-    google-chrome
+    #google-chrome
     dig
     prismlauncher
     inetutils
@@ -37,6 +37,7 @@
     nmap
     #intellephense
     firefoxpwa
+    brave
     ffmpeg
     variety
     fzf
@@ -47,7 +48,7 @@
 
   programs.nix-ld.enable = true;
   programs.thunderbird.enable = true;
-  # Install firefox.
+  # Install noisetorch.
   programs.noisetorch.enable = true;
 
   # Install firefox.

@@ -20,6 +20,9 @@
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot";
 
+  # systemd
+  systemd.network.wait-online.timeout = 10
+
   # Set your time zone.
   time.timeZone = "America/Denver";
 
