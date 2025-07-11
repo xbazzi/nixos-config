@@ -35,8 +35,6 @@
         mkdir -p "roles/$1/handlers"
         touch "roles/$1/tasks/main.yml"
         touch "roles/$1/defaults/main.yml"
-        touch "roles/$1/templates/main.yml"
-        touch "roles/$1/handlers/main.yml"
       }
       '';
     history.size = 10000;

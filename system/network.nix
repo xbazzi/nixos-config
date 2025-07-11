@@ -11,7 +11,7 @@
   networking = {
     hostName = "nixos";
     wireless.enable = false;
-    interfaces.enp6s0d1 = {
+    interfaces.enp6s0f1 = {
       ipv4.addresses = [{
         address = "10.29.90.110";
         prefixLength = 22;
@@ -23,7 +23,7 @@
 
     defaultGateway = {
       address = "10.29.90.1";
-      interface = "enp6s0d1";
+      interface = "enp6s0f0";
     };
 
     hosts = {

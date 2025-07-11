@@ -32,11 +32,12 @@
     dig
     prismlauncher
     inetutils
+    ansible-builder
+    ansible-lint
     hollywood
     cmatrix
     nmap
     #intellephense
-    firefoxpwa
     brave
     ffmpeg
     variety
@@ -44,6 +45,7 @@
     eza
     linuxPackages_latest.perf
     minicom
+    wireshark
   ];
 
   programs.nix-ld.enable = true;
@@ -51,12 +53,6 @@
   # Install noisetorch.
   programs.noisetorch.enable = true;
 
-  # Install firefox.
-  programs.firefox = {
-    enable = true;
-    package = pkgs.firefox;
-    nativeMessagingHosts.packages = [ pkgs.firefoxpwa ];
-  };
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
   
