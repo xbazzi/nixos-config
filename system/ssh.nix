@@ -11,14 +11,23 @@
             IdentityFile ~/.ssh/lan_id_ed25519
             IdentitiesOnly yes
 
-        Host db1
-            HostName db1
+        Host db1-mgmt
+            HostName db1-mgmt
             ForwardAgent yes
             User xbazzi
             Port 22
             PubkeyAuthentication yes
             IdentityFile ~/.ssh/lan_id_ed25519
             IdentitiesOnly yes
+
+        Host gitgud.foo
+            HostName prod1.lan.xbazzi.com
+            User git
+            Port 2222
+            PubkeyAuthentication yes
+            ForwardAgent yes
+            IdentitiesOnly yes
+            IdentityFile ~/.ssh/gt_id_ed25519
 
         Host prod1
             HostName prod1
@@ -29,8 +38,26 @@
             IdentityFile ~/.ssh/lan_id_ed25519
             IdentitiesOnly yes
 
-        Host prod3
-            HostName prod3
+        Host prod3-mgmt
+            HostName prod3-mgmt 
+            ForwardAgent yes
+            Port 22
+            User xbazzi
+            PubkeyAuthentication yes
+            IdentityFile ~/.ssh/lan_id_ed25519
+            IdentitiesOnly yes
+
+        Host prod2-mgmt
+            HostName prod2-mgmt
+            ForwardAgent yes
+            Port 22
+            User xbazzi
+            PubkeyAuthentication yes
+            IdentityFile ~/.ssh/lan_id_ed25519
+            IdentitiesOnly yes
+
+        Host prod2
+            HostName prod2
             ForwardAgent yes
             Port 22
             User xbazzi

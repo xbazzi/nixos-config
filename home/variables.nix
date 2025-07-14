@@ -19,6 +19,7 @@
   #
   home.sessionVariables = {
     EDITOR = "nvim";
+    TERM = "xterm-kitty";
   };
 
   home.sessionPath = [

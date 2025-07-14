@@ -11,24 +11,22 @@
   networking = {
     hostName = "nixos";
     wireless.enable = false;
-    interfaces.enp6s0f1 = {
+    interfaces.enp6s0f0 = {
       ipv4.addresses = [{
-        address = "10.29.90.110";
+        address = "10.29.90.100";
         prefixLength = 22;
       }];
       mtu = 9000;
     };
-    nameservers = [ "10.29.90.1" ];
-    search = [ "lan.xbazzi.com" ];
-
     defaultGateway = {
       address = "10.29.90.1";
       interface = "enp6s0f0";
     };
-
+    nameservers = [ "10.29.90.1" ];
+    search = [ "lan.xbazzi.com" ];
     hosts = {
       "127.0.0.1" = [ "localhost" ];
-      "10.29.90.110" = [ "nixos" ];
+      "10.29.90.100" = [ "nixos" ];
     };
   };
 

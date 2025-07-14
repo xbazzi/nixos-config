@@ -24,10 +24,42 @@
 
       # Mouse works as expected
       set-option -g mouse on
+
       # easy-to-remember split pane commands
       bind | split-window -h -c "#{pane_current_path}"
       bind - split-window -v -c "#{pane_current_path}"
       bind c new-window -c "#{pane_current_path}"
+
+      # Set prefix to ctrl+a
+
+      set -g prefix C-a
+
+      # Remove old prefix
+      unbind C-b
+
+      # Send Ctrl+a to applications by pressing it twice
+
+      bind C-a send-prefix
+
+
+      # Vim bindings
+
+      set-option -g mode-keys vi
+      bind -n M-h select-pane -L
+      bind -n M-j select-pane -D
+      bind -n M-k select-pane -U
+      bind -n M-l select-pane -R
+
+      # Mouse mode ON
+      set -g mouse on
+
+      # Use vi keys
+      set-window-option -g mode-keys vi
+      set-option -g mode-keys vi
+
+
+      # Use system clipboard
+      bind-key -T copy-move-vi MouseDragEnd1Pane send-keys -X copy-pipe-and-cancel "xsel --clipboard --input"
     '';
   };
 

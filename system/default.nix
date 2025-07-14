@@ -13,7 +13,7 @@
       ./yazi.nix
       ./nvidia.nix
       ./network.nix
-      ./net-drives.nix
+      ./nfs.nix
       ./packages.nix
       ./services.nix
       ./vscode.nix

@@ -46,6 +46,7 @@
     linuxPackages_latest.perf
     minicom
     wireshark
+    trash-cli
   ];
 
   programs.nix-ld.enable = true;
