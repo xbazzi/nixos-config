@@ -47,6 +47,8 @@
     minicom
     wireshark
     trash-cli
+    tree
+    screenkey
   ];
 
   programs.nix-ld.enable = true;

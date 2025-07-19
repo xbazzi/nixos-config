@@ -98,7 +98,8 @@
         flakePath = "~/nixos-config";
       in
       {
-        clipboard= "xclip -selection clipboard";
+        ls="eza -lh --group-directories-first --icons";
+        clipboard="xclip -selection clipboard";
         ll = "ls -l";
         update = "sudo nixos-rebuild switch";
         la = "ls -lAth";
