@@ -33,6 +33,10 @@
           fzf --reverse | xargs -I{} code {} -n && exit
       }
 
+      function reboot() {
+        echo "Nice try. Use `sudo /run/current-system/sw/bin/reboot` instead."
+      }
+
       function makerole() {
         mkdir -p "roles/$1/tasks"
         mkdir -p "roles/$1/defaults"
@@ -42,6 +46,10 @@
         touch "roles/$1/defaults/main.yml"
       }
 
+      function nav() {
+        cd "$(find "$HOME" \( -name .git -o -name vendor -o -name node_modules -o -name .npm \) -prune -o -type d -print | fzf --reverse)"
+      }
+
       function ansible-edit() {
         ROOT_DIR="$HOME/repos/ansible-on-prem/inventory"
         FINAL_PATH=$(find $ROOT_DIR -name "*$1*.yml" -type f)
@@ -49,42 +57,6 @@
         EDITOR='code --wait' \
           ansible-vault edit "$FINAL_PATH" \
           --vault-password-file "$HOME/.ansible-vault-key"
-        # case "$1" in
-        #   group_vars)
-        #     EDITOR='code --wait'\
-        #     ansible-vault edit \
-        #     /home/xbazzi/repos/ansible-on-prem/inventory/group_vars/all.yml
-        #     ;;
-        #   hosts)
-        #     EDITOR='code --wait'\
-        #     ansible-vault edit \
-        #     /home/xbazzi/repos/ansible-on-prem/inventory/hosts.yml
-        #     ;;
-        #   pve1)
-        #     EDITOR='code --wait'\
-        #     ansible-vault edit \
-        #     /home/xbazzi/repos/ansible-on-prem/inventory/host_vars/pve1.yml
-        #     ;;
-        #   pve2)
-        #     EDITOR='code --wait'\
-        #     ansible-vault edit \
-        #     /home/xbazzi/repos/ansible-on-prem/inventory/host_vars/pve2.yml
-        #     ;;
-        #   pve3)
-        #     EDITOR='code --wait'\
-        #     ansible-vault edit \
-        #     /home/xbazzi/repos/ansible-on-prem/inventory/host_vars/pve3.yml
-        #     ;;
-        #   prod3)
-        #     EDITOR='code --wait'\
-        #     ansible-vault edit \
-        #     /home/xbazzi/repos/ansible-on-prem/inventory/host_vars/prod3.yml
-        #     ;;
-        #   *)
-        #     echo "Usage: ansible-edit {group_vars|hosts|pve1|pve2|pve3}"\
-        #     return 1
-        #     ;;
-        # esac
       }
       '';
 
@@ -98,12 +70,14 @@
         flakePath = "~/nixos-config";
       in
       {
-        ls="eza -lh --group-directories-first --icons";
+        # la="eza -s modified -r -lh";
+        la="eza -s modified -lhr --icons --git";
+        ls="eza -lh --group-directories-first --icons --git";
         clipboard="xclip -selection clipboard";
-        ll = "ls -l";
+        ll = "\\ls -lath";
         update = "sudo nixos-rebuild switch";
-        la = "ls -lAth";
-        lr = "ls -ltr";
+        # la = "ls -lAth";
+        # lr = "ls -ltr";
         rebuild = "sudo nixos-rebuild switch --flake ${flakePath}";
         hms = "home-manager switch --flake ${flakePath}";
         config = "nvim ~/nix/configuration.nix";

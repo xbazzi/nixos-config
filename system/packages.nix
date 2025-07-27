@@ -47,8 +47,11 @@
     minicom
     wireshark
     trash-cli
+    openssl
     tree
     screenkey
+    # firefox
+    direnv
   ];
 
   programs.nix-ld.enable = true;
