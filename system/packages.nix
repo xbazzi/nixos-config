@@ -52,6 +52,7 @@
     screenkey
     # firefox
     direnv
+    jq
   ];
 
   programs.nix-ld.enable = true;

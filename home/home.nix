@@ -4,6 +4,8 @@
   home.username = "xbazzi";
   home.homeDirectory = "/home/xbazzi";
 
+  wayland.windowManager.hyprland.enable = true;
+
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 

@@ -19,6 +19,12 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    hyprland-plugins = {
+      url = "github:hyprwm/hyprland-plugins";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+
     # nixvim = {
     #      url = "github:xbazzi/nixvim";
     #     };

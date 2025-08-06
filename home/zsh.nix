@@ -71,6 +71,7 @@
       in
       {
         # la="eza -s modified -r -lh";
+        cb="cmake -B build -S . && cmake --build build -j$(nproc)";
         la="eza -s modified -lhr --icons --git";
         ls="eza -lh --group-directories-first --icons --git";
         clipboard="xclip -selection clipboard";

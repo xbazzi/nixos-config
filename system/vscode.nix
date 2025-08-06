@@ -22,6 +22,7 @@
        ms-vscode-remote.remote-containers
        bmewburn.vscode-intelephense-client
        zxh404.vscode-proto3
+       twxs.cmake
       #  arrterian.nix-env-selector
       mkhl.direnv
      ] ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [

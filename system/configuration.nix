@@ -15,6 +15,11 @@
   # OpenRGB
   services.hardware.openrgb.enable = true;
 
+  # Hyprland
+  programs.hyprland.enable = true;
+  programs.waybar.enable = true;
+
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
