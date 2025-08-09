@@ -25,7 +25,7 @@ Variants {
         // center clock
         Text {
         id: clock
-        //anchors.centerIn: parent
+        anchors.centerIn: parent
         font.pixelSize: 13
         color: "#e6e6e6"
         }

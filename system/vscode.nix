@@ -27,14 +27,26 @@
           vscode-icons-team.vscode-icons
           ms-vscode-remote.remote-containers
           bmewburn.vscode-intelephense-client
-          jnoortheen.nix-ide
           zxh404.vscode-proto3
           twxs.cmake
+          
+          # Use the nix-ide instead
           #  arrterian.nix-env-selector
           #  bbenoist.nix
+          jnoortheen.nix-ide
+          
+          # Doesn't work lmao. Use bbnoist's
+          # TheQtCompany.qt-qml
+          # bbenoist.qml
           mkhl.direnv
         ]
         ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+          # {
+          #   name = "QML";            # keep exact Marketplace name
+          #   publisher = "bbenoist";
+          #   version = "1.7.1";       # or di current version
+          #   sha256 = "1hp6gjh4xp2m1xlm1jsdzxw9d8frkiidhph6nvl24d0h8z34w49g";
+          # }
           {
             name = "remote-ssh-edit";
             publisher = "ms-vscode-remote";
