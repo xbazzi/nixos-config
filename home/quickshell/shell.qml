@@ -26,8 +26,6 @@ Variants {
         Text {
         id: clock
         //anchors.centerIn: parent
-        anchors.top: true
-        anchors.left: true
         font.pixelSize: 13
         color: "#e6e6e6"
         }
