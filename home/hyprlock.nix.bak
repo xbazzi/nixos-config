@@ -1,0 +1,26 @@
+{ config, pkgs, inputs, ... }:
+
+{
+  programs.hyprlock = {
+    enable = true;
+    settings = {
+    #   minimal, visible UI so yuh nuh think it freeze
+      general = { disable_loading_bar = false; };
+      background = [{
+        color = "rgba(0, 0, 0, 0.7)";  # darken so desktop not peeking through
+        blur_passes = 0;
+      }];
+      input-field = [{
+        size = "300, 50";
+        outline_thickness = 2;
+        placeholder_text = "Type password…";
+        position = "0, -100";
+      }];
+      label = [{
+        text = "  Locked";
+        font_size = 20;
+        position = "0, -170";
+      }];
+    };
+  };
+}

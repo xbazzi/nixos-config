@@ -53,6 +53,17 @@
     # firefox
     direnv
     jq
+
+    # Hyprland Ecosystem
+    hyprpaper
+    hyprpicker
+    hyprpolkitagent
+    hyprsunset
+
+    (pkgs.hyprland.override {
+      enableXWayland = true;
+      withSystemd = true;
+    })
   ];
 
   programs.nix-ld.enable = true;

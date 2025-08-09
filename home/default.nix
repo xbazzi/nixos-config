@@ -9,8 +9,9 @@
     ./starship.nix
     #./vscode.nix
     ./packages.nix
+    ./hyprlock.nix
     ./waybar.nix
-    ./dconf.nix
+    # ./dconf.nix
     ./git.nix
     ./hyprland.nix
     ./zsh.nix

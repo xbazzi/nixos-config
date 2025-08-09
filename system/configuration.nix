@@ -17,11 +17,38 @@
 
   # Hyprland
   programs.hyprland.enable = true;
+  programs.hyprlock.enable = true;
   programs.waybar.enable = true;
+  security.pam.services.hyprlock = {};
+  services.gnome.gnome-keyring.enable = true;
+  security.pam.services.hyprlock.enableGnomeKeyring = true;
+  services.greetd.enable = true;
+  services.greetd.settings = {
+    default_session = {
+      # GUI greeter
+      #command = "${pkgs.greetd.gtkgreet}/bin/gtkgreet -c hyprland";
+      command = "${pkgs.greetd.gtkgreet}/bin/gtkgreet -c 'Hyprland'";
 
+      # TUI greeter
+      # command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --remember \
+      #   --cmd 'dbus-run-session ${pkgs.hyprland}/bin/Hyprland'";
+      # user = "greeter";
+    };
+  };
+
+  nix.settings = {
+    substituters = ["https://hyprland.cachix.org"];
+    trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
+  };
+  
+  xdg.portal = {
+    enable = true;
+    extraPortals = with pkgs; [ xdg-desktop-portal-hyprland ];
+  };
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
+  boot.loader.timeout = 5;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot";
 
@@ -47,11 +74,11 @@
   };
 
   # Enable the X11 windowing system.
-  services.xserver.enable = true;
+  # services.xserver.enable = true;
 
   # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  # services.xserver.displayManager.gdm.enable = true;
+  # services.xserver.desktopManager.gnome.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb = {

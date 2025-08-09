@@ -8,7 +8,7 @@
       ./ssh.nix
       # ./openrgb.nix
       # ./stylix.nix
-      ./gnome.nix
+      # ./gnome.nix
       # ./lanzaboote.nix
       ./yazi.nix
       ./nvidia.nix

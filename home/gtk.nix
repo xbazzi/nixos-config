@@ -1,7 +1,6 @@
 { inputs, pkgs, lib, config, ...  }:
 
 {
-
   gtk = {
     enable = true;
     theme = {

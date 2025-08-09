@@ -24,6 +24,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # hyprdots = {
+    #  url = "github:JaKooLit/Hyprland-Dots";
+    #  flake = false;
+    # };
 
     # nixvim = {
     #      url = "github:xbazzi/nixvim";
@@ -75,6 +79,23 @@
             ./system/default.nix
             lanzaboote.nixosModules.lanzaboote
 
+            # Link Hyprland-Dots configs
+            # {
+            #   home.file = {
+            #     ".config/hypr".source = "${hyprdots}/hypr";
+            #     ".config/waybar".source = "${hyprdots}/waybar";
+            #     ".config/rofi".source = "${hyprdots}/rofi";
+            #     ".config/swww".source = "${hyprdots}/swww";
+            #     ".config/wallust".source = "${hyprdots}/wallust";
+            #   };
+
+            #   # Install extra tools from Hyprland-Dots requirements
+            #   home.packages = with pkgs; [
+            #     waybar rofi-wayland swww wallust
+            #     grim slurp wl-clipboard
+            #   ];
+            # }
+
             ({ pkgs, lib, ... }: {
 
               environment.systemPackages = [
@@ -109,7 +130,7 @@
       home-manager.useGlobalPkgs = true;
 
       home-manager.users.xbazzi = {
-	nixpkgs.config.allowUnfree = true;
+        nixpkgs.config.allowUnfree = true;
 	#home.packages = [
         #];
       };

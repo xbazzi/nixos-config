@@ -5,8 +5,8 @@
   services.xserver.enable = true;
 
   # Enable the GNOME Desktop Environment.
-  services.xserver.displayManager.gdm.enable = true;
-  services.xserver.desktopManager.gnome.enable = true;
+  # services.xserver.displayManager.gdm.enable = true;
+  # services.xserver.desktopManager.gnome.enable = true;
 
   environment.systemPackages = (with pkgs.gnomeExtensions; [
     blur-my-shell
@@ -22,7 +22,7 @@
     #vimix-cursors
     # breeze-icons  
     tokyonight-gtk-theme
-    gnome-tweaks
+    # gnome-tweaks
     # adwaita-icon-theme
   ]);
 }

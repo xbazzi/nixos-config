@@ -7,5 +7,5 @@
     enable = true;
     forwardX11 = true;
   };
-  services.udev.packages = [ pkgs.gnome-settings-daemon ];
+  # services.udev.packages = [ pkgs.gnome-settings-daemon ];
 }
