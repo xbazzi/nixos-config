@@ -5,7 +5,7 @@
     ansible
     niv
     sbctl
-    vim 
+    vim
     wget
     xournalpp
     obsidian
@@ -53,6 +53,7 @@
     # firefox
     direnv
     jq
+    nixfmt
 
     # Hyprland Ecosystem
     hyprpaper
@@ -73,7 +74,7 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-  
+
   # Install Steam
   programs.steam = {
     enable = true;

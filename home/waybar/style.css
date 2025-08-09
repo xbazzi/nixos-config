@@ -27,10 +27,10 @@ window#waybar {
   background: rgba(94, 129, 172, 0.5);
 }
 
-#clock, #cpu, #memory, #temperature, #pulseaudio, #network, #custom-windowtitle {
+/* #clock, #cpu, #memory, #temperature, #pulseaudio, #network, #custom-windowtitle {
   padding: 0 8px;
   color: #eceff4;
-}
+} */
 
 #tray {
   padding-left: 6px;

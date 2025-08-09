@@ -1,4 +1,4 @@
-{ inputs, pkgs, ...  }:
+{ inputs, pkgs, ... }:
 
 {
   programs.hyprlock = {
@@ -73,7 +73,7 @@
           color = "rgba(235, 219, 178, 1)";
           font_size = 15;
           font_family = "Maple Mono Bold";
-        #   position = "0, ${if host == "laptop" then "131" else "281"}";
+          #   position = "0, ${if host == "laptop" then "131" else "281"}";
           position = "0, 281";
           halign = "center";
           valign = "bottom";

@@ -1,4 +1,10 @@
-{ inputs, pkgs, lib, config, ...  }:
+{
+  inputs,
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 
 {
   # Home Manager can also manage your environment variables through

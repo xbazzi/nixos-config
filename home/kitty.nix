@@ -1,4 +1,10 @@
-{ inputs, pkgs, lib, config, ...  }:
+{
+  inputs,
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 
 {
   programs.kitty = lib.mkForce {
@@ -10,8 +16,8 @@
       enable_audio_bell = false;
       mouse_hide_wait = "-1.0";
       window_padding_width = 5;
-      background_opacity = "0.95";
-      background_blur = 5;
+      # background_opacity = "0.95";
+      # background_blur = 5;
       background = "#17041c";
       hide_window_decorations = true;
       # themeFile = "Alucard";
@@ -37,8 +43,8 @@
             "U+F300-U+F313"
             "U+E5FA-U+E62B"
           ];
-         in
-         (builtins.concatStringsSep "," mappings) + " Symbols Nerd Font";
+        in
+        (builtins.concatStringsSep "," mappings) + " Symbols Nerd Font";
     };
   };
 }

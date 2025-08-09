@@ -1,4 +1,9 @@
-{ config, pkgs, inputs, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 
 {
   wayland.windowManager.hyprland = {
@@ -12,146 +17,176 @@
         # "DP-3,addreserved,30,0,0,0"
       ];
 
-      bind =
-        [
-          # "$mod, k, exec, kitty"
-          "$mod, h, movefocus, l"
-          "$mod, l, movefocus, r"
-          "$mod, k, movefocus, u"
-          "$mod, j, movefocus, d"
-          "$mod, q, killactive"
+      # Mouse stuff (Ew... I know)
+      bindm = [
+        # Left click move
+        "$mod, mouse:272, movewindow"
 
-          "$mod, 0, layoutmsg, rollnext"
+        # Left click resize
+        "ALT, mouse:272, resizewindow"
+        # "ALT CTRL, mouse:272, resizewindow 1"
+      ];
 
+      binde = [
+        "$mod CTRL, h, resizeactive, -30 0"
+        "$mod CTRL, l, resizeactive, 30 0"
+        "$mod CTRL, j, resizeactive, 0 30"
+        "$mod CTRL, k, resizeactive, 0 -30"
+      ];
 
-          "$mod, f, fullscreen, 0"
+      bind = [
 
-          "$mod, d, exec, wofi --show drun"
+        "$mod, h, movefocus, l"
+        "$mod, l, movefocus, r"
+        "$mod, k, movefocus, u"
+        "$mod, j, movefocus, d"
+        "$mod SHIFT, q, killactive"
 
-          "$mod, t, exec, kitty --single-instance"
-          "$mod, c, exec, code"
-          "$mod SHIFT, l, movewindow, mon:-1"
-          "$mod SHIFT, h, movewindow, mon:+1"
+        "$mod, 0, layoutmsg, rollnext"
+        "$mod SHIFT, n, layoutmsg, cycleprev"
+        "$mod SHIFT, p, layoutmsg, cyclenext"
 
-          ", Print, exec, grimblast copy area"
+        "$mod, f, fullscreen, 0"
 
-          "$mod, e, exec, thunderbird"
-          "$mod, r, exec, kitty -- zsh -c 'exec yazi; exec zsh'"
-          "$mod, b, exec, kitty -- zsh -c 'btop; exec zsh'"
-          "$mod SHIFT, n, exec, kitty --start-as=normal -- zsh -ic 'code ~/nixos-config && exit'"
+        "$mod, d, exec, wofi --show drun"
 
-          "$mod, i, exec, brave"
-          "$mod, u, exec, kitty --start-as=normal -- zsh -ic 'home'"
-          "$mod, y, exec, kitty --start-as=normal -- zsh -ic 'repos'"
+        "$mod, t, exec, kitty --single-instance"
 
-          "$mod, s, togglespecialworkspace, special1"
-          "$mod, v, togglespecialworkspace, special2"
-          
-          "$mod, p, swapwindow, l"
-          
-          # Mouse stuff (Ew... I know)
-          # "$mod, mouse:272, movewindow"
-          # "$mod, mouse:273, resizewindow"
-          # "ALT, mouse:272, resizewindow"
+        "$mod, c, exec, code"
+        "$mod SHIFT, l, movewindow, mon:-1"
+        "$mod SHIFT, h, movewindow, mon:+1"
 
-          # Log out
-          # "$mod, -, exec, hyprctl dispatch exit"
-          "$mod SHIFT ALT, x, exec, hyprctl dispatch exit"
+        ", Print, exec, grimblast copy area"
 
-          "$mod ALT, L, exec, hyprlock --immediate"
+        "$mod, e, exec, thunderbird"
+        "$mod, r, exec, kitty -- zsh -c 'exec yazi; exec zsh'"
+        "$mod, b, exec, kitty -- zsh -c 'btop; exec zsh'"
+        "$mod CTRL, n, exec, kitty --start-as=normal -- zsh -ic 'code ~/nixos-config && exit'"
 
-          # Shift+Print → select area and copy
-          "SHIFT, Print, exec, grimblast copy area"
+        "$mod, i, exec, brave"
+        "$mod, u, exec, kitty --start-as=normal -- zsh -ic 'home'"
+        "$mod, y, exec, kitty --start-as=normal -- zsh -ic 'repos'"
 
-          # Ctrl+Print → select window and copy
-          "CTRL, Print, exec, grimblast copy active"
-        ]
-        ++ (
-          # workspaces
-          # binds $mod + [shift +] {1..9} to [move to] workspace {1..9}
-          builtins.concatLists (builtins.genList (i:
-              let ws = i + 1;
-              in [
-                "$mod, code:1${toString i}, workspace, ${toString ws}"
-                "$mod SHIFT, code:1${toString i}, movetoworkspace, ${toString ws}"
-              ]
-            )
-          9)
-        );
+        "$mod, s, togglespecialworkspace, special1"
+        # "$mod, v, togglespecialworkspace, special2"
 
-        general = {
-          layout = "master";
+        "$mod, p, layoutmsg, swapwithmaster"
+
+        "$mod, v, togglefloating, active"
+
+        # Log out
+        # "$mod, -, exec, hyprctl dispatch exit"
+        "$mod SHIFT ALT, x, exec, hyprctl dispatch exit"
+
+        "$mod ALT, L, exec, hyprlock --immediate"
+
+        # Shift+Print → select area and copy
+        "SHIFT, Print, exec, grimblast copy area"
+
+        # Ctrl+Print → select window and copy
+        "CTRL, Print, exec, grimblast copy active"
+      ]
+      ++ (
+        # workspaces
+        # binds $mod + [shift +] {1..9} to [move to] workspace {1..9}
+        builtins.concatLists (
+          builtins.genList (
+            i:
+            let
+              ws = i + 1;
+            in
+            [
+              "$mod, code:1${toString i}, workspace, ${toString ws}"
+              "$mod SHIFT, code:1${toString i}, movetoworkspace, ${toString ws}"
+            ]
+          ) 9
+        )
+      );
+
+      general = {
+        layout = "master";
+      };
+
+      windowrulev2 = [
+        "opacity 0.85, class:^(Code)$"
+        "opacity 0.85, class:^(kitty)$"
+      ];
+
+      # layerrule = [
+      #   "ignorealpha 0.1, title:^(Blur)$"
+      # ];
+
+      decoration = {
+        # active_opacity = 1.0;
+        # inactive_opacity = 1.0;
+        # rounding = 5;
+
+        blur = {
+          enabled = true;
+          size = 5;
+          passes = 2;
+          brightness = 1;
+          contrast = 1.0;
+          ignore_opacity = false;
+          noise = 0;
+          new_optimizations = true;
+          # xray = true;
         };
+        blurls = "^(popup|menu)$";
 
-        decoration = {
-          active_opacity = 1.0;
-          inactive_opacity = 1.0;
-          rounding = 5;
 
-          blur = {
-            enabled = true;
-            size = 3;
-            passes = 2;
-            brightness = 1;
-            contrast = 1.4;
-            ignore_opacity = true;
-            noise = 0;
-            new_optimizations = true;
-            xray = true;
-          };
-
-          shadow = {
-            enabled = true;
-
-            ignore_window = true;
-            offset = "0 2";
-            range = 20;
-            render_power = 3;
-            color = "rgba(00000055)";
-          };
-        };
-
-        animations = {
+        shadow = {
           enabled = true;
 
-          bezier = [
-            "fluent_decel, 0, 0.2, 0.4, 1"
-            "easeOutCirc, 0, 0.55, 0.45, 1"
-            "easeOutCubic, 0.33, 1, 0.68, 1"
-            "fade_curve, 0, 0.55, 0.45, 1"
-          ];
-
-          animation = [
-            # name, enable, speed, curve, style
-
-            # Windows
-            "windowsIn,   0, 4, easeOutCubic,  popin 20%" # window open
-            "windowsOut,  0, 4, fluent_decel,  popin 80%" # window close.
-            "windowsMove, 1, 2, fluent_decel, slide" # everything in between, moving, dragging, resizing.
-
-            # Fade
-            "fadeIn,      1, 3,   fade_curve" # fade in (open) -> layers and windows
-            "fadeOut,     1, 3,   fade_curve" # fade out (close) -> layers and windows
-            "fadeSwitch,  0, 1,   easeOutCirc" # fade on changing activewindow and its opacity
-            "fadeShadow,  1, 10,  easeOutCirc" # fade on changing activewindow for shadows
-            "fadeDim,     1, 4,   fluent_decel" # the easing of the dimming of inactive windows
-            # "border,      1, 2.7, easeOutCirc"  # for animating the border's color switch speed
-            # "borderangle, 1, 30,  fluent_decel, once" # for animating the border's gradient angle - styles: once (default), loop
-            "workspaces,  1, 4,   easeOutCubic, fade" # styles: slide, slidevert, fade, slidefade, slidefadevert
-          ];
+          ignore_window = true;
+          offset = "0 2";
+          range = 20;
+          render_power = 3;
+          color = "rgba(00000055)";
         };
+      };
+
+      animations = {
+        enabled = true;
+
+        bezier = [
+          "fluent_decel, 0, 0.2, 0.4, 1"
+          "easeOutCirc, 0, 0.55, 0.45, 1"
+          "easeOutCubic, 0.33, 1, 0.68, 1"
+          "fade_curve, 0, 0.55, 0.45, 1"
+        ];
+
+        animation = [
+          # name, enable, speed, curve, style
+
+          # Windows
+          "windowsIn,   0, 4, easeOutCubic,  popin 20%" # window open
+          "windowsOut,  0, 4, fluent_decel,  popin 80%" # window close.
+          "windowsMove, 1, 2, fluent_decel, slide" # everything in between, moving, dragging, resizing.
+
+          # Fade
+          "fadeIn,      1, 3,   fade_curve" # fade in (open) -> layers and windows
+          "fadeOut,     1, 3,   fade_curve" # fade out (close) -> layers and windows
+          "fadeSwitch,  0, 1,   easeOutCirc" # fade on changing activewindow and its opacity
+          "fadeShadow,  1, 10,  easeOutCirc" # fade on changing activewindow for shadows
+          "fadeDim,     1, 4,   fluent_decel" # the easing of the dimming of inactive windows
+          # "border,      1, 2.7, easeOutCirc"  # for animating the border's color switch speed
+          # "borderangle, 1, 30,  fluent_decel, once" # for animating the border's gradient angle - styles: once (default), loop
+          "workspaces,  1, 4,   easeOutCubic, fade" # styles: slide, slidevert, fade, slidefade, slidefadevert
+        ];
+      };
 
       exec-once = [
-        "sleep 2 && waybar &"
+        # "sleep 2 && waybar &"
         "hypridle &"
         # "waybar &"
         "eval $(gnome-keyring-daemon --start --components=secrets,ssh,gpg)"
-                # "hash dbus-update-activation-environment 2>/dev/null"
-        "dbus-update-activation-environment --all --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
+        # "hash dbus-update-activation-environment 2>/dev/null"
+        # "dbus-update-activation-environment --all --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
         "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
 
-        "nm-applet &"
-        "poweralertd &"
+        # "nm-applet &"
+        # "poweralertd &"
         # "wl-clip-persist --clipboard both &"
         # "wl-paste --watch cliphist store &"
         # "waybar &"

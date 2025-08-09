@@ -5,12 +5,14 @@
 { config, pkgs, ... }:
 
 {
-  imports =
-    [ 
-      ./hardware-configuration.nix
-    ];
+  imports = [
+    ./hardware-configuration.nix
+  ];
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   # OpenRGB
   services.hardware.openrgb.enable = true;
@@ -18,8 +20,8 @@
   # Hyprland
   programs.hyprland.enable = true;
   programs.hyprlock.enable = true;
-  programs.waybar.enable = true;
-  security.pam.services.hyprlock = {};
+  # programs.waybar.enable = true;
+  security.pam.services.hyprlock = { };
   services.gnome.gnome-keyring.enable = true;
   security.pam.services.hyprlock.enableGnomeKeyring = true;
   services.greetd.enable = true;
@@ -27,23 +29,26 @@
     default_session = {
       # GUI greeter
       #command = "${pkgs.greetd.gtkgreet}/bin/gtkgreet -c hyprland";
-      command = "${pkgs.greetd.gtkgreet}/bin/gtkgreet -c 'Hyprland'";
+      # command = "${pkgs.greetd.gtkgreet}/bin/gtkgreet -c 'Hyprland'";
 
       # TUI greeter
-      # command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --remember \
-      #   --cmd 'dbus-run-session ${pkgs.hyprland}/bin/Hyprland'";
-      # user = "greeter";
+      command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --remember \
+        --cmd 'dbus-run-session ${pkgs.hyprland}/bin/Hyprland'";
+      user = "greeter";
     };
   };
 
   nix.settings = {
-    substituters = ["https://hyprland.cachix.org"];
-    trusted-public-keys = ["hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="];
+    substituters = [ "https://hyprland.cachix.org" ];
+    trusted-public-keys = [ "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc=" ];
   };
-  
+
   xdg.portal = {
     enable = true;
-    extraPortals = with pkgs; [ xdg-desktop-portal-hyprland ];
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-hyprland
+      xdg-desktop-portal-gtk
+    ];
   };
 
   # Bootloader.
@@ -53,7 +58,7 @@
   boot.loader.efi.efiSysMountPoint = "/boot";
 
   # systemd
-  systemd.network.wait-online.timeout = 10;
+  systemd.network.wait-online.timeout = 5;
 
   # Set your time zone.
   time.timeZone = "America/Denver";
@@ -128,9 +133,9 @@
   users.users.xbazzi = {
     isNormalUser = true;
     description = "Xander Bazzi";
-    extraGroups = [ 
+    extraGroups = [
       "docker"
-      "networkmanager" 
+      "networkmanager"
       "wheel"
       "wireshark"
     ];

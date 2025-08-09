@@ -1,21 +1,28 @@
-{ inputs, config, pkgs, ...  }:
+{
+  inputs,
+  config,
+  pkgs,
+  ...
+}:
 {
   # Enable networking
   # networking.networkmanager.enable = true;
-
 
   # systemd.services."NetworkManager-wait-online" = {
   #   serviceConfig.TimeoutStartSec = "20s";
   # };
 
   networking = {
+    useDHCP = false;
     hostName = "nixos";
     wireless.enable = false;
     interfaces.enp6s0f0 = {
-      ipv4.addresses = [{
-        address = "10.29.90.100";
-        prefixLength = 22;
-      }];
+      ipv4.addresses = [
+        {
+          address = "10.29.90.100";
+          prefixLength = 22;
+        }
+      ];
       mtu = 9000;
     };
     defaultGateway = {

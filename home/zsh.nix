@@ -1,6 +1,10 @@
-
-
-{ inputs, pkgs, lib, config, ...  }:
+{
+  inputs,
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 
 {
   programs.zsh = {
@@ -58,23 +62,27 @@
           ansible-vault edit "$FINAL_PATH" \
           --vault-password-file "$HOME/.ansible-vault-key"
       }
-      '';
+    '';
 
     history.size = 10000;
     history.ignoreAllDups = true;
     history.path = "$HOME/.zsh_history";
-    history.ignorePatterns = ["rm *" "pkill *" "cp *"];
+    history.ignorePatterns = [
+      "rm *"
+      "pkill *"
+      "cp *"
+    ];
 
-      shellAliases =
+    shellAliases =
       let
         flakePath = "~/nixos-config";
       in
       {
         # la="eza -s modified -r -lh";
-        cb="cmake -B build -S . && cmake --build build -j$(nproc)";
-        la="eza -s modified -lhr --icons --git";
-        ls="eza -lh --group-directories-first --icons --git";
-        clipboard="xclip -selection clipboard";
+        cb = "cmake -B build -S . && cmake --build build -j$(nproc)";
+        la = "eza -s modified -lhr --icons --git";
+        ls = "eza -lh --group-directories-first --icons --git";
+        clipboard = "xclip -selection clipboard";
         ll = "\\ls -lath";
         update = "sudo nixos-rebuild switch";
         # la = "ls -lAth";

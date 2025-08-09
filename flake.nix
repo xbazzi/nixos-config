@@ -43,12 +43,18 @@
     # nixvim = {
     #   url = "github:xbazzi/nixvim-config";
     # };
-  }; 
+  };
 
-  outputs = { nixpkgs, lanzaboote, ...  }@inputs:
+  outputs =
+    { nixpkgs, lanzaboote, ... }@inputs:
     let
       system = "x86_64-linux";
-      pkgs = import nixpkgs { system = "x86_64-linux"; config = { allowUnfree = true; }; };
+      pkgs = import nixpkgs {
+        system = "x86_64-linux";
+        config = {
+          allowUnfree = true;
+        };
+      };
       # configModule = {
       #   # Add any custom options (and do feel free to upstream them!)
       #   # options = { ... };
@@ -62,12 +68,13 @@
     in
     {
       devShells.${system}.default = pkgs.mkShell {
-        buildInputs = [ 
-          pkgs.neovim pkgs.vim 
+        buildInputs = [
+          pkgs.neovim
+          pkgs.vim
         ];
         shellHook = ''
-	   echo "hello"
-	'';
+          	   echo "hello"
+          	'';
       };
 
       nixosConfigurations = {
@@ -96,24 +103,27 @@
             #   ];
             # }
 
-            ({ pkgs, lib, ... }: {
+            (
+              { pkgs, lib, ... }:
+              {
 
-              environment.systemPackages = [
-                # For debugging and troubleshooting Secure Boot.
-                pkgs.sbctl
-              ];
+                environment.systemPackages = [
+                  # For debugging and troubleshooting Secure Boot.
+                  pkgs.sbctl
+                ];
 
-              # Lanzaboote currently replaces the systemd-boot module.
-              # This setting is usually set to true in configuration.nix
-              # generated at installation time. So we force it to false
-              # for now.
-              boot.loader.systemd-boot.enable = lib.mkForce false;
+                # Lanzaboote currently replaces the systemd-boot module.
+                # This setting is usually set to true in configuration.nix
+                # generated at installation time. So we force it to false
+                # for now.
+                boot.loader.systemd-boot.enable = lib.mkForce false;
 
-              boot.lanzaboote = {
-                enable = true;
-                pkiBundle = "/var/lib/sbctl";
-              };
-            })
+                boot.lanzaboote = {
+                  enable = true;
+                  pkiBundle = "/var/lib/sbctl";
+                };
+              }
+            )
           ];
         };
       };
@@ -131,7 +141,7 @@
 
       home-manager.users.xbazzi = {
         nixpkgs.config.allowUnfree = true;
-	#home.packages = [
+        #home.packages = [
         #];
       };
       #home-manager.extraSpecialArgs

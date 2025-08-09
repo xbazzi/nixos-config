@@ -1,4 +1,10 @@
-{ inputs, pkgs, lib, config, ...  }:
+{
+  inputs,
+  pkgs,
+  lib,
+  config,
+  ...
+}:
 
 {
   imports = [
@@ -10,8 +16,10 @@
     #./vscode.nix
     ./packages.nix
     ./hyprlock.nix
-    ./waybar.nix
+    # ./waybar.nix
     # ./dconf.nix
+    ./quickshell.nix
+    ./hyprpaper.nix
     ./git.nix
     ./hyprland.nix
     ./zsh.nix

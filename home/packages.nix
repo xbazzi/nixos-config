@@ -1,4 +1,4 @@
-{ inputs, pkgs, ...  }:
+{ inputs, pkgs, ... }:
 
 {
   home.packages = with pkgs; [
@@ -6,14 +6,14 @@
     tmux
     # gnomeExtensions.appindicator
     wofi
-    waybar
+    # waybar
     # eww
     # gnome-keyring
     libsecret
-    grim           # for screenshots
-    slurp          # for selecting area
-    grimblast      # easier syntax for grim+slurp
-    wl-clipboard   # copy screenshot to clipboard
+    grim # for screenshots
+    slurp # for selecting area
+    grimblast # easier syntax for grim+slurp
+    wl-clipboard # copy screenshot to clipboard
     hypridle
     hyprlock
     # (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; })

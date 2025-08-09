@@ -1,0 +1,169 @@
+{ pkgs, ... }:
+{
+  home.packages = with pkgs; [
+    quickshell jq playerctl pamixer networkmanager # nmcli
+    coreutils gnugrep gawk
+  ];
+
+  wayland.windowManager.hyprland.settings.exec-once = [
+    "quickshell -c default"
+  ];
+
+  xdg.configFile."quickshell/default/shell.qml".text = ''
+    import Quickshell
+    import QtQuick
+    import QtQuick.Layouts
+
+    // ===== Helpers =====
+    function run(cmd) {
+      const p = Qt.createQmlObject('import Quickshell; Process { }', root);
+      p.command = cmd; p.running = true; return p;
+    }
+
+    function pipe(cmdArr, cb) {
+      const p = Qt.createQmlObject('import Quickshell; Process { stdout: StdioCollector{} }', root);
+      p.command = cmdArr; p.running = true;
+      p.stdout.onStreamFinished.connect(function() { cb(p.stdout.text.trim()); });
+    }
+
+    // ===== Window per monitor =====
+    Variants {
+      id: root
+      model: Quickshell.screens
+      delegate: Component {
+        PanelWindow {
+          required property var modelData
+          screen: modelData
+          anchors.top: true; anchors.left: true; anchors.right: true
+          implicitHeight: 30
+          layer: "top"
+          exclusiveZone: implicitHeight
+
+          Rectangle { anchors.fill: parent; color: "#121212"; opacity: 0.95; radius: 0 }
+
+          // ===== Layout =====
+          RowLayout {
+            anchors.fill: parent
+            anchors.margins: 8
+            spacing: 12
+
+            // ---- LEFT: Workspaces ----
+            Row {
+              id: wsRow
+              Layout.alignment: Qt.AlignVCenter | Qt.AlignLeft
+              property int activeWs: 1
+              Repeater {
+                model: 10
+                delegate: Rectangle {
+                  property int idx: index + 1
+                  height: 18; width: 22; radius: 5
+                  color: (wsRow.activeWs === idx) ? "#2e7d32" : "#1f1f1f"
+                  border.width: 1
+                  border.color: (wsRow.activeWs === idx) ? "#4caf50" : "#333333"
+                  Text {
+                    anchors.centerIn: parent
+                    text: idx; color: "#eaeaea"; font.pixelSize: 11
+                  }
+                  MouseArea {
+                    anchors.fill: parent
+                    onClicked: run(["hyprctl","dispatch","workspace", String(idx)])
+                  }
+                }
+              }
+
+              // active workspace poll
+              Timer {
+                interval: 500; running: true; repeat: true
+                onTriggered: pipe(["bash","-lc","hyprctl activeworkspace -j | jq -r .id"], function(t){
+                  if (t !== "" && !isNaN(parseInt(t))) wsRow.activeWs = parseInt(t)
+                })
+              }
+            }
+
+            // ---- CENTER: Active window title ----
+            Item { Layout.fillWidth: true }
+            Text {
+              id: titleText
+              Layout.alignment: Qt.AlignVCenter | Qt.AlignHCenter
+              elide: Text.ElideRight; horizontalAlignment: Text.AlignHCenter
+              font.pixelSize: 12; color: "#dcdcdc"; text: "—"
+              width: parent.width * 0.40
+            }
+            Timer {
+              interval: 500; running: true; repeat: true
+              onTriggered: pipe(["bash","-lc","hyprctl activewindow -j | jq -r .title"], function(t){
+                titleText.text = (t && t !== "null") ? t : "—"
+              })
+            }
+            Item { Layout.fillWidth: true }
+
+            // ---- RIGHT: Media / Volume / Net / Battery / Clock ----
+            Row {
+              Layout.alignment: Qt.AlignVCenter | Qt.AlignRight
+              spacing: 10
+
+              // Media (playerctl)
+              Text {
+                id: media
+                font.pixelSize: 12; color: "#c0c0c0"; text: ""
+                width: 220; elide: Text.ElideRight
+              }
+              Timer {
+                interval: 1000; running: true; repeat: true
+                onTriggered: pipe(["bash","-lc",
+                  "playerctl metadata --format '{{status}} {{artist}} - {{title}}' 2>/dev/null || true"
+                ], function(t){ media.text = t })
+              }
+
+              // Volume (pamixer)
+              Text {
+                id: vol; font.pixelSize: 12; color: "#e0e0e0"; text: ""
+                MouseArea { anchors.fill: parent; onWheel: (wheel.angleDelta.y>0)
+                  ? run(["pamixer","-i","3"]) : run(["pamixer","-d","3"]) }
+                onPressed: run(["pamixer","-t"])
+              }
+              Timer {
+                interval: 800; running: true; repeat: true
+                onTriggered: pipe(["bash","-lc",
+                  "if pamixer --get-mute; then echo ' Mute'; else echo \" $(pamixer --get-volume)%\"; fi"
+                ], function(t){ vol.text = t })
+              }
+
+              // Network (nmcli)
+              Text {
+                id: net; font.pixelSize: 12; color: "#b0b0b0"; text: ""
+                MouseArea { anchors.fill: parent; onClicked: run(["nm-connection-editor"]) }
+              }
+              Timer {
+                interval: 2500; running: true; repeat: true
+                onTriggered: pipe(["bash","-lc",
+                  "nmcli -t -f NAME,TYPE,DEVICE,STATE connection show --active | awk -F: 'NR==1{print $1\" (\"$2\")\"}' || true"
+                ], function(t){ net.text = t || "offline" })
+              }
+
+              // Battery (upower/sysfs)
+              Text { id: bat; font.pixelSize: 12; color: "#b0e08a"; text: "" }
+              Timer {
+                interval: 3000; running: true; repeat: true
+                onTriggered: pipe(["bash","-lc",
+                  "cap=$(cat /sys/class/power_supply/BAT*/capacity 2>/dev/null | head -n1); " +
+                  "stat=$(cat /sys/class/power_supply/BAT*/status 2>/dev/null | head -n1); " +
+                  "if [ -n \"$cap\" ]; then echo \"$stat $cap%\"; fi"
+                ], function(t){ bat.text = t || "" })
+              }
+
+              // Clock
+              Text {
+                id: clock; font.pixelSize: 12; color: "#eeeeee"
+              }
+              Timer {
+                interval: 1000; running: true; repeat: true
+                onTriggered: pipe(["date","+%a %b %d  %H:%M:%S"], function(t){ clock.text = t })
+              }
+            }
+          }
+        }
+      }
+    }
+  '';
+}
