@@ -10,20 +10,29 @@
     settings = {
       "$mod" = "SUPER";
 
+      input = {
+        repeat_delay = 240;
+        repeat_rate = 40;
+      };
+
+      env = [
+        "HYPRLAND_PRIMARY_MONITOR,DP-3"
+      ];
+
       monitor = [
         "DP-1, 1920x1080@144, 0x0, 1"
         "DP-3, 2560x1440@240, 1920x0, 1"
-        "HMDI-A-1, 3440x1440@160, 4480x0, 1"
+        "HDMI-A-1, 3440x1440@160, 4480x0, 1"
         # "DP-3,addreserved,30,0,0,0"
       ];
 
       # Mouse stuff (Ew... I know)
       bindm = [
-        # Left click move
-        "$mod, mouse:272, movewindow"
+        # Right click move
+        "ALT, mouse:272, movewindow"
 
         # Left click resize
-        "ALT, mouse:272, resizewindow"
+        "ALT, mouse:273, resizewindow"
         # "ALT CTRL, mouse:272, resizewindow 1"
       ];
 
@@ -32,19 +41,27 @@
         "$mod CTRL, l, resizeactive, 30 0"
         "$mod CTRL, j, resizeactive, 0 30"
         "$mod CTRL, k, resizeactive, 0 -30"
+
+        "$mod, 0, layoutmsg, rollnext"
+        "$mod SHIFT, 0, layoutmsg, rollprev"
+        "$mod SHIFT, n, layoutmsg, cycleprev"
+        "$mod SHIFT, p, layoutmsg, cyclenext"
       ];
 
       bind = [
+        # Dwindle
+        "$mod, p, layoutmsg, togglesplit"
+        "$mod, 0, layoutmsg, swapsplit"
+        "$mod, a, layoutmsg, preselect l"
+        "$mod SHIFT, a, layoutmsg, preselect u"
+
+        "ALT, TAB, cyclenext, all"
 
         "$mod, h, movefocus, l"
         "$mod, l, movefocus, r"
         "$mod, k, movefocus, u"
         "$mod, j, movefocus, d"
         "$mod SHIFT, q, killactive"
-
-        "$mod, 0, layoutmsg, rollnext"
-        "$mod SHIFT, n, layoutmsg, cycleprev"
-        "$mod SHIFT, p, layoutmsg, cyclenext"
 
         "$mod, f, fullscreen, 0"
 
@@ -56,11 +73,10 @@
         "$mod SHIFT, l, movewindow, mon:-1"
         "$mod SHIFT, h, movewindow, mon:+1"
 
-        ", Print, exec, grimblast copy area"
 
         "$mod, e, exec, thunderbird"
         "$mod, r, exec, kitty -- zsh -c 'exec yazi; exec zsh'"
-        "$mod, b, exec, kitty -- zsh -c 'btop; exec zsh'"
+        "$mod, b, exec, kitty -- zsh -c 'exec btop; exec zsh'"
         "$mod CTRL, n, exec, kitty --start-as=normal -- zsh -ic 'code ~/nixos-config && exit'"
 
         "$mod, i, exec, brave"
@@ -77,8 +93,14 @@
         # Log out
         # "$mod, -, exec, hyprctl dispatch exit"
         "$mod SHIFT ALT, x, exec, hyprctl dispatch exit"
+        
+        # Reload
+        "$mod SHIFT rLT, R, exec, hyprctl reload"
 
         "$mod ALT, L, exec, hyprlock --immediate"
+
+        # Print whole screen
+        ", Print, exec, grimblast copy screen"
 
         # Shift+Print → select area and copy
         "SHIFT, Print, exec, grimblast copy area"
@@ -103,13 +125,34 @@
         )
       );
 
-      general = {
-        layout = "master";
+      # doesn't work
+      # workspace =
+      #   builtins.genList (i: "DP-3, ${toString (i + 1)}") 9;
+      workspace = [
+        "1, monitor:DP-3, persistent:true"
+        "2, monitor:DP-3, persistent:true"
+        "3, monitor:DP-3, persistent:true"
+        "4, monitor:DP-3, persistent:true"
+        "5, monitor:DP-3, persistent:true"
+        "6, monitor:DP-3, persistent:true"
+        "7, monitor:DP-3, persistent:true"
+      ];
+
+        dwindle = {
+          preserve_split = true;
+          smart_resizing = true;
+        };
+
+            general = {
+        gaps_out = 0;
+        gaps_in = 0;
+        # layout = "master";
+        layout = "dwindle";
       };
 
       windowrulev2 = [
         "opacity 0.85, class:^(Code)$"
-        "opacity 0.85, class:^(kitty)$"
+        "opacity 0.75, class:^(kitty)$"
       ];
 
       # layerrule = [
@@ -123,7 +166,7 @@
 
         blur = {
           enabled = true;
-          size = 5;
+          size = 2;
           passes = 2;
           brightness = 1;
           contrast = 1.0;
@@ -132,8 +175,8 @@
           new_optimizations = true;
           # xray = true;
         };
-        blurls = "^(popup|menu)$";
 
+        blurls = "^(popup|menu)$";
 
         shadow = {
           enabled = true;
@@ -179,7 +222,7 @@
       exec-once = [
         # "sleep 2 && waybar &"
         "hypridle &"
-        # "waybar &"
+        "hyprpanel &"
         "eval $(gnome-keyring-daemon --start --components=secrets,ssh,gpg)"
         # "hash dbus-update-activation-environment 2>/dev/null"
         # "dbus-update-activation-environment --all --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"

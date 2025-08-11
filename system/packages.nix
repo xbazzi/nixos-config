@@ -2,12 +2,14 @@
 {
   environment.systemPackages = with pkgs; [
     # modrinth-app
+    gnumake
     ansible
     niv
     sbctl
     vim
     wget
     xournalpp
+    zathura
     obsidian
     libreoffice-qt
     hunspell
@@ -16,7 +18,6 @@
     git
     fastfetch
     wget
-    #discord-canary
     vesktop
     discord
     cudaPackages_12.cudatoolkit
@@ -27,17 +28,16 @@
     gparted
     htop
     btop
-    yazi
-    #google-chrome
     dig
+    # netstat-net-tools
     prismlauncher
     inetutils
     ansible-builder
+    nix-index
     ansible-lint
     hollywood
     cmatrix
     nmap
-    #intellephense
     brave
     ffmpeg
     variety
@@ -50,21 +50,26 @@
     openssl
     tree
     screenkey
-    # firefox
     direnv
     jq
     nixfmt
+    unzip
+    nettools
 
     # Hyprland Ecosystem
     hyprpaper
     hyprpicker
     hyprpolkitagent
     hyprsunset
-
     (pkgs.hyprland.override {
       enableXWayland = true;
       withSystemd = true;
     })
+
+    # Qt
+    # kdePackages.qt5compat
+    # libsForQt5.qt5.qtgraphicaleffects
+    # libsForQt5.qt5.qtdeclarative
   ];
 
   programs.nix-ld.enable = true;

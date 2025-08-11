@@ -9,7 +9,6 @@
     # ./stylix.nix
     # ./gnome.nix
     # ./lanzaboote.nix
-    ./yazi.nix
     ./nvidia.nix
     ./network.nix
     ./nfs.nix

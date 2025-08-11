@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }:
+{ config, inputs, pkgs, ... }:
 
 {
   programs.hyprlock = {
@@ -18,7 +18,7 @@
       background = [
         {
           monitor = "";
-          path = "${./wallpapers/world_map_of_cpp_STL_algorithms.png}";
+          path = "${config.home.homeDirectory}/Pictures/wallpapers/City-Night.png";
           blur_passes = 2;
           contrast = 0.8916;
           brightness = 0.8172;

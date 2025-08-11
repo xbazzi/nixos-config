@@ -12,6 +12,8 @@
 
   wayland.windowManager.hyprland.enable = true;
 
+  programs.command-not-found.enable = false;
+
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 

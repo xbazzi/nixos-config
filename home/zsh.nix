@@ -13,6 +13,7 @@
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
     initExtra = ''
+      source ${pkgs.nix-index}/etc/profile.d/command-not-found.sh
       export TERM=xterm-kitty
       bindkey -e
 
@@ -79,6 +80,12 @@
       in
       {
         # la="eza -s modified -r -lh";
+        fonts = "fc-list : family ";
+
+        workspaces = "hyprctl -j workspaces | jq '.[] | {id, monitor, windows, active}'";
+        reboot = ''echo "Nice try. Use \`sudo /run/current-system/sw/bin/reboot\` instead."''; 
+        reboot-foreal = "sudo /run/current-system/sw/bin/reboot now";
+        cat = " bat";
         cb = "cmake -B build -S . && cmake --build build -j$(nproc)";
         la = "eza -s modified -lhr --icons --git";
         ls = "eza -lh --group-directories-first --icons --git";

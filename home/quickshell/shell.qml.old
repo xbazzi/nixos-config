@@ -1,0 +1,120 @@
+import Quickshell
+import Quickshell.Io
+import QtQuick
+
+// one window per screen
+Variants {
+    model: Quickshell.screens
+    delegate: Component {
+        PanelWindow {
+            required property var modelData
+            screen: modelData
+
+            // top bar, full width
+            anchors.top: true
+            anchors.left: true
+            anchors.right: true
+            implicitHeight: 30    // tweak height if yuh want
+
+            Rectangle {
+                anchors.fill: parent
+                color: "#1a1a1a"
+                opacity: 0.5
+            }
+
+            // === Workspaces (top-left) ===
+            Row {
+            id: wsBar
+            anchors.left: parent.left
+            anchors.leftMargin: 8
+            anchors.verticalCenter: parent.verticalCenter
+            spacing: 6
+
+            // dynamic list of workspace IDs (fallback to 1..10)
+            property var ids: [1,2,3,4,5,6,7,8,9,10]
+            property int active: 1
+
+            Repeater {
+                model: ids.length
+                delegate: Rectangle {
+                property int idx: wsBar.ids[index]
+                width: 22; height: 16; radius: 5
+                color: (wsBar.active === idx) ? "#2e7d32" : "#303030"
+                border.width: 1
+                border.color: (wsBar.active === idx) ? "#4caf50" : "#444444"
+
+                Text {
+                    anchors.centerIn: parent
+                    text: idx
+                    color: "#eaeaea"
+                    font.pixelSize: 10
+                }
+
+                MouseArea {
+                    anchors.fill: parent
+                    onClicked: {
+                    var p = Qt.createQmlObject('import Quickshell; Process {}', parent)
+                    p.command = ["hyprctl","dispatch","workspace", String(idx)]
+                    p.running = true
+                    }
+                }
+                }
+            }
+
+            // poll active workspace + known workspaces (needs jq in PATH)
+            Timer {
+                interval: 700; running: true; repeat: true
+                onTriggered: {
+                // active ws
+                var p1 = Qt.createQmlObject(
+                    'import Quickshell; import Quickshell.Io; Process { stdout: StdioCollector{} }', wsBar)
+                p1.command = ["bash","-lc","hyprctl activeworkspace -j | jq -r .id"]
+                p1.running = true
+                p1.stdout.onStreamFinished.connect(function() {
+                    var v = parseInt(p1.stdout.text.trim())
+                    if (!isNaN(v)) wsBar.active = v
+                })
+
+                // list of existing ws ids (sorted)
+                var p2 = Qt.createQmlObject(
+                    'import Quickshell; import Quickshell.Io; Process { stdout: StdioCollector{} }', wsBar)
+                p2.command = ["bash","-lc","hyprctl workspaces -j | jq -r '.[].id' | sort -n | tr '\\n' ' '"]
+                p2.running = true
+                p2.stdout.onStreamFinished.connect(function() {
+                    var s = p2.stdout.text.trim()
+                    if (s.length > 0) {
+                    var arr = s.split(/\\s+/).map(function(x){ return parseInt(x) })
+                                    .filter(function(x){ return !isNaN(x) })
+                    if (arr.length > 0) wsBar.ids = arr
+                    }
+                })
+                }
+            }
+            }
+
+            // center clock
+            Text {
+                id: clock
+                anchors.centerIn: parent
+                font.pixelSize: 13
+                color: "#e6e6e6"
+            }
+
+            // update clock every second using `date`
+            Process {
+                id: dateProc
+                command: [ "date", "+%a %b %d  %H:%M:%S" ]
+                running: true
+                stdout: StdioCollector {
+                    onStreamFinished: clock.text = this.text.trim()
+                }
+            }
+            Timer {
+                interval: 1000
+                running: true
+                repeat: true
+                onTriggered: dateProc.running = true
+            }
+        }
+    }
+}

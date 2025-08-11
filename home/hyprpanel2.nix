@@ -1,0 +1,47 @@
+{ inputs, ... }:
+{
+  programs.hyprpanel = {
+    enable = false;
+    settings = {
+      bar = {
+        customModules.hypridle = {
+          isActiveCommand = "systemctl --user status hypridle.service | grep -q 'Active: active (running)' && echo 'yes' || echo 'no'";
+          startCommand    = "systemctl --user start hypridle.service";
+          stopCommand     = "systemctl --user stop hypridle.service";
+        };
+
+        launcher.autoDetectIcon = true;
+        workspaces.show_icons   = true;
+      };
+
+      layout.bar.layouts."0" = {
+        left   = [ "dashboard" "workspaces" ];
+        middle = [ "media" ];
+        right  = [ "volume" "systray" "notifications" ];
+      };
+
+      menus = {
+        clock = {
+          time = {
+            hideSeconds = true;
+            military    = true;
+          };
+          weather.unit = "metric";
+        };
+
+        dashboard = {
+          directories.enabled = false;
+          stats.enable_gpu    = true;
+        };
+      };
+
+      theme = {
+        bar.transparent = false;
+        font = {
+          name = "Monaspace Krypton"; # likely "CaskaydiaCove Nerd Font" in fontconfig
+          size = "16px";
+        };
+      };
+    };
+  };
+}

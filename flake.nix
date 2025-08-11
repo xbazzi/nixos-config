@@ -2,11 +2,15 @@
   description = "My system configuration";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     stylix = {
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    hyprshell = {
+      url = "git+https://gitgud.foo/thegrind/hypr-shell.git";
     };
 
     lanzaboote = {
@@ -85,24 +89,6 @@
             inputs.stylix.nixosModules.stylix
             ./system/default.nix
             lanzaboote.nixosModules.lanzaboote
-
-            # Link Hyprland-Dots configs
-            # {
-            #   home.file = {
-            #     ".config/hypr".source = "${hyprdots}/hypr";
-            #     ".config/waybar".source = "${hyprdots}/waybar";
-            #     ".config/rofi".source = "${hyprdots}/rofi";
-            #     ".config/swww".source = "${hyprdots}/swww";
-            #     ".config/wallust".source = "${hyprdots}/wallust";
-            #   };
-
-            #   # Install extra tools from Hyprland-Dots requirements
-            #   home.packages = with pkgs; [
-            #     waybar rofi-wayland swww wallust
-            #     grim slurp wl-clipboard
-            #   ];
-            # }
-
             (
               { pkgs, lib, ... }:
               {
@@ -133,6 +119,7 @@
           inherit pkgs;
           extraSpecialArgs = { inherit inputs; };
           modules = [
+            inputs.hyprshell.homeManagerModules.default
             ./home/default.nix
           ];
         };
@@ -141,9 +128,17 @@
 
       home-manager.users.xbazzi = {
         nixpkgs.config.allowUnfree = true;
-        #home.packages = [
-        #];
+        extraSpecialArgs = { inherit inputs; };
+        # imports = 
       };
+
+      # home-manager.users.xbazzi = {
+      #   extraSpecialArgs = { inherit inputs; };
+      #   nixpkgs.config.allowUnfree = true;
+      #   # imports = inputs.hyprshell.homeManagerModules.default;
+      #   #home.packages = [
+      #   #];
+      # };
       #home-manager.extraSpecialArgs
     };
 }

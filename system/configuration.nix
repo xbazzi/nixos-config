@@ -14,6 +14,11 @@
     "flakes"
   ];
 
+  # Graphics
+  hardware.graphics.enable = true;
+  hardware.graphics.enable32Bit = true;
+
+
   # OpenRGB
   services.hardware.openrgb.enable = true;
 
@@ -32,7 +37,7 @@
       # command = "${pkgs.greetd.gtkgreet}/bin/gtkgreet -c 'Hyprland'";
 
       # TUI greeter
-      command = "${pkgs.greetd.tuigreet}/bin/tuigreet --time --remember \
+      command = "${pkgs.tuigreet}/bin/tuigreet --time --remember \
         --cmd 'dbus-run-session ${pkgs.hyprland}/bin/Hyprland'";
       user = "greeter";
     };
@@ -134,6 +139,8 @@
     isNormalUser = true;
     description = "Xander Bazzi";
     extraGroups = [
+      "video"
+      "render"
       "docker"
       "networkmanager"
       "wheel"

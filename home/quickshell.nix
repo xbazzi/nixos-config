@@ -1,7 +1,9 @@
 { pkgs, ... }:
 
 {
-  home.packages = [ pkgs.quickshell ];
+  home.packages = with pkgs; [
+    quickshell 
+  ];
 
   home.file.".config/quickshell" = {
     source = ./quickshell;
@@ -9,15 +11,15 @@
   };
 
   # start it when Hyprland starts
-  wayland.windowManager.hyprland.settings.exec-once = [
-    "quickshell -c default"
-  ];
+  # wayland.windowManager.hyprland.settings.exec-once = [
+  #   "quickshell -c default"
+  # ];
   
   # auto reload
   systemd.user.services.quickshell = {
     Unit = { Description = "Quickshell bar"; PartOf = [ "graphical-session.target" ]; };
     Service = {
-      ExecStart = "${pkgs.quickshell}/bin/quickshell -c default";
+      ExecStart = "${pkgs.quickshell}/bin/quickshell -c hyprshell";
       Restart = "always";
     };
     Install = { WantedBy = [ "default.target" ]; };
