@@ -7,18 +7,18 @@
 }:
 
 {
-  programs.kitty = lib.mkForce {
+  programs.kitty =  {
     enable = true;
     shellIntegration.enableZshIntegration = true;
     settings = {
       confirm_os_window_close = 0;
-      dynamic_background_opacity = true;
+      # dynamic_background_opacity = true;
       enable_audio_bell = false;
       mouse_hide_wait = "-1.0";
       window_padding_width = 5;
       # background_opacity = "0.95";
       # background_blur = 5;
-      background = "#17041c";
+      # background = "#ff00ff";
       hide_window_decorations = true;
       # themeFile = "Alucard";
       symbol_map =
@@ -48,3 +48,34 @@
     };
   };
 }
+
+# {
+#   config,
+#   lib,
+#   pkgs,
+#   ...
+# }:
+# let
+#   kittyConfig = ''
+#     font_size 16.0
+
+#     background_opacity 0.7
+#     background_blur 1
+
+#     hide_window_decorations yes
+
+#     map ctrl+shift+t new_tab_with_cwd
+#   '';
+# in
+# {
+#   home.packages = with pkgs; [
+#     kitty
+#   ];
+
+#   programs.kitty = {
+#      shellIntegration.enableZshIntegration = true;
+#     enable = true;
+
+#     extraConfig = kittyConfig;
+#   };
+# }

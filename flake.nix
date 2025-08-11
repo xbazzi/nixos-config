@@ -28,6 +28,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    # walker = {
+    #   url = "github:abenz1267/walker";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
+
     # hyprdots = {
     #  url = "github:JaKooLit/Hyprland-Dots";
     #  flake = false;
@@ -87,8 +92,8 @@
           specialArgs = { inherit inputs; };
           modules = [
             inputs.stylix.nixosModules.stylix
-            ./system/default.nix
             lanzaboote.nixosModules.lanzaboote
+            ./system/default.nix
             (
               { pkgs, lib, ... }:
               {
@@ -119,7 +124,9 @@
           inherit pkgs;
           extraSpecialArgs = { inherit inputs; };
           modules = [
+            # inputs.walker.homeManagerModules.default
             inputs.hyprshell.homeManagerModules.default
+            inputs.stylix.homeModules.stylix
             ./home/default.nix
           ];
         };

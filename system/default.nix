@@ -6,7 +6,7 @@
     ./fonts.nix
     ./ssh.nix
     # ./openrgb.nix
-    # ./stylix.nix
+    ./stylix.nix
     # ./gnome.nix
     # ./lanzaboote.nix
     ./nvidia.nix

@@ -2,6 +2,8 @@
 
 {
   home.packages = with pkgs; [
+    kitty
+    btop
     hello
     tmux
     gnome-keyring
@@ -18,6 +20,9 @@
     hyprlock
     hyprpanel
     wofi
+
+    # Python
+    python3Packages.gpustat
 
     # Old stuff for documentation
     # gnomeExtensions.appindicator

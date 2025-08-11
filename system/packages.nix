@@ -14,7 +14,7 @@
     libreoffice-qt
     hunspell
     hunspellDicts.en_US
-    kitty
+    # kitty
     git
     fastfetch
     wget
@@ -27,7 +27,6 @@
     xclip
     gparted
     htop
-    btop
     dig
     # netstat-net-tools
     prismlauncher

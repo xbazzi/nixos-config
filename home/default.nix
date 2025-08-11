@@ -24,7 +24,8 @@
     # ./dconf.nix
     # ./quickshell.nix
     # ./hyprpanel.nix
-    ./hyprpanel3.nix
+    ./hyprpanel2.nix
+    ./wofi.nix
     ./hyprpaper.nix
     ./git.nix
     ./hyprland.nix

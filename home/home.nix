@@ -12,6 +12,16 @@
 
   wayland.windowManager.hyprland.enable = true;
 
+  stylix = {
+    enable = true;
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-storm.yaml";
+    targets = {
+      btop.enable = true;
+      kitty.enable = true;
+      # kitty.enable = true;
+    };
+  };
+
   programs.command-not-found.enable = false;
 
   # Let Home Manager install and manage itself.

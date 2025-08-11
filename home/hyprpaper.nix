@@ -14,11 +14,12 @@
       ipc = "on";
       splash = false;
       preload = [
-        "/home/xbazzi/Pictures/wallpapers/cities"
+        "/home/xbazzi/Pictures/wallpapers/cities/sanfran.jpg"
+        "/home/xbazzi/Pictures/wallpapers/cities/dubai.jpg"
       ];
 
       wallpaper = [
-        ",/home/xbazzi/Pictures/wallpapers/Fantasy-Lake1.png"
+        ",/home/xbazzi/Pictures/wallpapers/cities/dubai.jpg"
       ];
     };
   };

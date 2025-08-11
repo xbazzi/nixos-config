@@ -52,6 +52,8 @@
         # Dwindle
         "$mod, p, layoutmsg, togglesplit"
         "$mod, 0, layoutmsg, swapsplit"
+        "$mod, o, layoutmsg, movetoroot"
+
         "$mod, a, layoutmsg, preselect l"
         "$mod SHIFT, a, layoutmsg, preselect u"
 
@@ -66,13 +68,13 @@
         "$mod, f, fullscreen, 0"
 
         "$mod, d, exec, wofi --show drun"
+        "$mod, SPACE, exec, ${pkgs.wofi-emoji}/bin/wofi-emoji"
 
         "$mod, t, exec, kitty --single-instance"
 
         "$mod, c, exec, code"
         "$mod SHIFT, l, movewindow, mon:-1"
         "$mod SHIFT, h, movewindow, mon:+1"
-
 
         "$mod, e, exec, thunderbird"
         "$mod, r, exec, kitty -- zsh -c 'exec yazi; exec zsh'"
@@ -178,15 +180,15 @@
 
         blurls = "^(popup|menu)$";
 
-        shadow = {
-          enabled = true;
+        # shadow = {
+        #   enabled = true;
 
-          ignore_window = true;
-          offset = "0 2";
-          range = 20;
-          render_power = 3;
-          color = "rgba(00000055)";
-        };
+        #   ignore_window = true;
+        #   offset = "0 2";
+        #   range = 20;
+        #   render_power = 3;
+        #   color = "rgba(00000055)";
+        # };
       };
 
       animations = {
