@@ -29,6 +29,8 @@
           bmewburn.vscode-intelephense-client
           zxh404.vscode-proto3
           twxs.cmake
+          tamasfe.even-better-toml
+          
           
           # Use the nix-ide instead
           #  arrterian.nix-env-selector

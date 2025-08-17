@@ -6,10 +6,17 @@
   ...
 }:
 
+let 
+  kittyConfig = ''
+    map ctrl+r send_text all \x15shellhistory\r
+  '';
+in 
 {
   programs.kitty =  {
     enable = true;
     shellIntegration.enableZshIntegration = true;
+    # extraConfig = kittyConfig;
+
     settings = {
       confirm_os_window_close = 0;
       # dynamic_background_opacity = true;
@@ -21,6 +28,7 @@
       # background = "#ff00ff";
       hide_window_decorations = true;
       # themeFile = "Alucard";
+
       symbol_map =
         let
           mappings = [

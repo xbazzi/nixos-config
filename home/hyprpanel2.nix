@@ -58,17 +58,21 @@ let
         "0" = { left = [ ]; middle = [ ]; right = [ ]; };
         "1" = { left = [ ]; middle = [ ]; right = [ ]; };
         "2" = {
-          left   = [ "dashboard" "workspaces" "media" ];
-          middle = [ 
-            "clock"
+          left   = [ 
+            "dashboard"
+            "workspaces"
+            "media"
             "volume"
           ];
+          middle = [ 
+            "clock"
+          ];
           right  = [
+            "systray"
+            "netstat"
             "hyprsunset"
             "hypridle"
-            "netstat"
-            "systray"
-            "updates"
+            # "updates"
             "notifications"
           ];
         };
@@ -86,6 +90,7 @@ let
         showApplicationIcons = true;
         showWsIcons          = true;
         show_icons           = true;
+        identifier           = true;
         show_numbered        = false;
         workspaceMask        = false;
       };
@@ -166,6 +171,7 @@ let
   };
 
   myOverrides = mySettings // {
+    "theme.bar.buttons.workspaces.numbered_active_highlighted_text_color" = "#21252b";
     "theme.bar.buttons.style" = "wave";
     "theme.bar.opacity"     = "95";
     "theme.bar.transparent"     = "false";

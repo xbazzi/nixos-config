@@ -15,8 +15,10 @@
     ./gtk.nix
     ./tmux.nix
     ./starship.nix
+    ./fzf.nix
     #./vscode.nix
     ./packages.nix
+    ./desktop-env.nix
     ./hyprlock.nix
     ./hypridle.nix
     ./notify.nix

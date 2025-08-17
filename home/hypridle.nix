@@ -22,17 +22,18 @@
 
       listener = [
         {
-          timeout = 10; # 4.5 min — warn before lock
+          timeout = 270; # 4.5 min — warn before lock
           on-timeout = "notify-send '🔒 Locking in 30s...'";
+          # on-timeout = "notify-send 'hiii'";
         }
         {
-          timeout = 300; # 5 min — lock screen
+          timeout = 1000; # 16 min — lock screen
           on-timeout = "hyprctl dispatch exec 'hyprlock --immediate'";
         }
-        {
-          timeout = 900; # 15 min — suspend
-          on-timeout = "systemctl suspend";
-        }
+        # {
+        #   timeout = 900; # 15 min — suspend
+        #   on-timeout = "systemctl suspend";
+        # }
       ];
     };
   };

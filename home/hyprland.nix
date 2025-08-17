@@ -8,6 +8,7 @@
 {
   wayland.windowManager.hyprland = {
     settings = {
+      "$file_browser" = "thunar";
       "$mod" = "SUPER";
 
       input = {
@@ -49,6 +50,9 @@
       ];
 
       bind = [
+        # File manager
+        "$mod, z, exec, $file_browser"
+
         # Dwindle
         "$mod, p, layoutmsg, togglesplit"
         "$mod, 0, layoutmsg, swapsplit"
@@ -83,7 +87,8 @@
 
         "$mod, i, exec, brave"
         "$mod, u, exec, kitty --start-as=normal -- zsh -ic 'home'"
-        "$mod, y, exec, kitty --start-as=normal -- zsh -ic 'repos'"
+        # "$mod, y, exec, kitty --start-as=normal -- zsh -ic 'repos'"
+        "$mod, y, exec, eza -ld $HOME/repos/* --color=never | awk '{print $7}' | wofi --dmenu --prompt \"Open project:\" | xargs -I{} code {} -n && exit"
 
         "$mod, s, togglespecialworkspace, special1"
         # "$mod, v, togglespecialworkspace, special2"
@@ -145,12 +150,12 @@
           smart_resizing = true;
         };
 
-            general = {
-        gaps_out = 0;
-        gaps_in = 0;
-        # layout = "master";
-        layout = "dwindle";
-      };
+        general = {
+          gaps_out = 0;
+          gaps_in = 0;
+          layout = "master";
+          # layout = "dwindle";
+        };
 
       windowrulev2 = [
         "opacity 0.85, class:^(Code)$"
@@ -168,7 +173,7 @@
 
         blur = {
           enabled = true;
-          size = 2;
+          size = 1;
           passes = 2;
           brightness = 1;
           contrast = 1.0;
@@ -223,7 +228,7 @@
 
       exec-once = [
         # "sleep 2 && waybar &"
-        "hypridle &"
+        # "hypridle &"
         "hyprpanel &"
         "eval $(gnome-keyring-daemon --start --components=secrets,ssh,gpg)"
         # "hash dbus-update-activation-environment 2>/dev/null"

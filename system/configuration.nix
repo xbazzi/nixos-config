@@ -29,19 +29,19 @@
   security.pam.services.hyprlock = { };
   services.gnome.gnome-keyring.enable = true;
   security.pam.services.hyprlock.enableGnomeKeyring = true;
-  services.greetd.enable = true;
-  services.greetd.settings = {
-    default_session = {
-      # GUI greeter
-      #command = "${pkgs.greetd.gtkgreet}/bin/gtkgreet -c hyprland";
-      # command = "${pkgs.greetd.gtkgreet}/bin/gtkgreet -c 'Hyprland'";
+  # services.greetd.enable = true;
+  # services.greetd.settings = {
+  #   default_session = {
+  #     # GUI greeter
+  #     #command = "${pkgs.greetd.gtkgreet}/bin/gtkgreet -c hyprland";
+  #     # command = "${pkgs.greetd.gtkgreet}/bin/gtkgreet -c 'Hyprland'";
 
-      # TUI greeter
-      command = "${pkgs.tuigreet}/bin/tuigreet --time --remember \
-        --cmd 'dbus-run-session ${pkgs.hyprland}/bin/Hyprland'";
-      user = "greeter";
-    };
-  };
+  #     # TUI greeter
+  #     command = "${pkgs.tuigreet}/bin/tuigreet --time --remember \
+  #       --cmd 'dbus-run-session ${pkgs.hyprland}/bin/Hyprland'";
+  #     user = "greeter";
+  #   };
+  # };
 
   # nix.settings = {
   #   substituters = [ 
@@ -67,6 +67,7 @@
 
   # systemd
   systemd.network.wait-online.timeout = 5;
+  systemd.network.wait-online.enable = true;
 
   # Set your time zone.
   time.timeZone = "America/Denver";

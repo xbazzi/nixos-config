@@ -12,10 +12,9 @@
     enable = true;
     settings = {
       ipc = "on";
-      splash = false;
+      splash = true;
       preload = [
-        "/home/xbazzi/Pictures/wallpapers/cities/sanfran.jpg"
-        "/home/xbazzi/Pictures/wallpapers/cities/dubai.jpg"
+        "/home/xbazzi/Pictures/wallpapers/cities/sanfran.jpg" "/home/xbazzi/Pictures/wallpapers/cities/dubai.jpg"
       ];
 
       wallpaper = [

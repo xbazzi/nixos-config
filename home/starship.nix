@@ -9,8 +9,45 @@
 {
   programs.starship = {
     enable = true;
+    enableBashIntegration = true;
     enableZshIntegration = true;
-    settings = pkgs.lib.importTOML ./xbazzi_starship.toml;
+
+    # settings = pkgs.lib.importTOML ./xbazzi_starship.toml;
+    settings = {
+
+      format = " $time $all ";
+      directory = {
+        truncation_length = 9;
+      };
+      php = {
+        format = "[$symbol($version )]($style)";
+      };
+
+      golang = {
+        format = "[$symbol($version )]($style)";
+      };
+
+      nodejs = {
+        format = "[$symbol($version )]($style)";
+      };
+
+      bun = {
+        format = "[$symbol($version )]($style)";
+      };
+      cpp = {
+        format = "[$symbol($version )]($style)";
+      };
+      python = {
+        format = "[$symbol($version )]($style)";
+      };
+      time = {
+        disabled = false;
+        format = "[$time]($style)";
+
+      };
+    };
+
+
     # username = {
     #   style_user = "blue bold";
     #   style_root = "red bold";
