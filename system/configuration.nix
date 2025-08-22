@@ -143,6 +143,7 @@
     isNormalUser = true;
     description = "Xander Bazzi";
     extraGroups = [
+      "xbazzi"
       "video"
       "render"
       "docker"

@@ -31,18 +31,8 @@
       "_netdev"
       "rw"
       "vers=4"
-
       # On-demand mount (recommended): mounts when first accessed
       "x-systemd.automount"
-      # "noauto"                         # optional but fine with automount
-
-      # Make sure network is really up before trying
-      # "x-systemd.after=network-online.target"
-      # "x-systemd.requires=network-online.target"
-
-      # Quality-of-life
-      # "x-systemd.mount-timeout=30s"
-      # "x-systemd.idle-timeout=600"     # unmount after 10min idle (automount only)
     ];
   };
 
@@ -51,8 +41,11 @@
     fsType = "nfs";
     options = [
       "noauto"
+      "_netdev"
       "rw"
       "vers=4"
+      # On-demand mount (recommended): mounts when first accessed
+      "x-systemd.automount"
     ];
   };
 }

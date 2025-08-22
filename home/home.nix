@@ -14,6 +14,7 @@
 
   stylix = {
     enable = true;
+    polarity = "dark";
     base16Scheme = "${pkgs.base16-schemes}/share/themes/tokyo-night-storm.yaml";
     targets = {
       btop.enable = true;
@@ -30,7 +31,23 @@
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
-    #".p10k.zsh".text = builtins.readFile ./.p10k.zsh;
+    # ".claude/settings.json".text = ''
+    # {
+    #   "permissions": {
+    #     "allow": [
+    #       "Bash(npm run lint)",
+    #       "Bash(npm run test:*)",
+    #       "Read(~/.zshrc)"
+    #     ],
+    #     "deny": [
+    #       "Bash(curl:*)",
+    #       "Read(./.env*)",
+    #       "Read(./.env.*)",
+    #       "Read(./secrets/**)"
+    #     ]
+    #   },
+    # }
+    # '';
 
     # # Building this configuration will create a copy of 'dotfiles/screenrc' in
     # # the Nix store. Activating the configuration will then make '~/.screenrc' a

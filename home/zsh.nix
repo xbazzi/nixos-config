@@ -12,10 +12,17 @@
     enableCompletion = true;
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
-    initExtra = ''
+    initContent = ''
       source ${pkgs.nix-index}/etc/profile.d/command-not-found.sh
       export TERM=xterm-kitty
       bindkey -e
+
+      function nvibrant() {
+        cd ~/repos/nVibrant
+        . .venv/bin/activate
+        command nvibrant $(printf "+%s " $(repeat 9 echo "$1"))
+        }
+
 
       function y() {
         local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
@@ -39,7 +46,7 @@
       }
 
       function reboot() {
-        echo "Nice try. Use `sudo /run/current-system/sw/bin/reboot` instead."
+        echo "Nice try. Use `reboot-foreal` instead."
       }
 
       function makerole() {

@@ -21,19 +21,19 @@ in
       '';
     };
 
-    systemPackages = with pkgs; [
-      papirus-icon-theme
-      (sddm-chili-theme.override {
-        themeConfig = {
-          background = "/etc/sddm-wallpaper.png";
-          ScreenWidth = "3440";
-          ScreenHeight = "1440";
-          recursiveBlurLoops = 1;
-          recursiveBlurRadius = 10;
-        };
-      })
-      libsForQt5.qt5.qtgraphicaleffects
-    ];
+    # systemPackages = with pkgs; [
+    #   papirus-icon-theme
+    #   (sddm-chili-theme.override {
+    #     themeConfig = {
+    #       background = "/etc/sddm-wallpaper.png";
+    #       ScreenWidth = "3440";
+    #       ScreenHeight = "1440";
+    #       recursiveBlurLoops = 1;
+    #       recursiveBlurRadius = 10;
+    #     };
+    #   })
+    #   libsForQt5.qt5.qtgraphicaleffects
+    # ];
 
     pathsToLink = [
       "/share/icons"

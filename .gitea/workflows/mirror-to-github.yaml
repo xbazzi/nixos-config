@@ -1,0 +1,73 @@
+name: Simple Mirror to GitHub
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  mirror:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0  # Fetch full history for complete mirror
+          # token: ${{ secrets.GITEA_TOKEN }}
+
+      - name: Push to GitHub
+        run: |
+          # Configure git
+          git config --global user.name "Gitea Mirror Bot"
+          git config --global user.email "noreply@gitea.local"
+
+          # Create mirror README
+          cat > README.md << 'EOF'
+
+          # 🪞 GitHub Mirror
+          
+          This is an automated mirror of the repository hosted on [GitGud.foo/xbazzi/fastinahurry](https://gitgud.foo/xbazzi/fastinahurry).
+          
+          **⚠️ This is a read-only mirror - do not create issues or pull requests here.**
+          
+          ## 🏠 Original Repository
+          
+          Please visit the [original](https://gitgud.foo/xbazzi/fastinahurry) repository for:
+          - 📝 Issues and bug reports
+          - 🔄 Pull requests and contributions
+          - 📋 Project documentation
+          - 💬 Discussions
+          
+          ---
+          
+          *This mirror is automatically updated when changes are pushed to the master branch.*
+          EOF
+
+          # Stage and commit the new README
+          git add README.md
+          if git diff --staged --quiet; then
+            echo "No changes to README, skipping commit"
+          else
+            git commit -m "Update README for GitHub mirror"
+          fi
+
+          # Add remote
+          git remote add github https://${{ secrets.GH_TOKEN }}@github.com/xbazzi/fastinahurry.git
+
+          # Check if GitHub repo is empty
+          if git ls-remote --heads github | grep -q refs/heads/; then
+            echo "GitHub repo has branches, doing full mirror"
+            git push github --all --force
+            git push github --tags --force
+          else
+            echo "GitHub repo is empty, pushing master branch first"
+            git push github master
+            # After master is established, push other branches and tags
+            git push github --all --force || echo "No additional branches to push"
+            git push github --tags --force || echo "No tags to push"
+          fi
+      - name: Debug git state
+        run: |
+          git log --oneline -5
+          git branch -a
+          git remote -v

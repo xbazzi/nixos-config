@@ -3,7 +3,8 @@
 {
   programs.btop = {
     enable = true;
-    # color_theme = "tokyo-night";
-    # theme_background = false;
+    # color_theme = "phoenix-night";
+    color_theme = "HotPurpleTrafficLight";
+    theme_background = false;
   };
 }

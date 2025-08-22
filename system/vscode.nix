@@ -7,6 +7,9 @@
 }:
 
 {
+  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+    "claude-code"
+  ];
   environment.systemPackages = with pkgs; [
     (vscode-with-extensions.override {
       vscodeExtensions =
@@ -30,19 +33,25 @@
           zxh404.vscode-proto3
           twxs.cmake
           tamasfe.even-better-toml
-          
+          # anthropic.claude-code
           
           # Use the nix-ide instead
           #  arrterian.nix-env-selector
           #  bbenoist.nix
           jnoortheen.nix-ide
           
-          # Doesn't work lmao. Use bbnoist's
+          # Neither works
           # TheQtCompany.qt-qml
           # bbenoist.qml
           mkhl.direnv
         ]
         ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+          {
+            name = "claude-code";
+            publisher = "anthropic";
+            version = "1.0.80";
+            sha256 = "WNm29AUas6ZmMC2odIs1wBNknG3DL1T2jXQChpvqTLA=";
+          }
           # {
           #   name = "QML";            # keep exact Marketplace name
           #   publisher = "bbenoist";

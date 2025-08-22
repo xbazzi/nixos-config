@@ -22,7 +22,7 @@
 
       listener = [
         {
-          timeout = 270; # 4.5 min — warn before lock
+          timeout = 10; # 4.5 min — warn before lock
           on-timeout = "notify-send '🔒 Locking in 30s...'";
           # on-timeout = "notify-send 'hiii'";
         }

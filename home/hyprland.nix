@@ -158,6 +158,8 @@
         };
 
       windowrulev2 = [
+        # "size 1920 1440, class:^(cs2)$"
+
         "opacity 0.85, class:^(Code)$"
         "opacity 0.75, class:^(kitty)$"
       ];
@@ -227,9 +229,11 @@
       };
 
       exec-once = [
+        "noisetorch"
+        "hyprpaper"
         # "sleep 2 && waybar &"
         # "hypridle &"
-        "hyprpanel &"
+        # "hyprpanel &"
         "eval $(gnome-keyring-daemon --start --components=secrets,ssh,gpg)"
         # "hash dbus-update-activation-environment 2>/dev/null"
         # "dbus-update-activation-environment --all --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
@@ -248,7 +252,9 @@
       ];
 
       plugins = [
+        # legacyPackages.x86_64-linux.hyprlandPlugins.csgo-vulkan-fix
         # inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprbars
+        # inputs.hyprland-plugins.packages.${pkgs.system}.csgo-vulkan-fix
       ];
     };
   };

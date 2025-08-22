@@ -2,6 +2,7 @@
 
 {
   home.packages = with pkgs; [
+    # legacyPackages.${pkgs.system}.claude-code
     kitty
     btop
     hello
@@ -20,6 +21,7 @@
     hyprlock
     hyprpanel
     wofi
+    hyprlandPlugins.csgo-vulkan-fix
 
     # Python
     python3Packages.gpustat

@@ -1,7 +1,11 @@
-{ config, pkgs, ... }:
+{ config, lib, pkgs, system, inputs, ... }:
 {
   environment.systemPackages = with pkgs; [
+
+
+    # (inputs.nixpkgs.legacyPackages.${pkgs.system}.claude-code)
     # modrinth-app
+    claude-code
     gnumake
     ansible
     niv
@@ -22,6 +26,7 @@
     discord
     cudaPackages_12.cudatoolkit
     python3
+    python313Packages.pip
     gimp
     vlc
     xclip
@@ -54,6 +59,7 @@
     nixfmt
     unzip
     nettools
+    vibrantlinux
 
     # Hyprland Ecosystem
     hyprpaper
@@ -64,11 +70,17 @@
       enableXWayland = true;
       withSystemd = true;
     })
+    gamescope
+    google-chrome
 
     # Qt
     # kdePackages.qt5compat
     # libsForQt5.qt5.qtgraphicaleffects
     # libsForQt5.qt5.qtdeclarative
+  ];
+
+  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+    "claude-code"
   ];
 
   programs.nix-ld.enable = true;
@@ -86,6 +98,8 @@
     dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
     localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
   };
+  programs.gamemode.enable = true;
+  hardware.opengl.enable = true;
 
   # nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
   #     "steam"

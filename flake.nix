@@ -23,10 +23,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprland-plugins = {
-      url = "github:hyprwm/hyprland-plugins";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    
+    # hyprland-plugins = {
+    #   url = "github:hyprwm/hyprland-plugins";
+    #   inputs.nixpkgs.follows = "hyprland";
+    # };
 
     # walker = {
     #   url = "github:abenz1267/walker";
@@ -79,6 +80,7 @@
       devShells.${system}.default = pkgs.mkShell {
         buildInputs = [
           pkgs.neovim
+          # pkgs.legacyPackages.x86_64-linux.claude-code
           pkgs.vim
         ];
         shellHook = ''
@@ -101,6 +103,8 @@
                 environment.systemPackages = [
                   # For debugging and troubleshooting Secure Boot.
                   pkgs.sbctl
+                  # (inputs.nixpkgs.legacyPackages.${pkgs.system}.claude-code)
+
                 ];
 
                 # Lanzaboote currently replaces the systemd-boot module.
