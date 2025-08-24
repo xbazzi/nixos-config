@@ -15,13 +15,13 @@
     wl-clipboard # copy screenshot to clipboard
     bat
     yazi
+    jetbrains.datagrip
 
     # Hyprland
     hypridle
     hyprlock
     hyprpanel
     wofi
-    hyprlandPlugins.csgo-vulkan-fix
 
     # Python
     python3Packages.gpustat
@@ -35,5 +35,4 @@
     #inputs.nixvim.packages.${pkgs.system}.default
   ];
   services.gnome-keyring.enable = true;
-
 }

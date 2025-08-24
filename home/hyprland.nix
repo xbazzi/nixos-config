@@ -231,6 +231,7 @@
       exec-once = [
         "noisetorch"
         "hyprpaper"
+        ''hyprctl plugin load "$HYPR_PLUGIN_DIR/lib/libhyprexpo.so"''
         # "sleep 2 && waybar &"
         # "hypridle &"
         # "hyprpanel &"
@@ -252,6 +253,8 @@
       ];
 
       plugins = [
+        # inputs.hyprland-plugins.packages.${pkgs.system}.hyprfocus
+        # pkgs.hyprlandPlugins.csgo-vulkan-fix
         # legacyPackages.x86_64-linux.hyprlandPlugins.csgo-vulkan-fix
         # inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprbars
         # inputs.hyprland-plugins.packages.${pkgs.system}.csgo-vulkan-fix

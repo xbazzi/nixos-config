@@ -29,10 +29,10 @@
         IdentitiesOnly yes
         IdentityFile ~/.ssh/gt_id_ed25519
 
-    Host prod1
-        HostName prod1
+    Host prod2-mgmt
+        HostName prod2-mgmt
         ForwardAgent yes
-        Port 22222
+        Port 22
         User xbazzi
         PubkeyAuthentication yes
         IdentityFile ~/.ssh/lan_id_ed25519
@@ -47,14 +47,24 @@
         IdentityFile ~/.ssh/lan_id_ed25519
         IdentitiesOnly yes
 
-    Host prod2-mgmt
-        HostName prod2-mgmt
+    Host prod4-mgmt
+        HostName prod4-mgmt 
         ForwardAgent yes
         Port 22
         User xbazzi
         PubkeyAuthentication yes
         IdentityFile ~/.ssh/lan_id_ed25519
         IdentitiesOnly yes
+
+    Host prod1
+        HostName prod1
+        ForwardAgent yes
+        Port 22222
+        User xbazzi
+        PubkeyAuthentication yes
+        IdentityFile ~/.ssh/lan_id_ed25519
+        IdentitiesOnly yes
+
 
     Host prod2
         HostName prod2

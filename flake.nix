@@ -23,11 +23,17 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    winapps = {
+      url = "github:winapps-org/winapps";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     
-    # hyprland-plugins = {
-    #   url = "github:hyprwm/hyprland-plugins";
-    #   inputs.nixpkgs.follows = "hyprland";
-    # };
+    hyprland.url = "github:hyprwm/Hyprland";
+    hyprland-plugins = {
+      url = "github:hyprwm/hyprland-plugins";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.hyprland.follows = "hyprland";
+    };
 
     # walker = {
     #   url = "github:abenz1267/walker";
@@ -56,7 +62,7 @@
   };
 
   outputs =
-    { nixpkgs, lanzaboote, ... }@inputs:
+    { nixpkgs, lanzaboote, winapps, ... }@inputs:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
@@ -91,19 +97,20 @@
       nixosConfigurations = {
         nixos = nixpkgs.lib.nixosSystem {
           inherit system;
-          specialArgs = { inherit inputs; };
+          specialArgs = { inherit inputs system; };
           modules = [
             inputs.stylix.nixosModules.stylix
             lanzaboote.nixosModules.lanzaboote
             ./system/default.nix
             (
-              { pkgs, lib, ... }:
+              { pkgs, lib, system ? pkgs.system, ... }:
               {
 
                 environment.systemPackages = [
                   # For debugging and troubleshooting Secure Boot.
                   pkgs.sbctl
-                  # (inputs.nixpkgs.legacyPackages.${pkgs.system}.claude-code)
+                  winapps.packages."${system}".winapps
+                  winapps.packages."${system}".winapps-launcher # optional
 
                 ];
 

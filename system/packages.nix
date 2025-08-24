@@ -72,6 +72,7 @@
     })
     gamescope
     google-chrome
+    wootility
 
     # Qt
     # kdePackages.qt5compat
@@ -99,9 +100,8 @@
     localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
   };
   programs.gamemode.enable = true;
-  hardware.opengl.enable = true;
-
-  # nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
+  hardware.graphics.enable = true;
+  hardware.wooting.enable = true;
   #     "steam"
   #     "steam-original"
   #     "steam-unwrapped"

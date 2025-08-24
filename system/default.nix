@@ -9,6 +9,7 @@
     ./stylix.nix
     ./ghub.nix
     ./sddm.nix
+    ./hyprland-plugins.nix
     # ./gnome.nix
     # ./lanzaboote.nix
     ./nvidia.nix
