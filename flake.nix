@@ -30,9 +30,8 @@
 
     waycast = {
       url = "git+https://gitgud.foo/thegrind/waycast";
-      inputs.nixpkgs.follows = "nixpkgs";
     };
-    
+
     hyprland.url = "github:hyprwm/Hyprland";
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
@@ -67,7 +66,12 @@
   };
 
   outputs =
-    { nixpkgs, lanzaboote, winapps, ... }@inputs:
+    {
+      nixpkgs,
+      lanzaboote,
+      winapps,
+      ...
+    }@inputs:
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
@@ -108,7 +112,12 @@
             lanzaboote.nixosModules.lanzaboote
             ./system/default.nix
             (
-              { pkgs, lib, system ? pkgs.system, ... }:
+              {
+                pkgs,
+                lib,
+                system ? pkgs.system,
+                ...
+              }:
               {
 
                 environment.systemPackages = [
@@ -153,7 +162,7 @@
       home-manager.users.xbazzi = {
         nixpkgs.config.allowUnfree = true;
         extraSpecialArgs = { inherit inputs; };
-        # imports = 
+        # imports =
       };
 
       # home-manager.users.xbazzi = {
