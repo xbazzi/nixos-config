@@ -27,6 +27,11 @@
       url = "github:winapps-org/winapps";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    waycast = {
+      url = "git+https://gitgud.foo/thegrind/waycast";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     
     hyprland.url = "github:hyprwm/Hyprland";
     hyprland-plugins = {
@@ -137,6 +142,7 @@
           modules = [
             # inputs.walker.homeManagerModules.default
             inputs.hyprshell.homeManagerModules.default
+            inputs.waycast.homeManagerModules.default
             inputs.stylix.homeModules.stylix
             ./home/default.nix
           ];

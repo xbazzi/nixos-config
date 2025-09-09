@@ -35,5 +35,6 @@
     ./variables.nix
     ./kitty.nix
     ./neovim.nix
+    ./waycast.nix
   ];
 }
