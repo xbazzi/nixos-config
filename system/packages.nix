@@ -31,6 +31,7 @@
     vlc
     xclip
     gparted
+    qalculate-gtk
     htop
     dig
     # netstat-net-tools
@@ -73,6 +74,7 @@
     gamescope
     google-chrome
     wootility
+    flatpak
 
     # Qt
     # kdePackages.qt5compat

@@ -172,7 +172,7 @@ let
 
   myOverrides = mySettings // {
     "theme.bar.buttons.workspaces.numbered_active_highlighted_text_color" = "#21252b";
-    "theme.bar.buttons.style" = "wave";
+    "theme.bar.buttons.style" = "default";
     "theme.bar.opacity"     = "95";
     "theme.bar.transparent"     = "false";
         # transparent = false;

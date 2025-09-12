@@ -152,8 +152,22 @@
       "wireshark"
     ];
   };
+  
+  # programs.waycast.enable = true;
 
   programs.direnv.enable = true;
+
+  systemd.services.flatpak-repo = {
+    wantedBy = [ "multi-user.target" ];
+    path = [ pkgs.flatpak ];
+    script = ''
+      flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+    '';
+  };
+
+  services.flatpak = {
+    enable = true;
+  };
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

@@ -51,12 +51,11 @@ in
     enable = true;
     settings = {
       ipc = "on";
-      splash = true;
+      splash = false;
       preload = [
         "${wallpaperDir}/dubai.jpg"
         "${wallpaperDir}/amsterdam.jpg"
         "${wallpaperDir}/matsumoto.jpg"
-        # Add all your wallpapers here
       ];
       wallpaper = [
         ",${wallpaperDir}/dubai.jpg"

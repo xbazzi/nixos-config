@@ -38,7 +38,7 @@
         format = "[$symbol($version )]($style)";
       };
       python = {
-        format = "[$symbol($version )]($style)";
+        format = "[$symbol$pyenv_prefix($version)( \($virtualenv\) )]($style)";
       };
       time = {
         disabled = false;

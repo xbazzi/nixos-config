@@ -6,6 +6,13 @@
 }:
 
 {
+  gtk = {
+    enable = true;
+    iconTheme = {
+      name = "Papirus";
+      package = pkgs.papirus-icon-theme;
+    };
+  };
   wayland.windowManager.hyprland = {
     settings = {
       "$file_browser" = "thunar";
@@ -71,7 +78,8 @@
 
         "$mod, f, fullscreen, 0"
 
-        "$mod, d, exec, wofi --show drun"
+        # "$mod, d, exec, wofi --show drun"
+        "$mod, d, exec, waycast"
         "$mod, SPACE, exec, ${pkgs.wofi-emoji}/bin/wofi-emoji"
 
         "$mod, t, exec, kitty --single-instance"
@@ -160,7 +168,7 @@
       windowrulev2 = [
         # "size 1920 1440, class:^(cs2)$"
 
-        "opacity 0.85, class:^(Code)$"
+        "opacity 0.90, class:^(Code)$"
         "opacity 0.75, class:^(kitty)$"
       ];
 
@@ -230,35 +238,20 @@
 
       exec-once = [
         "noisetorch"
-        "hyprpaper"
         ''hyprctl plugin load "$HYPR_PLUGIN_DIR/lib/libhyprexpo.so"''
-        # "sleep 2 && waybar &"
-        # "hypridle &"
-        # "hyprpanel &"
         "eval $(gnome-keyring-daemon --start --components=secrets,ssh,gpg)"
         # "hash dbus-update-activation-environment 2>/dev/null"
         # "dbus-update-activation-environment --all --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
         "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
-
-        # "nm-applet &"
-        # "poweralertd &"
-        # "wl-clip-persist --clipboard both &"
-        # "wl-paste --watch cliphist store &"
-        # "waybar &"
-        # "swaync &"
-        # "hyprctl setcursor Bibata-Modern-Ice 24 &"
-        # "swww-daemon &"
-
-        # "hyprlock"
       ];
 
-      plugins = [
+      # plugins = [
         # inputs.hyprland-plugins.packages.${pkgs.system}.hyprfocus
         # pkgs.hyprlandPlugins.csgo-vulkan-fix
         # legacyPackages.x86_64-linux.hyprlandPlugins.csgo-vulkan-fix
         # inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprbars
         # inputs.hyprland-plugins.packages.${pkgs.system}.csgo-vulkan-fix
-      ];
+      # ];
     };
   };
 }

@@ -35,6 +35,10 @@
       inputs.hyprland.follows = "hyprland";
     };
 
+    waycast = {
+      url = "git+https://gitgud.foo/thegrind/waycast";
+      # inputs.nixpkgs.follows = "nixpkgs";
+    };
     # walker = {
     #   url = "github:abenz1267/walker";
     #   inputs.nixpkgs.follows = "nixpkgs";
@@ -64,6 +68,8 @@
   outputs =
     { nixpkgs, lanzaboote, winapps, ... }@inputs:
     let
+      overlays = [
+      ];
       system = "x86_64-linux";
       pkgs = import nixpkgs {
         system = "x86_64-linux";
@@ -93,7 +99,6 @@
           	   echo "hello"
           	'';
       };
-
       nixosConfigurations = {
         nixos = nixpkgs.lib.nixosSystem {
           inherit system;
@@ -105,7 +110,7 @@
             (
               { pkgs, lib, system ? pkgs.system, ... }:
               {
-
+                # nixpkgs.overlays =  inputs.waycast.overlays.default;
                 environment.systemPackages = [
                   # For debugging and troubleshooting Secure Boot.
                   pkgs.sbctl
@@ -137,6 +142,7 @@
           modules = [
             # inputs.walker.homeManagerModules.default
             inputs.hyprshell.homeManagerModules.default
+            inputs.waycast.homeManagerModules.default
             inputs.stylix.homeModules.stylix
             ./home/default.nix
           ];

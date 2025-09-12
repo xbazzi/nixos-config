@@ -16,6 +16,7 @@
     bat
     yazi
     jetbrains.datagrip
+    # waycast
 
     # Hyprland
     hypridle
