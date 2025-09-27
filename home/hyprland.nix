@@ -153,22 +153,23 @@
         "7, monitor:DP-3, persistent:true"
       ];
 
-        dwindle = {
-          preserve_split = true;
-          smart_resizing = true;
-        };
+      dwindle = {
+        preserve_split = true;
+        smart_resizing = true;
+      };
 
-        general = {
-          gaps_out = 0;
-          gaps_in = 0;
-          layout = "master";
-          # layout = "dwindle";
-        };
+      general = {
+        gaps_out = 0;
+        gaps_in = 0;
+        layout = "master";
+        # layout = "dwindle";
+      };
 
       windowrulev2 = [
         # "size 1920 1440, class:^(cs2)$"
 
-        "opacity 0.90, class:^(Code)$"
+        "opacity 0.87, class:^(Code)$"
+        "opacity 0.87, class:^(code)$"
         "opacity 0.75, class:^(kitty)$"
       ];
 

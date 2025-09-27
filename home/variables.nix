@@ -24,6 +24,7 @@
   #  /etc/profiles/per-user/nixxer/etc/profile.d/hm-session-vars.sh
   #
   home.sessionVariables = {
+    NIXOS_OZONE_WL = 1;
     XDG_CACHE_HOME = "${config.home.homeDirectory}/.cache";
     XDG_CONFIG_HOME = "${config.home.homeDirectory}/.config";
     XDG_DATA_HOME = "${config.home.homeDirectory}/.local/share";

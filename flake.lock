@@ -339,11 +339,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1757650187,
-        "narHash": "sha256-OrythrqccPKtuVt0mj26rr83Qo3Ljb4ZmwLdPGjzjMU=",
+        "lastModified": 1757698511,
+        "narHash": "sha256-UqHHGydF/q3jfYXCpvYLA0TWtvByOp1NwOKCUjhYmPs=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "9eab59f3e71ea3a725e4817d8dcf0da0824ad19d",
+        "rev": "a3fcc92180c7462082cd849498369591dfb20855",
         "type": "github"
       },
       "original": {
@@ -1103,11 +1103,11 @@
         "nixpkgs": "nixpkgs_5"
       },
       "locked": {
-        "lastModified": 1757641686,
-        "narHash": "sha256-2y71+16em0V9ZhyVkRekpq9IVjtmk0Xj/lBwr1UNfbc=",
+        "lastModified": 1758653299,
+        "narHash": "sha256-WchQGWNtEZFVIyOUBos4ZU5aleU4GHEqPdJ+Qm1pyvg=",
         "ref": "refs/heads/master",
-        "rev": "45e7f93c0f9cfef71ccead95a5125b2b172fd0d3",
-        "revCount": 87,
+        "rev": "3ab1a80c95183c3864aebec1b22284379162b195",
+        "revCount": 131,
         "type": "git",
         "url": "https://gitgud.foo/thegrind/waycast"
       },
