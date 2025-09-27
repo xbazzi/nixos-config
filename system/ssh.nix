@@ -21,7 +21,7 @@
         IdentitiesOnly yes
 
     Host gitgud.foo
-        HostName prod1.lan.xbazzi.com
+        HostName prod2
         User git
         Port 2222
         PubkeyAuthentication yes
