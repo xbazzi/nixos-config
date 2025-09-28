@@ -16,7 +16,6 @@
     bat
     yazi
     jetbrains.datagrip
-    # waycast
 
     # Hyprland
     hypridle
@@ -26,14 +25,6 @@
 
     # Python
     python3Packages.gpustat
-
-    # Old stuff for documentation
-    # gnomeExtensions.appindicator
-    # waybar
-    # eww
-    # (pkgs.nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
-    #zsh-powerlevel10k
-    #inputs.nixvim.packages.${pkgs.system}.default
   ];
   services.gnome-keyring.enable = true;
 }
