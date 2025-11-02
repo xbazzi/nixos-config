@@ -48,7 +48,8 @@
     variety
     fzf
     eza
-    linuxPackages_latest.perf
+    # linuxPackages_latest.perf
+    perf
     minicom
     wireshark
     trash-cli
@@ -61,6 +62,11 @@
     unzip
     nettools
     vibrantlinux
+
+    # Dev
+    cmake
+    cmakeWithGui
+    gdb
 
     # Hyprland Ecosystem
     hyprpaper
@@ -75,6 +81,7 @@
     google-chrome
     wootility
     flatpak
+    stm32cubemx
 
     # Qt
     # kdePackages.qt5compat
@@ -88,10 +95,8 @@
 
   programs.nix-ld.enable = true;
   programs.thunderbird.enable = true;
-  # Install noisetorch.
   programs.noisetorch.enable = true;
 
-  # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
   # Install Steam
@@ -101,12 +106,8 @@
     dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
     localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
   };
+
   programs.gamemode.enable = true;
   hardware.graphics.enable = true;
   hardware.wooting.enable = true;
-  #     "steam"
-  #     "steam-original"
-  #     "steam-unwrapped"
-  #     "steam-run"
-  #   ];
 }

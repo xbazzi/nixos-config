@@ -25,8 +25,7 @@
     # ./waybar.nix
     # ./dconf.nix
     # ./quickshell.nix
-    # ./hyprpanel.nix
-    ./hyprpanel2.nix
+    ./hyprpanel.nix
     ./wofi.nix
     ./hyprpaper2.nix
     ./waycast.nix

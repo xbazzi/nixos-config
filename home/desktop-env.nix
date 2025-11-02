@@ -13,6 +13,10 @@
 }:
 # Complete Desktop Applications Suite for Home Manager
 {
+  xdg.configFile."Thunar/thunarrc".text = ''
+    [Configuration]
+    DefaultView=ThunarDetailsView
+  '';
   # Media Viewers
   home.packages = with pkgs; [
     # *** File Manager ***
@@ -98,7 +102,7 @@
       "application/x-rar" = "org.kde.ark.desktop";
 
       # Directory
-      "inode/directory" = "org.kde.dolphin.desktop";
+      "inode/directory" = "org.xfce.thunar.desktop";
     };
   };
 

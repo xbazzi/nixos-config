@@ -93,7 +93,7 @@
         "$mod, b, exec, kitty -- zsh -c 'exec btop; exec zsh'"
         "$mod CTRL, n, exec, kitty --start-as=normal -- zsh -ic 'code ~/nixos-config && exit'"
 
-        "$mod, i, exec, brave"
+        "$mod, i, exec, brave --disable-features=WaylandWpColorManagerV1"
         "$mod, u, exec, kitty --start-as=normal -- zsh -ic 'home'"
         # "$mod, y, exec, kitty --start-as=normal -- zsh -ic 'repos'"
         "$mod, y, exec, eza -ld $HOME/repos/* --color=never | awk '{print $7}' | wofi --dmenu --prompt \"Open project:\" | xargs -I{} code {} -n && exit"
@@ -171,6 +171,9 @@
         "opacity 0.87, class:^(Code)$"
         "opacity 0.87, class:^(code)$"
         "opacity 0.75, class:^(kitty)$"
+      ];
+      layerrule = [
+        "noanim, Waycast"
       ];
 
       # layerrule = [

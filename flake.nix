@@ -36,7 +36,8 @@
     };
 
     waycast = {
-      url = "git+https://gitgud.foo/thegrind/waycast";
+      # url = "git+https://gitgud.foo/thegrind/waycast";
+      url = "github:javif89/waycast";
       # inputs.nixpkgs.follows = "nixpkgs";
     };
     # walker = {

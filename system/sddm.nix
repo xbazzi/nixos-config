@@ -51,11 +51,11 @@ in
     wayland.enable = true;
     theme = "chili";
     autoNumlock = true;
-    package = pkgs.libsForQt5.sddm;
-    extraPackages = with pkgs.libsForQt5.qt5; [
-      qtgraphicaleffects
-      qtquickcontrols2
-      qtquickcontrols
+    package = pkgs.kdePackages.sddm;
+    extraPackages = with pkgs.kdePackages; [
+      # qtgraphicaleffects
+      # qtquickcontrols2
+      # qtquickcontrols
       qtsvg
       qtdeclarative # QtQuick core
     ];
