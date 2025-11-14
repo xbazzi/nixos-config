@@ -9,13 +9,18 @@
 {
   programs.git = {
     enable = true;
-    userName = "xbazzi";
-    userEmail = "codemaster@xbazzi.com";
-    aliases = {
-      gs = "status";
-      pu = "push";
-      co = "checkout";
-      cm = "commit";
+    settings = {
+      core.editor = "nvim";
+      pull.rebase = false;
+      init.defaultBranch = "master";
+      user.name = "xbazzi";
+      user.email = "codemaster@xbazzi.com";
+      aliases = {
+        gs = "status";
+        pu = "push";
+        co = "checkout";
+        cm = "commit";
+      };
     };
   };
 }

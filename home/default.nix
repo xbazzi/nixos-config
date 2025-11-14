@@ -28,7 +28,7 @@
     ./hyprpanel.nix
     ./wofi.nix
     ./hyprpaper2.nix
-    ./waycast.nix
+    # ./waycast.nix
     ./git.nix
     ./hyprland.nix
     ./zsh.nix

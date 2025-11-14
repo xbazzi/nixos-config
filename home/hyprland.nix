@@ -37,10 +37,10 @@
       # Mouse stuff (Ew... I know)
       bindm = [
         # Right click move
-        "ALT, mouse:272, movewindow"
+        "$mod, mouse:272, movewindow"
 
         # Left click resize
-        "ALT, mouse:273, resizewindow"
+        "$mod, mouse:273, resizewindow"
         # "ALT CTRL, mouse:272, resizewindow 1"
       ];
 
@@ -78,8 +78,8 @@
 
         "$mod, f, fullscreen, 0"
 
-        # "$mod, d, exec, wofi --show drun"
-        "$mod, d, exec, waycast"
+        "$mod, d, exec, wofi --show drun"
+        # "$mod, d, exec, wofi --show combi"
         "$mod, SPACE, exec, ${pkgs.wofi-emoji}/bin/wofi-emoji"
 
         "$mod, t, exec, kitty --single-instance"
@@ -108,7 +108,7 @@
         # Log out
         # "$mod, -, exec, hyprctl dispatch exit"
         "$mod SHIFT ALT, x, exec, hyprctl dispatch exit"
-        
+
         # Reload
         "$mod SHIFT rLT, R, exec, hyprctl reload"
 
@@ -168,8 +168,8 @@
       windowrulev2 = [
         # "size 1920 1440, class:^(cs2)$"
 
-        "opacity 0.87, class:^(Code)$"
-        "opacity 0.87, class:^(code)$"
+        "opacity 0.95, class:^(Code)$"
+        "opacity 0.95, class:^(code)$"
         "opacity 0.75, class:^(kitty)$"
       ];
       layerrule = [
@@ -250,11 +250,11 @@
       ];
 
       # plugins = [
-        # inputs.hyprland-plugins.packages.${pkgs.system}.hyprfocus
-        # pkgs.hyprlandPlugins.csgo-vulkan-fix
-        # legacyPackages.x86_64-linux.hyprlandPlugins.csgo-vulkan-fix
-        # inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprbars
-        # inputs.hyprland-plugins.packages.${pkgs.system}.csgo-vulkan-fix
+      # inputs.hyprland-plugins.packages.${pkgs.system}.hyprfocus
+      # pkgs.hyprlandPlugins.csgo-vulkan-fix
+      # legacyPackages.x86_64-linux.hyprlandPlugins.csgo-vulkan-fix
+      # inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprbars
+      # inputs.hyprland-plugins.packages.${pkgs.system}.csgo-vulkan-fix
       # ];
     };
   };

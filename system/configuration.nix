@@ -169,6 +169,13 @@
     enable = true;
   };
 
+  environment.sessionVariables = rec {
+    XDG_BIN_HOME    = "$HOME/.local/bin";
+    PATH = [ 
+      "/opt/intel/oneapi/vtune/latest/bin64"
+    ];
+  };
+
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;

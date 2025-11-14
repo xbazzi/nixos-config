@@ -1,0 +1,205 @@
+// Place your key bindings in this file to override the defaults
+[
+    // {
+    //     "key": "ctrl+shift+`",
+    //     "command": "workbench.action.closeAllEditors"
+    // },
+    // AI stuff
+    {
+        "key": "ctrl+alt+c",
+        "command": "inlineChat.start",
+        "when": "editorFocus && inlineChatHasEditsAgent && inlineChatPossible && !editorReadonly && !editorSimpleInput || editorFocus && inlineChatHasProvider && inlineChatPossible && !editorReadonly && !editorSimpleInput"
+    },
+    {
+        "key": "ctrl+down",
+        "command": "workbench.action.compareEditor.nextChange",
+        "when": "textCompareEditorVisible"
+    },
+    // Go to next diff
+    {
+        "key": "ctrl+up",
+        "command": "workbench.action.compareEditor.previousChange",
+        "when": "textCompareEditorVisible"
+    },
+    {
+        "key": "ctrl+shift+1",
+        "command": "workbench.files.action.collapseExplorerFolders"
+    },
+    // {
+    //     "key": "ctrl+shift+i",
+    //     // "command": "workbench.action.quickOpenNavigatePreviousInFilePicker",
+    //     "command": "workbench.action.file",
+    //     // "when": "inFilesPicker && inQuickOpen"
+    // },
+    {
+        "key": "ctrl+shift+i",
+        "command": "workbench.action.quickOpenNavigatePreviousInFilePicker",
+        "when": "inFilesPicker && inQuickOpen"
+    },
+    {
+        "key": "ctrl+alt+w",
+        "command": "workbench.action.closeActiveEditor"
+    },
+    //************************************************************************************
+    // **** These will toggle the sidebar visibility when viewing any sidebar tools ******
+    //************************************************************************************
+    // This one not needed; it's already default behavior
+    {
+        "key": "ctrl+shift+e",
+        "command": "workbench.view.explorer",
+        "when": "editorFocus && viewContainer.workbench.view.explorer.enabled"
+    },
+    // {
+    //     "key": "ctrl+shift+e",
+    //     "command": "workbench.action.toggleSidebarVisibility",
+    //     "when": "!editorFocus"
+    // 
+    {
+        "key": "ctrl+shift+g",
+        "command": "workbench.view.scm",
+        "when": "editorFocus || !editorFocus"
+    },
+    {
+        "key": "ctrl+f3",
+        "command": "-"
+    },
+    //***************************************
+    // ***** Useful explorer shortcuts ******
+    //***************************************
+    {
+        "key": "ctrl+a",
+        "command": "explorer.newFile",
+        "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
+    },
+    {
+        "key": "ctrl+shift+a",
+        "command": "explorer.newFolder",
+        "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
+    },
+    {
+        "key": "ctrl+d",
+        "command": "deleteFile",
+        "when": "explorerViewletVisible && filesExplorerFocus && !inputFocus"
+    },
+    // Panel splits
+    {
+        "key": "ctrl+\\",
+        "command": "workbench.action.splitEditorRight",
+        "when": "editorFocus"
+    },
+    {
+        "key": "ctrl+h",
+        "command": "workbench.action.navigateLeft",
+        "when": "editorFocus"
+    },
+    {
+        "key": "ctrl+l",
+        "command": "workbench.action.navigateRight",
+        "when": "editorFocus"
+    },
+    {
+        "key": "ctrl+shift+w",
+        "command": "workbench.action.joinAllGroups",
+        "when": "editorFocus"
+    },
+    // Emmet
+    {
+        "key": "ctrl+shift+alt+p",
+        "command": "editor.emmet.action.wrapWithAbbreviation",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+shift+alt+i",
+        "command": "editor.emmet.action.balanceIn",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "ctrl+shift+alt+o",
+        "command": "editor.emmet.action.balanceOut",
+        "when": "editorTextFocus"
+    },
+    //*****************************
+    //***** Terminal resizing *****
+    //*****************************
+    {
+        "key": "ctrl+shift+h",
+        "command": "workbench.action.terminal.focusPreviousPane",
+        "when": "terminalFocus" // && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+    },
+    {
+        "key": "ctrl+shift+l",
+        "command": "workbench.action.terminal.focusNextPane",
+        "when": "terminalFocus" //&& terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+    },
+    {
+        "key": "ctrl+shift+k",
+        "command": "workbench.action.terminal.resizePaneUp",
+        "when": "terminalFocus || editorFocus" // && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+    },
+    {
+        "key": "ctrl+shift+j",
+        "command": "workbench.action.terminal.resizePaneDown",
+        "when": "terminalFocus || editorFocus" //&& terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+    },
+    // {
+    //     "key": "alt+h",
+    //     "command": "workbench.action.terminal.focusPreviousPane",
+    //     "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+    // },
+    // {
+    //     "key": "alt+l",
+    //     "command": "workbench.action.terminal.focusNextPane",
+    //     "when": "terminalFocus && terminalHasBeenCreated || terminalFocus && terminalProcessSupported"
+    // },
+    /**
+    * Navigation
+    */
+    // {
+    //     "key": "shift+k",
+    //     "command": "editor.action.showHover",
+    //     "when": "editorTextFocus"
+    // },
+    {
+        "key": "ctrl+shift+h",
+        "command": "workbench.action.increaseViewSize",
+        "when": "editorFocus"
+    },
+    {
+        "key": "ctrl+shift+l",
+        "command": "workbench.action.decreaseViewSize",
+        "when": "editorFocus"
+    },
+    {
+        "key": "ctrl+alt+h",
+        "command": "workbench.action.moveEditorToPreviousGroup"
+    },
+    {
+        "key": "ctrl+alt+l",
+        "command": "workbench.action.moveEditorToNextGroup"
+    },
+    {
+        "key": "alt+n",
+        "command": "workbench.action.quickOpenSelectNext",
+        "when": "inQuickOpen"
+    },
+    {
+        "key": "alt+p",
+        "command": "workbench.action.quickOpenSelectPrevious",
+        "when": "inQuickOpen"
+    },
+    {
+        "key": "alt+0",
+        "command": "workbench.action.closeQuickOpen",
+        "when": "inQuickOpen"
+    },
+    {
+        "key": "ctrl+shift+escape",
+        "command": "notifications.hideList",
+        "when": "notificationCenterVisible"
+    },
+    {
+        "key": "escape",
+        "command": "-notifications.hideList",
+        "when": "notificationCenterVisible"
+    }
+]

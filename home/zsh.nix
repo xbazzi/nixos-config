@@ -86,7 +86,6 @@
         flakePath = "~/nixos-config";
       in
       {
-        # la="eza -s modified -r -lh";
         fonts = "fc-list : family ";
 
         workspaces = "hyprctl -j workspaces | jq '.[] | {id, monitor, windows, active}'";
@@ -109,6 +108,8 @@
         sudo = "sudo ";
         edit-groupvars = "EDITOR='code --wait' ansible-vault edit /home/xbazzi/repos/ansible-on-prem/inventory/group_vars/all.yml";
         edit-hosts = "EDITOR='code --wait' ansible-vault edit /home/xbazzi/repos/ansible-on-prem/inventory/hosts.yml";
+        vtune = "sudo /opt/intel/oneapi/vtune/latest/bin64/vtune";
+        vtune-perf-snapshot = "vtune -collect performance-snapshot -r ";
       };
 
     # plugins = [

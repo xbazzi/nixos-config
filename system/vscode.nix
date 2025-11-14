@@ -7,39 +7,78 @@
 }:
 
 {
-  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-    "claude-code"
-  ];
+  nixpkgs.config.allowUnfreePredicate =
+    pkg:
+    builtins.elem (lib.getName pkg) [
+      "claude-code"
+    ];
   environment.systemPackages = with pkgs; [
     (vscode-with-extensions.override {
       vscodeExtensions =
         with vscode-extensions;
         [
-          redhat.vscode-yaml
-          redhat.ansible
           ms-python.python
           ms-azuretools.vscode-docker
           ms-vscode-remote.remote-ssh
-          # golang.go
           ms-vscode.cpptools
           ms-vsliveshare.vsliveshare
           ms-python.python
+          ms-vscode-remote.remote-containers
+          ms-vscode.cmake-tools
+          ms-vscode.hexeditor
+          redhat.vscode-yaml
+          redhat.ansible
           vscodevim.vim
           enkia.tokyo-night
           yzhang.markdown-all-in-one
           vscode-icons-team.vscode-icons
-          ms-vscode-remote.remote-containers
           bmewburn.vscode-intelephense-client
           zxh404.vscode-proto3
           twxs.cmake
-          ms-vscode.cmake-tools
           tamasfe.even-better-toml
           formulahendry.code-runner
           jnoortheen.nix-ide
           mkhl.direnv
+          eamodio.gitlens
+          mhutchie.git-graph
+          johnpapa.winteriscoming
+          github.copilot
+          github.copilot-chat
+          bierner.github-markdown-preview
+          xaver.clang-format
           # llvm-vs-code-extensions.vscode-clangd
         ]
         ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
+          # {
+          #   name = "vscode-clang";
+          #   publisher = "mitaki28";
+          #   version = "0.2.4";
+          #   sha256 = "Q3R781Vxn4hQUHwCB+CbNmktWL5UACwmtVbZLQkU2ms=";
+          # }
+          {
+            name = "cs128-clang-tidy";
+            publisher = "cs128";
+            version = "0.5.1";
+            sha256 = "FCIizR4R1sJiifs7V4j50lMSrMZChrKV05CN8c0cWbg=";
+          }
+          {
+            name = "Doxygen";
+            publisher = "bbenoist";
+            version = "1.0.0";
+            sha256 = "FhH+pi2lVD7pZJMa4znJDz3S7Zqw8ltpYUMqW4FZlE0=";
+          }
+          {
+            name = "doxdocgen";
+            publisher = "cschlosser";
+            version = "1.4.0";
+            sha256 = "InEfF1X7AgtsV47h8WWq5DZh6k/wxYhl2r/pLZz9JbU=";
+          }
+          {
+            name = "c-cpp-definition-generator";
+            publisher = "reignofwebber";
+            version = "0.0.2";
+            sha256 = "WoMeL41HB/URCKqqnK09s2Y2e72ffnYeckBcRCEg2dE=";
+          }
           {
             name = "remote-ssh-edit";
             publisher = "ms-vscode-remote";
@@ -49,7 +88,7 @@
           {
             name = "better-cpp-syntax";
             publisher = "jeff-hykin";
-            version = "1.0.0";
+            version = "1.27.1";
             sha256 = "+TO/0spMGHKciWK8jd2kt+S4eNgQytpOkMYvv1av9KU=";
 
           }
@@ -86,13 +125,13 @@
           #   sha256 = "/5Znf9QvAQN65mZxniRVycfaktjht+mwODhqBueVGU8=";
 
           # }
-          
-          # {
-          #   name = "claude-code";
-          #   publisher = "anthropic";
-          #   version = "1.0.80";
-          #   sha256 = "WNm29AUas6ZmMC2odIs1wBNknG3DL1T2jXQChpvqTLA=";
-          # }
+
+          {
+            name = "claude-code";
+            publisher = "anthropic";
+            version = "2.0.31";
+            sha256 = "ylcb5Ty9x9uj38OY0RXsS+YNKVKUzc1c5x6RJsZ3E2g=";
+          }
           # {
           #   name = "stm32cube-ide-build-cmake";
           #   publisher = "stmicroelectronics";
@@ -117,7 +156,7 @@
           #   version = "1.0.2";
           #   sha256 = "eHT6DZSFIFa69dhWEWAJQJexVknyWMpIBsaVkOLAxNM=";
           # }
-          
+
           # {
           #   name = "stm32cube-ide-clangd";
           #   publisher = "stmicroelectronics";
@@ -148,7 +187,7 @@
           #   version = "1.0.2";
           #   sha256 = "iJ8RHQ+eQszVI/Z13yGD/pdIEZIjir99rnYz6k2oZD8=";
           # }
-          
+
           # {
           #   name = "stm32cube-ide-core";
           #   publisher = "stmicroelectronics";
@@ -161,7 +200,7 @@
           #   version = "1.0.2";
           #   sha256 = "TeMZvIuJZaRJUZot0oBP36N7lL7eGRAJIL7PiGx69yA=";
           # }
-          
+
           #  {
           #    name = "sukumo28.wav-preview";
           #    publisher = "sukumo28";
