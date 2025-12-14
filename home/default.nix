@@ -8,7 +8,6 @@
 
 {
   imports = [
-    # inputs.hyprshell.homeManagerModules.default
     ./home.nix
     ./yazi.nix
     ./bash.nix
@@ -16,19 +15,16 @@
     ./tmux.nix
     ./starship.nix
     ./fzf.nix
-    #./vscode.nix
     ./packages.nix
     ./desktop-env.nix
     ./hyprlock.nix
     ./hypridle.nix
     ./notify.nix
-    # ./waybar.nix
-    # ./dconf.nix
-    # ./quickshell.nix
+    ./zoxide.nix
     ./hyprpanel.nix
     ./wofi.nix
-    ./hyprpaper2.nix
-    # ./waycast.nix
+    ./hyprpaper.nix
+    ./waycast.nix
     ./git.nix
     ./hyprland.nix
     ./zsh.nix

@@ -1,7 +1,13 @@
-{ config, lib, pkgs, system, inputs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  system,
+  inputs,
+  ...
+}:
 {
   environment.systemPackages = with pkgs; [
-
 
     # (inputs.nixpkgs.legacyPackages.${pkgs.system}.claude-code)
     # modrinth-app
@@ -62,6 +68,7 @@
     unzip
     nettools
     vibrantlinux
+    wpa_supplicant_gui
 
     # Dev
     cmake
@@ -78,6 +85,7 @@
       withSystemd = true;
     })
     gamescope
+    jetbrains.clion
     google-chrome
     wootility
     flatpak
@@ -89,9 +97,11 @@
     # libsForQt5.qt5.qtdeclarative
   ];
 
-  nixpkgs.config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
-    "claude-code"
-  ];
+  nixpkgs.config.allowUnfreePredicate =
+    pkg:
+    builtins.elem (lib.getName pkg) [
+      "claude-code"
+    ];
 
   programs.nix-ld.enable = true;
   programs.thunderbird.enable = true;

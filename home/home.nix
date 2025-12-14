@@ -23,7 +23,6 @@
     };
   };
 
-
   programs.command-not-found.enable = false;
 
   # Let Home Manager install and manage itself.

@@ -78,7 +78,8 @@
 
         "$mod, f, fullscreen, 0"
 
-        "$mod, d, exec, wofi --show drun"
+        # "$mod, d, exec, wofi --show drun"
+        "$mod, d, exec, waycast"
         # "$mod, d, exec, wofi --show combi"
         "$mod, SPACE, exec, ${pkgs.wofi-emoji}/bin/wofi-emoji"
 
@@ -96,7 +97,7 @@
         "$mod, i, exec, brave --disable-features=WaylandWpColorManagerV1"
         "$mod, u, exec, kitty --start-as=normal -- zsh -ic 'home'"
         # "$mod, y, exec, kitty --start-as=normal -- zsh -ic 'repos'"
-        "$mod, y, exec, eza -ld $HOME/repos/* --color=never | awk '{print $7}' | wofi --dmenu --prompt \"Open project:\" | xargs -I{} code {} -n && exit"
+        # "$mod, y, exec, eza -ld $HOME/repos/* --color=never | awk '{print $7}' | wofi --dmenu --prompt \"Open project:\" | xargs -I{} code {} -n && exit"
 
         "$mod, s, togglespecialworkspace, special1"
         # "$mod, v, togglespecialworkspace, special2"

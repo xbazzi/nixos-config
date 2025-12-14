@@ -5,7 +5,7 @@ with lib; let
   hypr-plugin-dir = pkgs.symlinkJoin {
     name = "hyrpland-plugins";
     paths = with hyprPluginPkgs; [
-      csgo-vulkan-fix
+      #csgo-vulkan-fix
       #...plugins
     ];
   };

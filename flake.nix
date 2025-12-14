@@ -2,6 +2,8 @@
   description = "My system configuration";
 
   inputs = {
+    # nixpkgs-vscode-old.url = "github:NixOS/nixpkgs/COMMIT_HASH";
+
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     stylix = {
@@ -27,7 +29,7 @@
       url = "github:winapps-org/winapps";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    
+
     hyprland.url = "github:hyprwm/Hyprland";
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
@@ -67,7 +69,12 @@
   };
 
   outputs =
-    { nixpkgs, lanzaboote, winapps, ... }@inputs:
+    {
+      nixpkgs,
+      lanzaboote,
+      winapps,
+      ...
+    }@inputs:
     let
       overlays = [
       ];
@@ -109,7 +116,12 @@
             lanzaboote.nixosModules.lanzaboote
             ./system/default.nix
             (
-              { pkgs, lib, system ? pkgs.system, ... }:
+              {
+                pkgs,
+                lib,
+                system ? pkgs.system,
+                ...
+              }:
               {
                 # nixpkgs.overlays =  inputs.waycast.overlays.default;
                 environment.systemPackages = [
@@ -154,7 +166,7 @@
       home-manager.users.xbazzi = {
         nixpkgs.config.allowUnfree = true;
         extraSpecialArgs = { inherit inputs; };
-        # imports = 
+        # imports =
       };
 
       # home-manager.users.xbazzi = {

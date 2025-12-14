@@ -18,7 +18,6 @@
   hardware.graphics.enable = true;
   hardware.graphics.enable32Bit = true;
 
-
   # OpenRGB
   services.hardware.openrgb.enable = true;
 
@@ -44,7 +43,7 @@
   # };
 
   # nix.settings = {
-  #   substituters = [ 
+  #   substituters = [
   #     "https://hyprland.cachix.org"
   #     "https://walker.cachix.org"
   #   ];
@@ -102,6 +101,9 @@
 
   # Virtualization
   virtualisation.docker.enable = true;
+  virtualisation.virtualbox.host.enable = true;
+  virtualisation.virtualbox.guest.enable = true;
+  virtualisation.virtualbox.guest.dragAndDrop = true;
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -152,7 +154,7 @@
       "wireshark"
     ];
   };
-  
+
   # programs.waycast.enable = true;
 
   programs.direnv.enable = true;
@@ -170,9 +172,18 @@
   };
 
   environment.sessionVariables = rec {
-    XDG_BIN_HOME    = "$HOME/.local/bin";
-    PATH = [ 
+    XDG_BIN_HOME = "$HOME/.local/bin";
+    PATH = [
       "/opt/intel/oneapi/vtune/latest/bin64"
+    ];
+  };
+
+  # sandboxing for pulling waycast from crates.io
+  nix.settings = {
+    sandbox = false;
+    sandbox-paths = [
+      "/etc/resolv.conf"
+      "/etc/ssl/certs"
     ];
   };
 

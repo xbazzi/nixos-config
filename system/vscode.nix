@@ -46,6 +46,7 @@
           github.copilot-chat
           bierner.github-markdown-preview
           xaver.clang-format
+
           # llvm-vs-code-extensions.vscode-clangd
         ]
         ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
@@ -55,6 +56,25 @@
           #   version = "0.2.4";
           #   sha256 = "Q3R781Vxn4hQUHwCB+CbNmktWL5UACwmtVbZLQkU2ms=";
           # }
+          # {
+          #   name = "vim-cheatsheet";
+          #   publisher = "AndenetAlexander";
+          #   version = "0.0.1";
+          #   sha256 = "V7xVIC7HVsdX4rIAntFPsr/Z94LsnKq1/I8K8DtRtNA=";
+          # }
+          # {
+          #   name = "anseki";
+          #   publisher = "vscode-color";
+          #   version = "0.5.1";
+          #   sha256 = "FCIizR4R1sJiifs7V4j50lMSrMZChrKV05CN8c0cWbg=";
+          # }
+
+          {
+            name = "ml-language-support";
+            publisher = "valcioffi";
+            version = "1.1.1";
+            sha256 = "WBwvH7jbeWy+0P30XQbyUtSIZqglfYFtn4ayTGgpyOs=";
+          }
           {
             name = "cs128-clang-tidy";
             publisher = "cs128";
@@ -89,7 +109,7 @@
             name = "better-cpp-syntax";
             publisher = "jeff-hykin";
             version = "1.27.1";
-            sha256 = "+TO/0spMGHKciWK8jd2kt+S4eNgQytpOkMYvv1av9KU=";
+            sha256 = "GO/ooq50KLFsiEuimqTbD/mauQYcD/p2keHYo/6L9gw=";
 
           }
           {

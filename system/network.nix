@@ -15,7 +15,10 @@
   networking = {
     useDHCP = false;
     hostName = "nixos";
-    wireless.enable = false;
+    wireless = {
+      enable = true;
+      userControlled.enable = true;
+    };
     interfaces.enp6s0f0 = {
       ipv4.addresses = [
         {
@@ -23,12 +26,14 @@
           prefixLength = 22;
         }
       ];
-      mtu = 9000;
+      mtu = 1500;
     };
+
     defaultGateway = {
       address = "10.29.90.1";
       interface = "enp6s0f0";
     };
+
     nameservers = [ "10.29.90.1" ];
     search = [ "lan.xbazzi.com" ];
     hosts = {
