@@ -14,33 +14,36 @@
 
   networking = {
     useDHCP = false;
+    # interfaces.enp5s0.useDHCP = true;
+    # useDHCP = true;
     hostName = "nixos";
     wireless = {
       enable = true;
       userControlled.enable = true;
     };
-    interfaces.enp6s0f0 = {
-      ipv4.addresses = [
-        {
-          address = "10.29.90.100";
-          prefixLength = 22;
-        }
-      ];
-      mtu = 1500;
-    };
+    # interfaces.enp6s0f0 = {
+    #   ipv4.addresses = [
+    #     {
+    #       address = "10.29.90.100";
+    #       prefixLength = 22;
+    #     }
+    #   ];
+    #   mtu = 1500;
+    # };
 
-    defaultGateway = {
-      address = "10.29.90.1";
-      interface = "enp6s0f0";
-    };
+    # defaultGateway = {
+    #   address = "10.29.90.1";
+    #   interface = "enp6s0f0";
+    # };
 
-    nameservers = [ "10.29.90.1" ];
-    search = [ "lan.xbazzi.com" ];
+    # nameservers = [ "10.29.90.1" ];
+    # search = [ "lan.xbazzi.com" ];
     hosts = {
       "127.0.0.1" = [ "localhost" ];
-      "10.29.90.100" = [ "nixos" ];
+      # "10.29.90.100" = [ "nixos" ];
     };
   };
+  systemd.network.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

@@ -46,6 +46,7 @@
           github.copilot-chat
           bierner.github-markdown-preview
           xaver.clang-format
+          vue.volar
 
           # llvm-vs-code-extensions.vscode-clangd
         ]

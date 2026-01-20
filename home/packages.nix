@@ -23,8 +23,11 @@
     hyprpanel
     wofi
 
+    # Cursor
+    adwaita-cursor-theme
+
     # Python
     python3Packages.gpustat
   ];
-  services.gnome-keyring.enable = true;
+  # services.gnome-keyring.enable = true;
 }

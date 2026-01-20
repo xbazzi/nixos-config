@@ -9,5 +9,4 @@
       X11Forwarding = true;
     };
   };
-  # services.udev.packages = [ pkgs.gnome-settings-daemon ];
 }

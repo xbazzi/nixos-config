@@ -111,12 +111,11 @@
         workspaces = "hyprctl -j workspaces | jq '.[] | {id, monitor, windows, active}'";
         reboot = ''echo "Nice try. Use \`sudo /run/current-system/sw/bin/reboot\` instead."'';
         reboot-foreal = "sudo /run/current-system/sw/bin/reboot now";
-        cat = " bat";
+        # cat = " bat";
         cb = "cmake -B build -S . && cmake --build build -j$(nproc)";
         la = "eza -s modified -lhr --icons --git";
         ls = "eza -lh --group-directories-first --icons --git";
         ll = "\\ls -lath";
-        z = "zoxide ";
         update = "sudo nixos-rebuild switch";
         # la = "ls -lAth";
         # lr = "ls -ltr";

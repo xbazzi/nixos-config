@@ -37,7 +37,7 @@ let
     matugen = false;
 
     font = {
-      name  = "Monaspace Krypton";
+      name = "Monaspace Krypton";
       label = "Monaspace Krypton Medium";
     };
 
@@ -46,25 +46,25 @@ let
     bar = {
 
       bar.background = lib.mkForce "#000000";
-      floating    = false;
-      location    = "bottom";
-      opacity     = 50;
+      floating = false;
+      location = "bottom";
+      opacity = 50;
       transparent = false;
 
       border = {
         location = "none";
-        width    = "0.15em";
+        width = "0.15em";
       };
 
       buttons = {
         style = "default";
-        borderSize    = "0.02em";
+        borderSize = "0.02em";
         enableBorders = false;
-        monochrome    = false;
+        monochrome = false;
 
         network.enableBorder = true;
         systray.enableBorder = false;
-        clock.enableBorder   = false;
+        clock.enableBorder = false;
 
         windowtitle = {
           icon = "#00ff19";
@@ -72,23 +72,23 @@ let
         };
 
         workspaces = {
-          active                          = "#05ff00";
+          active = "#05ff00";
           numbered_active_underline_color = "#00d0d0";
-          occupied                        = "#00d0d0";
+          occupied = "#00d0d0";
         };
 
         modules = {
           hypridle.enableBorder = true;
-          cava.enableBorder     = true;
+          cava.enableBorder = true;
           netstat = {
             enableBorder = false;
-            spacing      = "0.45em";
+            spacing = "0.45em";
           };
         };
       };
 
       menus.menu.media = {
-        artist         = "#50ff00";
+        artist = "#50ff00";
         slider.primary = "#00e2c5";
       };
     };
@@ -106,8 +106,8 @@ in
         customModules = {
           hypridle = {
             isActiveCommand = "systemctl --user status hypridle.service | grep -q 'Active: active (running)' && echo 'yes' || echo 'no'";
-            startCommand    = "systemctl --user start hypridle.service";
-            stopCommand     = "systemctl --user stop hypridle.service";
+            startCommand = "systemctl --user start hypridle.service";
+            stopCommand = "systemctl --user stop hypridle.service";
           };
           storage.paths = [ "/" ];
           hyprsunset = {
@@ -117,27 +117,25 @@ in
           };
           netstat = {
             networkInterface = "enp6s0f0";
-            label            = true;
-            leftClick        = "nm-applet";
+            label = true;
+            leftClick = "nm-applet";
           };
         };
 
         launcher.autoDetectIcon = true;
 
         layouts = {
-          "0" = { left = [ ]; middle = [ ]; right = [ ]; };
-          "1" = { left = [ ]; middle = [ ]; right = [ ]; };
-          "2" = {
-            left   = [ 
+          "0" = {
+            left = [
               "dashboard"
               "workspaces"
               "media"
               "volume"
             ];
-            middle = [ 
+            middle = [
               "clock"
             ];
-            right  = [
+            right = [
               "systray"
               "netstat"
               "hyprsunset"
@@ -146,49 +144,53 @@ in
               "notifications"
             ];
           };
+          "1" = {
+            left = [ ];
+            middle = [ ];
+            right = [ ];
+          };
         };
 
         network = {
-          label           = true;
-          showWifiInfo    = true;
+          label = true;
+          showWifiInfo = true;
           truncation_size = 6;
-          truncation      = true;
+          truncation = true;
         };
 
         workspaces = {
-          showAllActive        = true;
+          showAllActive = true;
           showApplicationIcons = true;
-          showWsIcons          = true;
-          show_icons           = true;
-          identifier           = true;
-          show_numbered        = false;
-          workspaceMask        = false;
+          showWsIcons = true;
+          show_icons = true;
+          identifier = true;
+          show_numbered = false;
+          workspaceMask = false;
         };
         # clock.format = "%a %b %d  %I:%M:%S %p";
       };
 
-
-        menus = {
-          clock = {
-            time = {
-              hideSeconds = false;
-              military    = true;
-            };
-            weather.unit = "standard";
+      menus = {
+        clock = {
+          time = {
+            hideSeconds = false;
+            military = true;
           };
-          dashboard = {
-            controls.enabled = true;
-            directories.enabled = false;
-            stats.enable_gpu = true;
-            media = {
-              displayTimeTooltip = true;
-              noMediaText        = "Nathan rn";
-            };
+          weather.unit = "standard";
+        };
+        dashboard = {
+          controls.enabled = true;
+          directories.enabled = false;
+          stats.enable_gpu = true;
+          media = {
+            displayTimeTooltip = true;
+            noMediaText = "Nathan rn";
           };
         };
+      };
 
-        # theme = builtins.fromJSON (builtins.readFile "${themeDirectory}/${currentTheme}.json");
-        theme = lib.mkForce finalTheme;
+      # theme = builtins.fromJSON (builtins.readFile "${themeDirectory}/${currentTheme}.json");
+      theme = lib.mkForce finalTheme;
     };
   };
 }

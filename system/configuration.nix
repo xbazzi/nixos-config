@@ -26,8 +26,8 @@
   programs.hyprlock.enable = true;
   # programs.waybar.enable = true;
   security.pam.services.hyprlock = { };
-  services.gnome.gnome-keyring.enable = true;
-  security.pam.services.hyprlock.enableGnomeKeyring = true;
+  # services.gnome.gnome-keyring.enable = true;
+  # security.pam.services.hyprlock.enableGnomeKeyring = true;
   # services.greetd.enable = true;
   # services.greetd.settings = {
   #   default_session = {
@@ -69,7 +69,7 @@
   systemd.network.wait-online.enable = true;
 
   # Set your time zone.
-  time.timeZone = "America/Denver";
+  time.timeZone = "America/Chicago";
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";

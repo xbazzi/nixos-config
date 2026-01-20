@@ -28,10 +28,8 @@
       ];
 
       monitor = [
-        "DP-1, 1920x1080@144, 0x0, 1"
-        "DP-3, 2560x1440@240, 1920x0, 1"
-        "HDMI-A-1, 3440x1440@160, 4480x0, 1"
-        # "DP-3,addreserved,30,0,0,0"
+        "DP-1, 3440x1440@160, 4480x0, 1"
+        "DP-2, 2560x1440@240, 1920x0, 1"
       ];
 
       # Mouse stuff (Ew... I know)
@@ -145,13 +143,13 @@
       # workspace =
       #   builtins.genList (i: "DP-3, ${toString (i + 1)}") 9;
       workspace = [
-        "1, monitor:DP-3, persistent:true"
-        "2, monitor:DP-3, persistent:true"
-        "3, monitor:DP-3, persistent:true"
-        "4, monitor:DP-3, persistent:true"
-        "5, monitor:DP-3, persistent:true"
-        "6, monitor:DP-3, persistent:true"
-        "7, monitor:DP-3, persistent:true"
+        "1, monitor:DP-1, persistent:true"
+        "2, monitor:DP-1, persistent:true"
+        "3, monitor:DP-1, persistent:true"
+        "4, monitor:DP-1, persistent:true"
+        "5, monitor:DP-1, persistent:true"
+        "6, monitor:DP-1, persistent:true"
+        "7, monitor:DP-1, persistent:true"
       ];
 
       dwindle = {
@@ -244,7 +242,7 @@
       exec-once = [
         "noisetorch"
         ''hyprctl plugin load "$HYPR_PLUGIN_DIR/lib/libhyprexpo.so"''
-        "eval $(gnome-keyring-daemon --start --components=secrets,ssh,gpg)"
+        # "eval $(gnome-keyring-daemon --start --components=secrets,ssh,gpg)"
         # "hash dbus-update-activation-environment 2>/dev/null"
         # "dbus-update-activation-environment --all --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
         "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
