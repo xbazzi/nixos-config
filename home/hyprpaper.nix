@@ -16,6 +16,7 @@ let
   ########################
   ########################
   ########################
+  # inputs.awww.packages.${pkgs.stdenv.hostPlatform.system}.awww
 
   wallpaperDir = "${config.home.homeDirectory}/wallpapers";
   # wallpaperScript = pkgs.writeShellScript "wallpaper-cycler" ''
