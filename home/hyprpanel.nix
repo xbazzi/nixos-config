@@ -125,7 +125,7 @@ in
         launcher.autoDetectIcon = true;
 
         layouts = {
-          "0" = {
+          "1" = {
             left = [
               "dashboard"
               "workspaces"
@@ -144,7 +144,7 @@ in
               "notifications"
             ];
           };
-          "1" = {
+          "0" = {
             left = [ ];
             middle = [ ];
             right = [ ];

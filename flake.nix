@@ -11,9 +11,9 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    hyprshell = {
-      url = "git+https://gitgud.foo/thegrind/hypr-shell.git";
-    };
+    # hyprshell = {
+    #   url = "git+https://gitgud.foo/thegrind/hypr-shell.git";
+    # };
 
     lanzaboote = {
       url = "github:nix-community/lanzaboote/v0.4.3";
@@ -154,7 +154,7 @@
           extraSpecialArgs = { inherit inputs; };
           modules = [
             # inputs.walker.homeManagerModules.default
-            inputs.hyprshell.homeManagerModules.default
+            # inputs.hyprshell.homeManagerModules.default
             inputs.waycast.homeManagerModules.default
             inputs.stylix.homeModules.stylix
             ./home/default.nix

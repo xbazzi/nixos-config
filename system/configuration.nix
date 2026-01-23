@@ -117,6 +117,9 @@
     #    '';
   };
 
+  ### AMD FIX #### REMOVE LATER
+  services.seatd.enable = true;
+
   # Zsh default for all users
   users.defaultUserShell = pkgs.zsh;
 
@@ -145,6 +148,7 @@
     isNormalUser = true;
     description = "Xander Bazzi";
     extraGroups = [
+      "seat"
       "xbazzi"
       "video"
       "render"

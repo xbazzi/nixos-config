@@ -46,18 +46,20 @@ in
 
   programs.dconf.enable = true;
 
+	services.xserver.enable = true;
   services.displayManager.sddm = {
     enable = true;
-    wayland.enable = true;
-    theme = "chili";
-    autoNumlock = true;
-    package = pkgs.kdePackages.sddm;
-    extraPackages = with pkgs.kdePackages; [
+    #wayland.enable = true;
+    wayland.enable = false;
+    #theme = "chili";
+    #autoNumlock = true;
+    #package = pkgs.kdePackages.sddm;
+    #extraPackages = with pkgs.kdePackages; [
       # qtgraphicaleffects
       # qtquickcontrols2
       # qtquickcontrols
-      qtsvg
-      qtdeclarative # QtQuick core
-    ];
+    #  qtsvg
+    #  qtdeclarative # QtQuick core
+    #];
   };
 }

@@ -24,7 +24,7 @@
     wofi
 
     # Cursor
-    adwaita-cursor-theme
+    adwaita-icon-theme
 
     # Python
     python3Packages.gpustat

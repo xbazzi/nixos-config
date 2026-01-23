@@ -19,8 +19,17 @@
     hostName = "nixos";
     wireless = {
       enable = true;
-      userControlled.enable = true;
+      userControlled = true;
     };
+	interfaces.enp0s20f0u11 = {
+		ipv4.addresses = [
+			{
+				address = "192.168.1.100";
+				prefixLength = 24;
+			}
+		];
+		mtu = 1500;
+	};
     # interfaces.enp6s0f0 = {
     #   ipv4.addresses = [
     #     {
@@ -31,19 +40,19 @@
     #   mtu = 1500;
     # };
 
-    # defaultGateway = {
-    #   address = "10.29.90.1";
-    #   interface = "enp6s0f0";
-    # };
+    defaultGateway = {
+      address = "192.168.1.1";
+      interface = "enp0s20f0u11";
+    };
 
-    # nameservers = [ "10.29.90.1" ];
+    nameservers = [ "1.1.1.1" ];
     # search = [ "lan.xbazzi.com" ];
     hosts = {
       "127.0.0.1" = [ "localhost" ];
       # "10.29.90.100" = [ "nixos" ];
     };
   };
-  systemd.network.enable = true;
+  #systemd.network.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

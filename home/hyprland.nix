@@ -25,11 +25,12 @@
 
       env = [
         "HYPRLAND_PRIMARY_MONITOR,DP-3"
+        "XCURSOR_THEME,Adwaita"
       ];
 
       monitor = [
-        "DP-1, 3440x1440@160, 4480x0, 1"
-        "DP-2, 2560x1440@240, 1920x0, 1"
+        "DP-2, 3440x1440@160, 4480x0, 1"
+        "DP-3, 2560x1440@240, 1920x0, 1"
       ];
 
       # Mouse stuff (Ew... I know)
@@ -246,6 +247,7 @@
         # "hash dbus-update-activation-environment 2>/dev/null"
         # "dbus-update-activation-environment --all --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
         "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
+        "hyprctl setcursor Adwaita 24"
       ];
 
       # plugins = [

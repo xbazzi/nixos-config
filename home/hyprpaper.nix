@@ -4,6 +4,19 @@
   ...
 }:
 let
+
+  ########################
+  ########################
+  ########################
+  ########################
+  ########################
+  # DO AWWW INSTEAD OF THIS GAY ASS BS
+  ########################
+  ########################
+  ########################
+  ########################
+  ########################
+
   wallpaperDir = "${config.home.homeDirectory}/wallpapers";
   # wallpaperScript = pkgs.writeShellScript "wallpaper-cycler" ''
   #   #!/bin/bash
