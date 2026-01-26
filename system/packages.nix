@@ -8,6 +8,8 @@
 }:
 {
   environment.systemPackages = with pkgs; [
+    # Vibrance
+    libvibrant
 
     # (inputs.nixpkgs.legacyPackages.${pkgs.system}.claude-code)
     # modrinth-app
@@ -88,7 +90,7 @@
     jetbrains.clion
     google-chrome
     wootility
-    flatpak
+    # flatpak
     stm32cubemx
 
     # Qt

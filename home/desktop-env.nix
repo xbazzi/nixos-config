@@ -11,24 +11,25 @@
   pkgs,
   ...
 }:
-# Complete Desktop Applications Suite for Home Manager
+
+# Complete desktop applications suite for Home Manager
 {
   xdg.configFile."Thunar/thunarrc".text = ''
     [Configuration]
     DefaultView=ThunarDetailsView
   '';
-  # Media Viewers
   home.packages = with pkgs; [
-    # *** File Manager ***
-    xfce.thunar
-    xfce.thunar-volman # Removable drive support
-    xfce.thunar-media-tags-plugin
+
+    # File Manager
+    thunar
+    thunar-volman # Removable drive support
+    thunar-media-tags-plugin
+
     # Essential thumbnail generators
-    xfce.tumbler # Thunar's thumbnail service
+    tumbler # Thunar's thumbnail service
     ffmpegthumbnailer # Video thumbnails
     libgsf # Office document thumbnails
     poppler # PDF thumbnails
-    # ********************
 
     # Image Viewers
     kdePackages.gwenview # KDE image viewer - integrates well with Dolphin

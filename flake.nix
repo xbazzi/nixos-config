@@ -25,54 +25,35 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    winapps = {
-      url = "github:winapps-org/winapps";
+    awww = {
+      url = "git+https://codeberg.org/LGFae/awww";
       inputs.nixpkgs.follows = "nixpkgs";
+      inputs.flake-compat.follows = "";
     };
 
     hyprland.url = "github:hyprwm/Hyprland";
+
     hyprland-plugins = {
       url = "github:hyprwm/hyprland-plugins";
-      inputs.nixpkgs.follows = "nixpkgs";
       inputs.hyprland.follows = "hyprland";
     };
 
+    # hyprland-plugins = {
+    #   url = "github:hyprwm/hyprland-plugins";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    #   inputs.hyprland.follows = "hyprland";
+    # };
+
     waycast = {
-      # url = "git+https://gitgud.foo/thegrind/waycast";
       url = "github:javif89/waycast";
       # inputs.nixpkgs.follows = "nixpkgs";
     };
-    # walker = {
-    #   url = "github:abenz1267/walker";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
-
-    # hyprdots = {
-    #  url = "github:JaKooLit/Hyprland-Dots";
-    #  flake = false;
-    # };
-
-    # nixvim = {
-    #      url = "github:xbazzi/nixvim";
-    #     };
-
-    # nvf = {
-    #      url = "github:notashelf/nvf";
-    #        inputs.nixpkgs.follows = "nixpkgs";
-    #      };
-
-    #stylix.url = "github:danth/stylix";
-
-    # nixvim = {
-    #   url = "github:xbazzi/nixvim-config";
-    # };
   };
 
   outputs =
     {
       nixpkgs,
       lanzaboote,
-      winapps,
       ...
     }@inputs:
     let
@@ -125,11 +106,8 @@
               {
                 # nixpkgs.overlays =  inputs.waycast.overlays.default;
                 environment.systemPackages = [
-                  # For debugging and troubleshooting Secure Boot.
                   pkgs.sbctl
-                  winapps.packages."${system}".winapps
-                  winapps.packages."${system}".winapps-launcher # optional
-
+                  inputs.awww.packages.${pkgs.stdenv.hostPlatform.system}.awww
                 ];
 
                 # Lanzaboote currently replaces the systemd-boot module.

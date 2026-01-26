@@ -17,6 +17,9 @@
   # Graphics
   hardware.graphics.enable = true;
   hardware.graphics.enable32Bit = true;
+  hardware.amdgpu.opencl.enable = true;
+  hardware.amdgpu.legacySupport.enable = true;
+  hardware.amdgpu.initrd.enable = true;
 
   # OpenRGB
   services.hardware.openrgb.enable = true;
@@ -101,9 +104,11 @@
 
   # Virtualization
   virtualisation.docker.enable = true;
-  virtualisation.virtualbox.host.enable = true;
-  virtualisation.virtualbox.guest.enable = true;
-  virtualisation.virtualbox.guest.dragAndDrop = true;
+
+  # These make rebuild take forever... Disable when not needed.
+  # virtualisation.virtualbox.host.enable = true;
+  # virtualisation.virtualbox.guest.enable = true;
+  # virtualisation.virtualbox.guest.dragAndDrop = true;
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
@@ -163,17 +168,17 @@
 
   programs.direnv.enable = true;
 
-  systemd.services.flatpak-repo = {
-    wantedBy = [ "multi-user.target" ];
-    path = [ pkgs.flatpak ];
-    script = ''
-      flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
-    '';
-  };
+  # systemd.services.flatpak-repo = {
+  #   wantedBy = [ "multi-user.target" ];
+  #   path = [ pkgs.flatpak ];
+  #   script = ''
+  #     flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+  #   '';
+  # };
 
-  services.flatpak = {
-    enable = true;
-  };
+  # services.flatpak = {
+  #   enable = true;
+  # };
 
   environment.sessionVariables = rec {
     XDG_BIN_HOME = "$HOME/.local/bin";

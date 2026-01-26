@@ -1,15 +1,23 @@
-{ lib, pkgs, inputs, ...}:
+{
+  lib,
+  pkgs,
+  inputs,
+  ...
+}:
 
-with lib; let
-  hyprPluginPkgs = inputs.hyprland-plugins.packages.${pkgs.system};
+with lib;
+let
+  hyprPluginPkgs = inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system};
   hypr-plugin-dir = pkgs.symlinkJoin {
     name = "hyrpland-plugins";
     paths = with hyprPluginPkgs; [
-      #csgo-vulkan-fix
+      csgo-vulkan-fix
       #...plugins
     ];
   };
 in
 {
-  environment.sessionVariables = { HYPR_PLUGIN_DIR = hypr-plugin-dir; };
+  environment.sessionVariables = {
+    HYPR_PLUGIN_DIR = hypr-plugin-dir;
+  };
 }

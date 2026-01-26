@@ -13,7 +13,19 @@
       package = pkgs.papirus-icon-theme;
     };
   };
+
   wayland.windowManager.hyprland = {
+    extraConfig = ''
+      plugin {
+        csgo-vulkan-fix {
+          # Whether to fix the mouse position. A select few apps might be wonky with this.
+          fix_mouse = true
+
+          # Add apps with vkfix-app = initialClass, width, height
+          vkfix-app = cs2, 1920, 1440
+        }
+      }
+    '';
     settings = {
       "$file_browser" = "thunar";
       "$mod" = "SUPER";
@@ -144,13 +156,15 @@
       # workspace =
       #   builtins.genList (i: "DP-3, ${toString (i + 1)}") 9;
       workspace = [
-        "1, monitor:DP-1, persistent:true"
-        "2, monitor:DP-1, persistent:true"
-        "3, monitor:DP-1, persistent:true"
-        "4, monitor:DP-1, persistent:true"
-        "5, monitor:DP-1, persistent:true"
-        "6, monitor:DP-1, persistent:true"
-        "7, monitor:DP-1, persistent:true"
+        "1, monitor:DP-3, persistent:true"
+        "2, monitor:DP-3, persistent:true"
+        "3, monitor:DP-3, persistent:true"
+        "4, monitor:DP-3, persistent:true"
+        "5, monitor:DP-3, persistent:true"
+        "6, monitor:DP-2, persistent:true"
+        "7, monitor:DP-2, persistent:true"
+        "8, monitor:DP-2, persistent:true"
+        "9, monitor:DP-2, persistent:true"
       ];
 
       dwindle = {
@@ -171,9 +185,11 @@
         "opacity 0.95, class:^(Code)$"
         "opacity 0.95, class:^(code)$"
         "opacity 0.75, class:^(kitty)$"
+        "opacity 0.75, class:^(Kitty)$"
       ];
       layerrule = [
-        "noanim, Waycast"
+        # Figure out the new syntax for 0.53.1
+        # "no_anim, Waycast"
       ];
 
       # layerrule = [
@@ -197,7 +213,7 @@
           # xray = true;
         };
 
-        blurls = "^(popup|menu)$";
+        # blurls = "^(popup|menu)$";
 
         # shadow = {
         #   enabled = true;
@@ -241,6 +257,7 @@
       };
 
       exec-once = [
+        "awww-daemon &"
         "noisetorch"
         ''hyprctl plugin load "$HYPR_PLUGIN_DIR/lib/libhyprexpo.so"''
         # "eval $(gnome-keyring-daemon --start --components=secrets,ssh,gpg)"
@@ -249,14 +266,10 @@
         "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
         "hyprctl setcursor Adwaita 24"
       ];
-
-      # plugins = [
-      # inputs.hyprland-plugins.packages.${pkgs.system}.hyprfocus
-      # pkgs.hyprlandPlugins.csgo-vulkan-fix
-      # legacyPackages.x86_64-linux.hyprlandPlugins.csgo-vulkan-fix
-      # inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.hyprbars
-      # inputs.hyprland-plugins.packages.${pkgs.system}.csgo-vulkan-fix
-      # ];
     };
+
+    plugins = [
+      inputs.hyprland-plugins.packages.${pkgs.stdenv.hostPlatform.system}.csgo-vulkan-fix
+    ];
   };
 }

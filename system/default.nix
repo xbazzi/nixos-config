@@ -8,7 +8,7 @@
     ./stylix.nix
     ./ghub.nix
     ./sddm.nix
-    ./hyprland-plugins.nix
+    # ./hyprland-plugins.nix
     ./nvidia.nix
     ./network.nix
     ./nfs.nix
