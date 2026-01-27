@@ -23,7 +23,6 @@
     ./zoxide.nix
     ./hyprpanel.nix
     ./wofi.nix
-    ./hyprpaper.nix
     ./waycast.nix
     ./git.nix
     ./hyprland.nix
@@ -31,5 +30,6 @@
     ./variables.nix
     ./kitty.nix
     ./neovim.nix
+    ./vim.nix
   ];
 }

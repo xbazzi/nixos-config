@@ -4,52 +4,7 @@
   ...
 }:
 let
-
-  ########################
-  ########################
-  ########################
-  ########################
-  ########################
-  # DO AWWW INSTEAD OF THIS GAY ASS BS
-  ########################
-  ########################
-  ########################
-  ########################
-  ########################
-  # inputs.awww.packages.${pkgs.stdenv.hostPlatform.system}.awww
-
   wallpaperDir = "${config.home.homeDirectory}/wallpapers";
-  # wallpaperScript = pkgs.writeShellScript "wallpaper-cycler" ''
-  #   #!/bin/bash
-
-  #   # Array of wallpapers
-  #   wallpapers=(
-  #     "${wallpaperDir}/dubai.jpg"
-  #     "${wallpaperDir}/amsterdam.jpg"
-  #     "${wallpaperDir}/matsumoto.jpg"
-  #     # Add more wallpapers here
-  #   )
-
-  #   # Get current wallpaper index from file (or default to 0)
-  #   index_file="$HOME/.cache/wallpaper_index"
-  #   if [ -f "$index_file" ]; then
-  #     current_index=$(cat "$index_file")
-  #     notify-send "uncle philly"
-  #   else
-  #     notify-send "mafangu"
-  #     current_index=0
-  #   fi
-
-  #   # Get next wallpaper
-  #   next_index=$(( (current_index + 1) % ''${#wallpapers[@]} ))
-  #   next_wallpaper="''${wallpapers[$next_index]}"
-
-  #   # Set wallpaper using hyprctl
-  #   ${pkgs.hyprland}/bin/hyprctl hyprpaper wallpaper ",$next_wallpaper"
-
-  #   # Save current index
-  #   echo "$next_index" > "$index_file"
-  # '';
 in
 {
   home.packages = [

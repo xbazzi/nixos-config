@@ -9,6 +9,7 @@
     ./ghub.nix
     ./sddm.nix
     # ./hyprland-plugins.nix
+    ./awww.nix
     ./nvidia.nix
     ./network.nix
     ./nfs.nix

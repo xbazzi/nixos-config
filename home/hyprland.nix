@@ -179,13 +179,13 @@
         # layout = "dwindle";
       };
 
-      windowrulev2 = [
+      windowrule = [
         # "size 1920 1440, class:^(cs2)$"
 
-        "opacity 0.95, class:^(Code)$"
-        "opacity 0.95, class:^(code)$"
-        "opacity 0.75, class:^(kitty)$"
-        "opacity 0.75, class:^(Kitty)$"
+        "opacity 0.95, match:class Code"
+        "opacity 0.95, match:class code"
+        "opacity 0.75, match:class kitty"
+        "opacity 0.75, match:class Kitty"
       ];
       layerrule = [
         # Figure out the new syntax for 0.53.1
