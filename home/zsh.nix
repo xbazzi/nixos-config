@@ -16,6 +16,8 @@
     initContent = ''
       source ${pkgs.nix-index}/etc/profile.d/command-not-found.sh
       export TERM=xterm-kitty
+      export PATH="$HOME/scripts:$PATH"
+      setopt hash_list_all       # hash entire command path first before completion
       bindkey -e
 
       function nvibrant() {

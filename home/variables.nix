@@ -23,6 +23,11 @@
   #
   #  /etc/profiles/per-user/nixxer/etc/profile.d/hm-session-vars.sh
   #
+  home.sessionPath = [
+    "${config.home.homeDirectory}/.local/bin"
+    "${config.home.homeDirectory}/scripts"
+  ];
+
   home.sessionVariables = {
     NIXOS_OZONE_WL = 1;
     XDG_CACHE_HOME = "${config.home.homeDirectory}/.cache";
@@ -32,7 +37,7 @@
     EDITOR = "nvim";
     # TERM = "xterm-kitty";
   };
-    xdg = {
+  xdg = {
     enable = true;
     configFile."user-dirs.conf" = {
       text = ''
@@ -73,7 +78,4 @@
     #   };
   };
 
-  home.sessionPath = [
-    "$HOME/.local/bin"
-  ];
 }
