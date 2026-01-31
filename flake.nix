@@ -31,6 +31,10 @@
       inputs.flake-compat.follows = "";
     };
 
+    nix-flatpak = {
+      url = "github:gmodena/nix-flatpak";
+    };
+
     hyprland.url = "github:hyprwm/Hyprland";
 
     hyprland-plugins = {
@@ -94,6 +98,7 @@
           specialArgs = { inherit inputs system; };
           modules = [
             inputs.stylix.nixosModules.stylix
+            inputs.nix-flatpak.nixosModules.nix-flatpak
             lanzaboote.nixosModules.lanzaboote
             ./system/default.nix
             (

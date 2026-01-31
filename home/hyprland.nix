@@ -258,7 +258,7 @@
 
       exec-once = [
         "awww-daemon &"
-        "awww-multi ~/Pictures/wallpapers/cities 300 &"
+        "/home/xbazzi/scripts/awww-multi ~/Pictures/wallpapers/cities 300 &"
         "noisetorch"
         ''hyprctl plugin load "$HYPR_PLUGIN_DIR/lib/libhyprexpo.so"''
         # "eval $(gnome-keyring-daemon --start --components=secrets,ssh,gpg)"

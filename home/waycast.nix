@@ -19,6 +19,7 @@
         open_command = "code -n {path}";
         search_paths = [
           "/home/xbazzi/repos"
+          "/home/xbazzi/repos/gios"
         ];
       };
     };
