@@ -47,29 +47,17 @@
           bierner.github-markdown-preview
           xaver.clang-format
           vue.volar
+          rust-lang.rust-analyzer
 
           # llvm-vs-code-extensions.vscode-clangd
         ]
         ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
-          # {
-          #   name = "vscode-clang";
-          #   publisher = "mitaki28";
-          #   version = "0.2.4";
-          #   sha256 = "Q3R781Vxn4hQUHwCB+CbNmktWL5UACwmtVbZLQkU2ms=";
-          # }
-          # {
-          #   name = "vim-cheatsheet";
-          #   publisher = "AndenetAlexander";
-          #   version = "0.0.1";
-          #   sha256 = "V7xVIC7HVsdX4rIAntFPsr/Z94LsnKq1/I8K8DtRtNA=";
-          # }
-          # {
-          #   name = "anseki";
-          #   publisher = "vscode-color";
-          #   version = "0.5.1";
-          #   sha256 = "FCIizR4R1sJiifs7V4j50lMSrMZChrKV05CN8c0cWbg=";
-          # }
-
+          {
+            name = "chatgpt";
+            publisher = "openai";
+            version = "26.506.31421";
+            sha256 = "mLiZu7yYlOa4yvsgJH9zMziiHh6uTu8BM837Sg9+ZL8=";
+          }
           {
             name = "ml-language-support";
             publisher = "valcioffi";

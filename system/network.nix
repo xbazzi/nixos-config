@@ -12,7 +12,17 @@
   #   serviceConfig.TimeoutStartSec = "20s";
   # };
 
+  # VPN
+  services.openvpn.servers = {
+    simplex = {
+      config = "config /home/xbazzi/simplex.ovpn ";
+      updateResolvConf = true;
+      autoStart = false;
+    };
+  };
+
   networking = {
+    resolvconf.enable = true;
     useDHCP = false;
     hostName = "nixos";
     wireless = {
@@ -36,6 +46,18 @@
         }
       ];
       mtu = 1500;
+      ipv4.routes = [
+        {
+          address = "10.133.4.0";
+          prefixLength = 22;
+          via = "10.29.90.1";
+        }
+        {
+          address = "10.69.0.0";
+          prefixLength = 22;
+          via = "10.29.90.1";
+        }
+      ];
     };
 
     defaultGateway = {
@@ -43,7 +65,9 @@
       interface = "enp6s0f0";
     };
 
-    nameservers = [ "10.29.90.1" ];
+    nameservers = [
+      "10.29.90.1"
+    ];
     search = [ "lan.xbazzi.com" ];
     hosts = {
       "127.0.0.1" = [ "localhost" ];

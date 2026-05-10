@@ -31,19 +31,15 @@
   security.pam.services.hyprlock = { };
   # services.gnome.gnome-keyring.enable = true;
   # security.pam.services.hyprlock.enableGnomeKeyring = true;
-  # services.greetd.enable = true;
-  # services.greetd.settings = {
-  #   default_session = {
-  #     # GUI greeter
-  #     #command = "${pkgs.greetd.gtkgreet}/bin/gtkgreet -c hyprland";
-  #     # command = "${pkgs.greetd.gtkgreet}/bin/gtkgreet -c 'Hyprland'";
-
-  #     # TUI greeter
-  #     command = "${pkgs.tuigreet}/bin/tuigreet --time --remember \
-  #       --cmd 'dbus-run-session ${pkgs.hyprland}/bin/Hyprland'";
-  #     user = "greeter";
-  #   };
-  # };
+  services.greetd = {
+    enable = true;
+    settings = {
+      default_session = {
+        command = "${pkgs.tuigreet}/bin/tuigreet --time --remember --cmd start-hyprland";
+        user = "greeter";
+      };
+    };
+  };
 
   # nix.settings = {
   #   substituters = [
@@ -145,6 +141,11 @@
     # media-session.enable = true;
   };
 
+  systemd.user.services.pipewire-pulse = {
+    serviceConfig.PrivateTmp = false;
+    environment.LADSPA_PATH = "/tmp";
+  };
+
   # Enable touchpad support (enabled default in most desktopManager).
   services.libinput.enable = false;
 
@@ -179,6 +180,11 @@
   # services.flatpak = {
   #   enable = true;
   # };
+
+  nix.settings.trusted-users = [
+    "root"
+    "xbazzi"
+  ];
 
   environment.sessionVariables = rec {
     XDG_BIN_HOME = "$HOME/.local/bin";

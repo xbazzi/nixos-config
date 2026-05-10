@@ -31,7 +31,7 @@
     fastfetch
     wget
     vesktop
-    # discord
+    discord
     cudaPackages_12.cudatoolkit
     python3
     python313Packages.pip
@@ -72,6 +72,8 @@
     vibrantlinux
     wpa_supplicant_gui
 
+    remmina
+
     # Dev
     cmake
     cmakeWithGui
@@ -92,6 +94,9 @@
     wootility
     # flatpak
     stm32cubemx
+
+    deadlock-mod-manager
+    pulseaudio
 
     # Qt
     # kdePackages.qt5compat

@@ -23,6 +23,8 @@
     hyprpanel
     wofi
 
+    devenv
+
     # Cursor
     adwaita-icon-theme
 

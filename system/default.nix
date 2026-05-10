@@ -7,7 +7,7 @@
     ./ssh.nix
     ./stylix.nix
     ./ghub.nix
-    ./sddm.nix
+    # ./sddm.nix
     # ./hyprland-plugins.nix
     ./flatpak.nix
     ./awww.nix

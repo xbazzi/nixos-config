@@ -31,5 +31,7 @@
     ./kitty.nix
     ./neovim.nix
     ./vim.nix
+    ./nixcord.nix
+    # ./csgo-vulkan-fix.nix
   ];
 }

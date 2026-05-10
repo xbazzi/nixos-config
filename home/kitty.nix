@@ -6,28 +6,29 @@
   ...
 }:
 
-let 
+let
   kittyConfig = ''
     map ctrl+r send_text all \x15shellhistory\r
   '';
-in 
+in
 {
-  programs.kitty =  {
+  programs.kitty = {
     enable = true;
     shellIntegration.enableZshIntegration = true;
     # extraConfig = kittyConfig;
 
     settings = {
+      cursor_trail = 200;
+      window_logo_path = "${config.home.homeDirectory}/Pictures/monkey.png";
+      window_logo_position = "bottom-right";
+      window_logo_alpha = 1;
+      window_logo_scale = 15;
+      scrollback_lines = 10000;
       confirm_os_window_close = 0;
-      # dynamic_background_opacity = true;
       enable_audio_bell = false;
       mouse_hide_wait = "-1.0";
       window_padding_width = 5;
-      # background_opacity = "0.95";
-      # background_blur = 5;
-      # background = "#ff00ff";
       hide_window_decorations = true;
-      # themeFile = "Alucard";
 
       symbol_map =
         let

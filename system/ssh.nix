@@ -84,6 +84,7 @@
           User xbazzi
           IdentityFile ~/.ssh/lan_id_ed25519
           IdentitiesOnly yes
+          SetEnv TERM=xterm
 
       Host nas
           HostName nas

@@ -11,7 +11,7 @@
     enable = true;
     settings = {
       core.editor = "nvim";
-      pull.rebase = false;
+      pull.rebase = true;
       init.defaultBranch = "master";
       user.name = "xbazzi";
       user.email = "codemaster@xbazzi.com";

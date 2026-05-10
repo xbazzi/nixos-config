@@ -15,17 +15,18 @@
   };
 
   wayland.windowManager.hyprland = {
-    extraConfig = ''
-      plugin {
-        csgo-vulkan-fix {
-          # Whether to fix the mouse position. A select few apps might be wonky with this.
-          fix_mouse = true
+    # extraConfig = ''
+    #   plugin {
+    #     csgo-vulkan-fix {
+    #       # Whether to fix the mouse position. A select few apps might be wonky with this.
+    #       fix_mouse = true
 
-          # Add apps with vkfix-app = initialClass, width, height
-          vkfix-app = cs2, 1920, 1440
-        }
-      }
-    '';
+    #       # Add apps with vkfix-app = initialClass, width, height
+    #       vkfix-app = cs2, 1920, 1440
+    #     }
+    #   }
+    # '';
+
     settings = {
       "$file_browser" = "thunar";
       "$mod" = "SUPER";
@@ -173,8 +174,8 @@
       };
 
       general = {
-        gaps_out = 0;
-        gaps_in = 0;
+        gaps_out = 5;
+        gaps_in = 5;
         layout = "master";
         # layout = "dwindle";
       };
@@ -259,7 +260,6 @@
       exec-once = [
         "awww-daemon &"
         "/home/xbazzi/scripts/awww-multi ~/Pictures/wallpapers/cities 300 &"
-        "noisetorch"
         ''hyprctl plugin load "$HYPR_PLUGIN_DIR/lib/libhyprexpo.so"''
         # "eval $(gnome-keyring-daemon --start --components=secrets,ssh,gpg)"
         # "hash dbus-update-activation-environment 2>/dev/null"
@@ -267,6 +267,22 @@
         "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
         "hyprctl setcursor Adwaita 24"
       ];
+      plugin = {
+        csgo-vulkan-fix = {
+          fix_mouse = true;
+          res_w = 1280;
+          res_h = 1024;
+          # class = "SDL Application";
+          vkfix-app = [
+            "hl_linux, 1280, 1024"
+            "cs2, 1280, 1024"
+            "csgo_linux64, 1280, 1024"
+            "steam_app_730, 1024, 1440"
+            # launch options
+            # gamemoderun  gamescope -e -W 1280 -H 1024 -r 180  --force-grab-cursor -S stretch -- %command%
+          ];
+        };
+      };
     };
 
     plugins = [

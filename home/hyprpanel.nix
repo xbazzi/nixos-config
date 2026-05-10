@@ -45,10 +45,10 @@ let
 
     bar = {
 
-      bar.background = lib.mkForce "#000000";
+      background = lib.mkForce "#000000";
       floating = false;
       location = "bottom";
-      opacity = 50;
+      opacity = 75;
       transparent = false;
 
       border = {

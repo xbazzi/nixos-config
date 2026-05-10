@@ -35,6 +35,10 @@
       url = "github:gmodena/nix-flatpak";
     };
 
+    nixcord = {
+      url = "github:FlameFlag/nixcord";
+    };
+
     hyprland.url = "github:hyprwm/Hyprland";
 
     hyprland-plugins = {
