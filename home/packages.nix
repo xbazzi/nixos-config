@@ -12,6 +12,7 @@
     grim # for screenshots
     slurp # for selecting area
     grimblast # easier syntax for grim+slurp
+    flameshot
     wl-clipboard # copy screenshot to clipboard
     bat
     yazi

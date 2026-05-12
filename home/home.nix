@@ -7,6 +7,7 @@
 }:
 
 {
+  nixpkgs.config.allowUnfree = true;
   home.username = "xbazzi";
   home.homeDirectory = "/home/xbazzi";
 
@@ -27,6 +28,12 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+
+  nixpkgs.config.packageOverrides = pkgs: {
+    flameshot = pkgs.flameshot.override {
+      enableWlrSupport = true;
+    };
+  };
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.

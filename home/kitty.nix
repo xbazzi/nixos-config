@@ -22,7 +22,7 @@ in
       window_logo_path = "${config.home.homeDirectory}/Pictures/monkey.png";
       window_logo_position = "bottom-right";
       window_logo_alpha = 1;
-      window_logo_scale = 15;
+      window_logo_scale = 5;
       scrollback_lines = 10000;
       confirm_os_window_close = 0;
       enable_audio_bell = false;

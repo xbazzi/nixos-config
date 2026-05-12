@@ -138,8 +138,8 @@
           {
             name = "claude-code";
             publisher = "anthropic";
-            version = "2.0.31";
-            sha256 = "ylcb5Ty9x9uj38OY0RXsS+YNKVKUzc1c5x6RJsZ3E2g=";
+            version = "2.1.139";
+            sha256 = "QxiPr1p0QPN4lXZQJlrl5sZLx6zcOSqoPUCvRNoutKk=";
           }
           # {
           #   name = "stm32cube-ide-build-cmake";

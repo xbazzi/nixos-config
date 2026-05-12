@@ -34,6 +34,7 @@
       input = {
         repeat_delay = 240;
         repeat_rate = 40;
+        kb_options = "caps:swapescape";
       };
 
       env = [
@@ -135,6 +136,8 @@
 
         # Ctrl+Print → select window and copy
         "CTRL, Print, exec, grimblast copy active"
+
+        # "$mod SHIFT, s, exec, flameshot gui"
       ]
       ++ (
         # workspaces
@@ -176,8 +179,8 @@
       general = {
         gaps_out = 5;
         gaps_in = 5;
-        layout = "master";
-        # layout = "dwindle";
+        # layout = "master";
+        layout = "dwindle";
       };
 
       windowrule = [
