@@ -46,7 +46,7 @@ in
 
   programs.dconf.enable = true;
 
-	services.xserver.enable = true;
+  services.xserver.enable = true;
   services.displayManager.sddm = {
     enable = true;
     #wayland.enable = true;
@@ -55,9 +55,9 @@ in
     #autoNumlock = true;
     #package = pkgs.kdePackages.sddm;
     #extraPackages = with pkgs.kdePackages; [
-      # qtgraphicaleffects
-      # qtquickcontrols2
-      # qtquickcontrols
+    # qtgraphicaleffects
+    # qtquickcontrols2
+    # qtquickcontrols
     #  qtsvg
     #  qtdeclarative # QtQuick core
     #];

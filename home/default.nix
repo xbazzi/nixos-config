@@ -26,6 +26,7 @@
     ./waycast.nix
     ./git.nix
     ./hyprland.nix
+    ./fastfetch.nix
     ./zsh.nix
     ./variables.nix
     ./kitty.nix

@@ -28,7 +28,6 @@
     hunspellDicts.en_US
     # kitty
     git
-    fastfetch
     wget
     vesktop
     discord

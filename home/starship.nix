@@ -47,7 +47,6 @@
       };
     };
 
-
     # username = {
     #   style_user = "blue bold";
     #   style_root = "red bold";

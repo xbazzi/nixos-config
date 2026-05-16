@@ -186,8 +186,8 @@
       windowrule = [
         # "size 1920 1440, class:^(cs2)$"
 
-        "opacity 0.87, match:class Code"
-        "opacity 0.87, match:class code"
+        "opacity 0.95, match:class Code"
+        "opacity 0.95, match:class code"
         "opacity 0.75, match:class kitty"
         "opacity 0.75, match:class Kitty"
       ];

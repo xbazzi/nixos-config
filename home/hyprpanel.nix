@@ -127,10 +127,22 @@ in
         layouts = {
           "0" = {
             left = [
+              "dashboard"
               "workspaces"
+              "media"
+              "volume"
             ];
-            middle = [ ];
-            right = [ ];
+            middle = [
+              "clock"
+            ];
+            right = [
+              "netstat"
+              "systray"
+              "hyprsunset"
+              "hypridle"
+              # "updates"
+              "notifications"
+            ];
           };
 
           "1" = {
@@ -144,8 +156,8 @@ in
               "clock"
             ];
             right = [
-              "systray"
               "netstat"
+              "systray"
               "hyprsunset"
               "hypridle"
               # "updates"

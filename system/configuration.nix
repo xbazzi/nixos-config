@@ -163,6 +163,7 @@
       "networkmanager"
       "wheel"
       "wireshark"
+      "wpa_supplicant"
     ];
   };
 
