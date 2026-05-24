@@ -53,6 +53,18 @@
         ]
         ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
           {
+            name = "vscode-pets";
+            publisher = "tonybaloney";
+            version = "1.35.0";
+            sha256 = "TWWoJ0dBwEHnbi16d0/sBodqg9l92TIzxZYvXTjxNpY=";
+          }
+          {
+            name = "brainrot-stimulation";
+            publisher = "SuryaDantuluri";
+            version = "0.0.5";
+            sha256 = "HJl2GDRhOaxFTATBr/RqGCcOMWU16ShrqBWcRw8jaS4=";
+          }
+          {
             name = "chatgpt";
             publisher = "openai";
             version = "26.506.31421";

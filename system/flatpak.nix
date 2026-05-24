@@ -12,6 +12,10 @@
   services.flatpak.update.auto.enable = false;
   services.flatpak.uninstallUnmanaged = false;
 
+  services.flatpak.overrides.settings = {
+    "com.discordapp.Discord".Context.filesystems = [ "home" ];
+  };
+
   services.flatpak.packages = [
   ];
 }

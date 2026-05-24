@@ -14,8 +14,8 @@
 
   # VPN
   services.openvpn.servers = {
-    simplex = {
-      config = "config /home/xbazzi/simplex.ovpn ";
+    office = {
+      config = "config /home/xbazzi/office.ovpn ";
       updateResolvConf = true;
       autoStart = false;
     };

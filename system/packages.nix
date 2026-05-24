@@ -70,6 +70,7 @@
     nettools
     vibrantlinux
     wpa_supplicant_gui
+    element-desktop
 
     remmina
 

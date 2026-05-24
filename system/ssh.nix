@@ -5,6 +5,8 @@
 
     startAgent = true;
     extraConfig = ''
+        AddKeysToAgent yes
+
         Host fw-mgmt
           HostName fw-mgmt
           ForwardAgent yes

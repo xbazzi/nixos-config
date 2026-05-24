@@ -32,5 +32,9 @@
     # Python
     python3Packages.gpustat
   ];
-  # services.gnome-keyring.enable = true;
+
+  services.gnome-keyring = {
+    enable = true;
+    components = [ "secrets" ];
+  };
 }
