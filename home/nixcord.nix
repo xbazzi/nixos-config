@@ -17,6 +17,7 @@
       # spotifyControls.enable = true;
       voiceMessages.enable = true;
       memberCount.enable = true;
+      fakeNitro.enable = true;
     };
   };
 }

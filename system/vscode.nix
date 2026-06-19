@@ -53,6 +53,12 @@
         ]
         ++ pkgs.vscode-utils.extensionsFromVscodeMarketplace [
           {
+            name = "zeonica";
+            publisher = "andrewvallette";
+            version = "2.0.0";
+            sha256 = "TzUheviS3adcirSN6XlW9toa+Jo7Lds/XexxwWdZtyg=";
+          }
+          {
             name = "vscode-pets";
             publisher = "tonybaloney";
             version = "1.35.0";

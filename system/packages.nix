@@ -97,6 +97,7 @@
 
     deadlock-mod-manager
     pulseaudio
+    ntfs3g
 
     # Qt
     # kdePackages.qt5compat
