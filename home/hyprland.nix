@@ -50,6 +50,8 @@
       "$mod" = "SUPER";
 
       input = {
+        kb_layout = "us";
+        kb_variant = "";
         repeat_delay = 240;
         repeat_rate = 40;
         kb_options = "caps:swapescape";
@@ -204,7 +206,7 @@
       windowrule = [
         # "size 1920 1440, class:^(cs2)$"
 
-        "opacity 0.80, match:class Code"
+        "opacity 0.90, match:class Code"
         "opacity 0.90, match:class code"
         "opacity 0.75, match:class kitty"
         "opacity 0.75, match:class Kitty"
