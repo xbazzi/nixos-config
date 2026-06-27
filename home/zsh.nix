@@ -20,13 +20,7 @@
       setopt hash_list_all       # hash entire command path first before completion
       bindkey -e
 
-      # Start ssh-agent if one isn't already running
-      if [ -z "$SSH_AUTH_SOCK" ]; then
-          eval "$(ssh-agent -s)" >/dev/null
-      fi
-
-      # Add key if not already loaded
-      #ssh-add -l >/dev/null 2>&1 || ssh-add ~/.ssh/*
+      eval $(${pkgs.keychain}/bin/keychain --eval --quiet --agents ssh ~/.ssh/id_ed_gitgudboo ~/.ssh/gh_id_ed25519 ~/.ssh/xbazzi_ed25519)
 
       function nvibrant() {
         cd ~/repos/nVibrant
