@@ -18,5 +18,6 @@
     ./services.nix
     ./vscode.nix
     ./cachix.nix
+    ./obs.nix
   ];
 }

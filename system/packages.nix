@@ -51,7 +51,7 @@
     cmatrix
     nmap
     brave
-    ffmpeg
+    ffmpeg-full
     variety
     fzf
     eza

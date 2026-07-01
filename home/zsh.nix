@@ -20,7 +20,7 @@
       setopt hash_list_all       # hash entire command path first before completion
       bindkey -e
 
-      eval $(${pkgs.keychain}/bin/keychain --eval --quiet --agents ssh ~/.ssh/id_ed_gitgudboo ~/.ssh/gh_id_ed25519 ~/.ssh/xbazzi_ed25519)
+      eval $(${pkgs.keychain}/bin/keychain --eval --quiet ~/.ssh/id_ed_gitgudboo ~/.ssh/gh_id_ed25519 ~/.ssh/xbazzi_ed25519)
 
       function nvibrant() {
         cd ~/repos/nVibrant
