@@ -33,6 +33,7 @@
   };
 
   wayland.windowManager.hyprland = {
+
     # extraConfig = ''
     #   plugin {
     #     csgo-vulkan-fix {
@@ -118,7 +119,8 @@
 
         "$mod, t, exec, kitty --single-instance"
 
-        "$mod, c, exec, code"
+        "$mod, a, exec, code"
+        "$mod, c, exec, qalculate-gtk"
         "$mod SHIFT, l, movewindow, mon:-1"
         "$mod SHIFT, h, movewindow, mon:+1"
 
@@ -199,12 +201,12 @@
       general = {
         gaps_out = 5;
         gaps_in = 5;
-        # layout = "master";
         layout = "dwindle";
       };
 
       windowrule = [
         # "size 1920 1440, class:^(cs2)$"
+        "float yes, match:class qalculate-gtk"
 
         "opacity 0.90, match:class Code"
         "opacity 0.90, match:class code"

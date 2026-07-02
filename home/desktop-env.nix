@@ -71,8 +71,8 @@
       "image/svg+xml" = "org.kde.gwenview.desktop";
 
       # Video files
-      "video/mp4" = "mpv.desktop";
-      "video/mpeg" = "mpv.desktop";
+      "video/mp4" = "vlc.desktop";
+      "video/mpeg" = "vlc.desktop";
       "video/quicktime" = "mpv.desktop";
       "video/x-msvideo" = "mpv.desktop";
       "video/x-matroska" = "mpv.desktop";
