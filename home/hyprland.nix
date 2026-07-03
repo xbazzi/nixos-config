@@ -213,14 +213,13 @@
         "opacity 0.75, match:class kitty"
         "opacity 0.75, match:class Kitty"
       ];
-      layerrule = [
-        # Figure out the new syntax for 0.53.1
-        # "no_anim, Waycast"
-      ];
 
-      # layerrule = [
-      #   "ignorealpha 0.1, title:^(Blur)$"
-      # ];
+      layerrule = [
+        "no_anim on, match:namespace Waycast"
+
+        # coming soon in 1.1.0
+        # "blur on, match:namespace Waycast"
+      ];
 
       decoration = {
         # active_opacity = 1.0;

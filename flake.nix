@@ -53,7 +53,7 @@
     # };
 
     waycast = {
-      url = "github:javif89/waycast";
+      url = "git+https://gitgud.boo/javif89/waycast";
       # inputs.nixpkgs.follows = "nixpkgs";
     };
   };

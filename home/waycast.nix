@@ -1,25 +1,25 @@
 {
-  pkgs,
-  config,
   inputs,
   ...
 }:
 
 {
-  nixpkgs.overlays = [ inputs.waycast.overlays.default ];
+  # I don't think we need this
+  # imports = [ inputs.waycast.homeModules.default ];
 
   programs.waycast = {
     enable = true;
     settings = {
       plugins.file_search = {
-        search_paths = [
-        ];
+        # waycast already automatically adds Pictures, Documents, Videos, Music
+        # search_paths = [
+        #   "/home/xbazzi/Pictures"
+        # ];
       };
       plugins.projects = {
         open_command = "code -n {path}";
         search_paths = [
           "/home/xbazzi/repos"
-          "/home/xbazzi/repos/gios"
         ];
       };
     };

@@ -193,8 +193,6 @@
     ];
   };
 
-  # programs.waycast.enable = true;
-
   programs.direnv.enable = true;
 
   # systemd.services.flatpak-repo = {
@@ -222,13 +220,14 @@
   };
 
   # sandboxing for pulling waycast from crates.io
-  nix.settings = {
-    sandbox = false;
-    sandbox-paths = [
-      "/etc/resolv.conf"
-      "/etc/ssl/certs"
-    ];
-  };
+  # I don't think we need this anymore
+  # nix.settings = {
+  #   sandbox = false;
+  #   sandbox-paths = [
+  #     "/etc/resolv.conf"
+  #     "/etc/ssl/certs"
+  #   ];
+  # };
 
   programs.ssh.startAgent = true;
 
