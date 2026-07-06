@@ -33,6 +33,6 @@
     ./neovim.nix
     ./vim.nix
     ./nixcord.nix
-    # ./csgo-vulkan-fix.nix
+    ./csgo-vulkan-fix.nix
   ];
 }

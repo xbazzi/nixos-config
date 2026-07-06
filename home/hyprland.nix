@@ -205,7 +205,8 @@
       };
 
       windowrule = [
-        # "size 1920 1440, class:^(cs2)$"
+        # "size 1920 1440, match:class cs2"
+        # "float yes, match:class cs2"
         "float yes, match:class qalculate-gtk"
 
         "opacity 0.90, match:class Code"
@@ -291,22 +292,6 @@
         "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
         "hyprctl setcursor Adwaita 24"
       ];
-      plugin = {
-        csgo-vulkan-fix = {
-          fix_mouse = true;
-          res_w = 1280;
-          res_h = 1024;
-          # class = "SDL Application";
-          vkfix-app = [
-            "hl_linux, 1280, 1024"
-            "cs2, 1280, 1024"
-            "csgo_linux64, 1280, 1024"
-            "steam_app_730, 1024, 1440"
-            # launch options
-            # gamemoderun  gamescope -e -W 1280 -H 1024 -r 180  --force-grab-cursor -S stretch -- %command%
-          ];
-        };
-      };
     };
 
     plugins = [
