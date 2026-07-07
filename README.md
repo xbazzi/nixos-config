@@ -1,6 +1,6 @@
 # nixos-config
 
-My NixOS flake configuration for a single x86_64 desktop. System and Home Manager are managed together — one command rebuilds both.
+My NixOS flake configuration for a single x86_64 desktop. System and Home Manager are managed together.
 
 ## Stack
 
@@ -13,7 +13,7 @@ My NixOS flake configuration for a single x86_64 desktop. System and Home Manage
 | Secure boot | Lanzaboote |
 | Display manager | greetd + tuigreet |
 | Audio | PipeWire |
-| GPU | AMD (ROCm/OpenCL) |
+| Graphics | AMD |
 
 ## Structure
 
@@ -26,7 +26,7 @@ system/            # NixOS system configuration
 home/              # Home Manager configuration
   home.nix           # Base home settings, Stylix
   packages.nix       # User packages
-  *.nix              # App/tool modules (Hyprland, Zsh, Neovim, Kitty…)
+  *.nix              # App/tool modules (Hyprland, Zsh, VSCode, Kitty…)
 ```
 
 ## Usage
