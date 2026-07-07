@@ -1,7 +1,9 @@
 { inputs, pkgs, ... }:
 
 {
-  home.packages = with pkgs; [
+  home.packages =
+    with pkgs;
+    [
     hello
     tmux
     gnome-keyring
@@ -9,7 +11,7 @@
     grim # for screenshots
     slurp # for selecting area
     grimblast # easier syntax for grim+slurp
-    flameshot
+    (flameshot.override { enableWlrSupport = true; })
     wl-clipboard # copy screenshot to clipboard
     bat
     yazi
@@ -28,7 +30,8 @@
 
     # Python
     python3Packages.gpustat
-  ];
+    ]
+    ++ [ inputs.awww.packages.${pkgs.stdenv.hostPlatform.system}.awww ];
 
   services.gnome-keyring = {
     enable = true;

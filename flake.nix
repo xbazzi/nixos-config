@@ -54,13 +54,13 @@
     let
       system = "x86_64-linux";
       pkgs = import nixpkgs {
-        system = "x86_64-linux";
-        config = {
-          allowUnfree = true;
-        };
+        inherit system;
+        config.allowUnfree = true;
       };
     in
     {
+      formatter.${system} = pkgs.nixfmt;
+
       devShells.${system}.default = pkgs.mkShell {
         buildInputs = [
           pkgs.neovim
@@ -74,24 +74,25 @@
       nixosConfigurations = {
         nixos = nixpkgs.lib.nixosSystem {
           inherit system;
-          specialArgs = { inherit inputs system; };
+          specialArgs = { inherit inputs; };
           modules = [
             inputs.stylix.nixosModules.stylix
             inputs.nix-flatpak.nixosModules.nix-flatpak
             lanzaboote.nixosModules.lanzaboote
+            inputs.home-manager.nixosModules.home-manager
+            {
+              home-manager.useGlobalPkgs = true;
+              home-manager.useUserPackages = true;
+              home-manager.backupFileExtension = "bak";
+              home-manager.extraSpecialArgs = { inherit inputs; };
+              home-manager.users.xbazzi = {
+                imports = [
+                  inputs.waycast.homeManagerModules.default
+                  ./home/default.nix
+                ];
+              };
+            }
             ./system/default.nix
-          ];
-        };
-      };
-
-      homeConfigurations = {
-        "xbazzi@nixos" = inputs.home-manager.lib.homeManagerConfiguration {
-          inherit pkgs;
-          extraSpecialArgs = { inherit inputs; };
-          modules = [
-            inputs.waycast.homeManagerModules.default
-            inputs.stylix.homeModules.stylix
-            ./home/default.nix
           ];
         };
       };

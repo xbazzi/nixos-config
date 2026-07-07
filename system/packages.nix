@@ -93,8 +93,7 @@
       ntfs3g
       man-pages
       man-pages-posix
-    ]
-    ++ [ inputs.awww.packages.${pkgs.stdenv.hostPlatform.system}.awww ];
+    ];
 
   nixpkgs.config.allowUnfreePredicate =
     pkg:

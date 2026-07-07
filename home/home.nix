@@ -7,7 +7,6 @@
 }:
 
 {
-  nixpkgs.config.allowUnfree = true;
   home.username = "xbazzi";
   home.homeDirectory = "/home/xbazzi";
 
@@ -25,12 +24,6 @@
   programs.command-not-found.enable = false;
 
   programs.home-manager.enable = true;
-
-  nixpkgs.config.packageOverrides = pkgs: {
-    flameshot = pkgs.flameshot.override {
-      enableWlrSupport = true;
-    };
-  };
 
   xdg.userDirs.setSessionVariables = false;
 

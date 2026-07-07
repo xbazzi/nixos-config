@@ -1,5 +1,4 @@
-{ config, pkgs, ... }:
-
+{ ... }:
 {
   imports = [
     ./lanzaboote.nix
@@ -9,7 +8,6 @@
     ./stylix.nix
     ./ghub.nix
     ./flatpak.nix
-    ./awww.nix
     ./amd.nix
     ./network.nix
     ./nfs.nix
@@ -18,5 +16,10 @@
     ./vscode.nix
     ./cachix.nix
     ./obs.nix
+    ./bluetooth.nix
+    ./audio.nix
+    ./users.nix
+    ./locale.nix
+    ./desktop.nix
   ];
 }

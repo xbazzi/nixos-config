@@ -112,7 +112,6 @@
         ll = "\\ls -lath";
         update = "sudo nixos-rebuild switch";
         rebuild = "sudo nixos-rebuild switch --flake ${flakePath}";
-        hms = "home-manager switch --flake ${flakePath}";
         config = "nvim ~/nix/configuration.nix";
         homecfg = "nvim ~/nix/home.nix";
         vi = "vim ";
