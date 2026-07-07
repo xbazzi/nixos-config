@@ -15,7 +15,6 @@
       claude-code
       gnumake
       ansible
-      niv
       sbctl
       vim
       wget
