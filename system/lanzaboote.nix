@@ -1,10 +1,5 @@
-{ pkgs, lib, inputs, ... }:
+{ lib, ... }:
 {
-  environment.systemPackages = [
-    pkgs.sbctl
-    inputs.awww.packages.${pkgs.stdenv.hostPlatform.system}.awww
-  ];
-
   boot.loader.systemd-boot.enable = lib.mkForce false;
 
   boot.lanzaboote = {

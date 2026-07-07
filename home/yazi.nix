@@ -2,6 +2,7 @@
 
 {
   programs.yazi = {
+    shellWrapperName = "yz";
     enable = true;
     # keymap = {
     #   mgr.prepend_keymap = [

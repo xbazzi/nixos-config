@@ -10,7 +10,7 @@
     ./ghub.nix
     ./flatpak.nix
     ./awww.nix
-    ./nvidia.nix
+    ./amd.nix
     ./network.nix
     ./nfs.nix
     ./packages.nix

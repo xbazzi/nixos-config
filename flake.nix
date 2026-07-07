@@ -2,18 +2,12 @@
   description = "My system configuration";
 
   inputs = {
-    # nixpkgs-vscode-old.url = "github:NixOS/nixpkgs/COMMIT_HASH";
-
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     stylix = {
       url = "github:danth/stylix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    # hyprshell = {
-    #   url = "git+https://gitgud.foo/thegrind/hypr-shell.git";
-    # };
 
     lanzaboote = {
       url = "github:nix-community/lanzaboote";
@@ -48,7 +42,6 @@
 
     waycast = {
       url = "git+https://gitgud.boo/waycasthq/waycast";
-      # inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
@@ -59,8 +52,6 @@
       ...
     }@inputs:
     let
-      overlays = [
-      ];
       system = "x86_64-linux";
       pkgs = import nixpkgs {
         system = "x86_64-linux";
@@ -68,28 +59,18 @@
           allowUnfree = true;
         };
       };
-      # configModule = {
-      #   # Add any custom options (and do feel free to upstream them!)
-      #   # options = { ... };
-
-      #       #     config.vim = {
-      #       #      theme.enable = true;
-      #       #      # and more options as you see fit...
-      #       #    };
-      # };
-
     in
     {
       devShells.${system}.default = pkgs.mkShell {
         buildInputs = [
           pkgs.neovim
-          # pkgs.legacyPackages.x86_64-linux.claude-code
           pkgs.vim
         ];
         shellHook = ''
-          	   echo "hello"
-          	'';
+          echo "hello"
+        '';
       };
+
       nixosConfigurations = {
         nixos = nixpkgs.lib.nixosSystem {
           inherit system;
@@ -108,29 +89,11 @@
           inherit pkgs;
           extraSpecialArgs = { inherit inputs; };
           modules = [
-            # inputs.walker.homeManagerModules.default
-            # inputs.hyprshell.homeManagerModules.default
             inputs.waycast.homeManagerModules.default
             inputs.stylix.homeModules.stylix
             ./home/default.nix
           ];
         };
       };
-      home-manager.useGlobalPkgs = true;
-
-      home-manager.users.xbazzi = {
-        nixpkgs.config.allowUnfree = true;
-        extraSpecialArgs = { inherit inputs; };
-        # imports =
-      };
-
-      # home-manager.users.xbazzi = {
-      #   extraSpecialArgs = { inherit inputs; };
-      #   nixpkgs.config.allowUnfree = true;
-      #   # imports = inputs.hyprshell.homeManagerModules.default;
-      #   #home.packages = [
-      #   #];
-      # };
-      #home-manager.extraSpecialArgs
     };
 }

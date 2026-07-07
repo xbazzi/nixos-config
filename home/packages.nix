@@ -2,8 +2,6 @@
 
 {
   home.packages = with pkgs; [
-    # legacyPackages.${pkgs.system}.claude-code
-    kitty
     hello
     tmux
     gnome-keyring

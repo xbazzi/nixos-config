@@ -7,11 +7,6 @@
 }:
 
 {
-  nixpkgs.config.allowUnfreePredicate =
-    pkg:
-    builtins.elem (lib.getName pkg) [
-      "claude-code"
-    ];
   environment.systemPackages = with pkgs; [
     (vscode-with-extensions.override {
       vscodeExtensions =
