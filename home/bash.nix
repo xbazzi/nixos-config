@@ -11,8 +11,6 @@
         rebuild = "sudo nixos-rebuild switch --flake ${flakePath}";
         hms = "home-manager switch --flake ${flakePath}";
         vi = "vim";
-        #config = "nvim ~/nix/configuration.nix";
-        #homecfg = "nvim ~/nix/home.nix";
       };
   };
 }

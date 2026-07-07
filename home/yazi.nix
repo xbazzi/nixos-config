@@ -1,7 +1,6 @@
 { config, pkgs, ... }:
 
 {
-
   programs.yazi = {
     enable = true;
     # keymap = {
@@ -45,12 +44,6 @@
         show_hidden = true;
         show_symlink = true;
       };
-
-      # tasks = {
-      #   micro_workers = 5;
-      #   macro_workers = 10;
-      #   bizarre_retry = 5;
-      # };
     };
   };
 }

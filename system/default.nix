@@ -2,13 +2,12 @@
 
 {
   imports = [
+    ./lanzaboote.nix
     ./configuration.nix
     ./fonts.nix
     ./ssh.nix
     ./stylix.nix
     ./ghub.nix
-    # ./sddm.nix
-    # ./hyprland-plugins.nix
     ./flatpak.nix
     ./awww.nix
     ./nvidia.nix

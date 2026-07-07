@@ -16,7 +16,7 @@
     # };
 
     lanzaboote = {
-      url = "github:nix-community/lanzaboote/v0.4.3";
+      url = "github:nix-community/lanzaboote";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
@@ -46,14 +46,8 @@
       inputs.hyprland.follows = "hyprland";
     };
 
-    # hyprland-plugins = {
-    #   url = "github:hyprwm/hyprland-plugins";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    #   inputs.hyprland.follows = "hyprland";
-    # };
-
     waycast = {
-      url = "git+https://gitgud.boo/javif89/waycast";
+      url = "git+https://gitgud.boo/waycasthq/waycast";
       # inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -105,32 +99,6 @@
             inputs.nix-flatpak.nixosModules.nix-flatpak
             lanzaboote.nixosModules.lanzaboote
             ./system/default.nix
-            (
-              {
-                pkgs,
-                lib,
-                system ? pkgs.system,
-                ...
-              }:
-              {
-                # nixpkgs.overlays =  inputs.waycast.overlays.default;
-                environment.systemPackages = [
-                  pkgs.sbctl
-                  inputs.awww.packages.${pkgs.stdenv.hostPlatform.system}.awww
-                ];
-
-                # Lanzaboote currently replaces the systemd-boot module.
-                # This setting is usually set to true in configuration.nix
-                # generated at installation time. So we force it to false
-                # for now.
-                boot.loader.systemd-boot.enable = lib.mkForce false;
-
-                boot.lanzaboote = {
-                  enable = true;
-                  pkiBundle = "/var/lib/sbctl";
-                };
-              }
-            )
           ];
         };
       };

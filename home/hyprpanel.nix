@@ -32,8 +32,6 @@ let
   base = themeAttrs.theme;
   themeOverrides = {
     font.size = "16px";
-    # bar.buttons.workspaces.numbered_active_highlighted_text_color = "#21252b";
-    # bar.buttons.style = "default";
     matugen = false;
 
     font = {
@@ -140,7 +138,6 @@ in
               "systray"
               "hyprsunset"
               "hypridle"
-              # "updates"
               "notifications"
             ];
           };
@@ -160,7 +157,6 @@ in
               "systray"
               "hyprsunset"
               "hypridle"
-              # "updates"
               "notifications"
             ];
           };
@@ -182,7 +178,6 @@ in
           show_numbered = false;
           workspaceMask = false;
         };
-        # clock.format = "%a %b %d  %I:%M:%S %p";
       };
 
       menus = {
@@ -204,7 +199,6 @@ in
         };
       };
 
-      # theme = builtins.fromJSON (builtins.readFile "${themeDirectory}/${currentTheme}.json");
       theme = lib.mkForce finalTheme;
     };
   };

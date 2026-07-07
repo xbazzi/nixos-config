@@ -7,7 +7,6 @@
       logo = {
         source = "${config.home.homeDirectory}/Pictures/favi.png";
         width = 40;
-        # height = 50;
         padding = {
           right = 1;
         };

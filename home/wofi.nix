@@ -98,7 +98,6 @@ in
           }
 
           #entry:selected {
-            /*background-color: ${accent};*/
             background-color: #11111;
             color: #11111;
           }

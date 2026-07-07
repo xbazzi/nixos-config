@@ -28,6 +28,7 @@
     ./hyprland.nix
     ./fastfetch.nix
     ./zsh.nix
+    ./btop.nix
     ./variables.nix
     ./kitty.nix
     ./neovim.nix

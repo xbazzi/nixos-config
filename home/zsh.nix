@@ -28,16 +28,6 @@
         command nvibrant $(printf "+%s " $(repeat 9 echo "$1"))
         }
 
-
-      function y() {
-        local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
-        yazi "$@" --cwd-file="$tmp"
-        if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
-          builtin cd -- "$cwd"
-        fi
-        rm -f -- "$tmp"
-      }
-
       function repos() {
           eza -ld ~/repos/* --color=never | \
           awk '{print $7}' | \
@@ -116,14 +106,11 @@
         workspaces = "hyprctl -j workspaces | jq '.[] | {id, monitor, windows, active}'";
         reboot = ''echo "Nice try. Use \`sudo /run/current-system/sw/bin/reboot\` instead."'';
         reboot-foreal = "sudo /run/current-system/sw/bin/reboot now";
-        # cat = " bat";
         cb = "cmake -B build -S . && cmake --build build -j$(nproc)";
         la = "eza -s modified -lhr --icons --git";
         ls = "eza -lh --group-directories-first --icons --git";
         ll = "\\ls -lath";
         update = "sudo nixos-rebuild switch";
-        # la = "ls -lAth";
-        # lr = "ls -ltr";
         rebuild = "sudo nixos-rebuild switch --flake ${flakePath}";
         hms = "home-manager switch --flake ${flakePath}";
         config = "nvim ~/nix/configuration.nix";
@@ -135,32 +122,5 @@
         vtune = "sudo /opt/intel/oneapi/vtune/latest/bin64/vtune";
         vtune-perf-snapshot = "vtune -collect performance-snapshot -r ";
       };
-
-    # plugins = [
-    #   #{
-    #   #  name = "powerlevel10k";
-    #   #  src = pkgs.zsh-powerlevel10k;
-    #   #  file = "share/zsh-powerlevel10k/powerlevel10k.zsh-theme";
-    #   #}
-    #   # {
-    #   #   name = "powerlevel10k-config";
-    #   #   src = ./p10k-config;
-    #   #   file = ".p10k.zsh";
-    #   # }
-    # ];
-
-    #histSize = 10000;
-    #  oh-my-zsh = {
-    #    enable = true;
-    #    plugins = [ "git" "thefuck" ];
-    #    theme = "";
-    #  };
-    # zplug = {
-    #   enable = true;
-    #   plugins = [
-    #     { name = "zsh-users/zsh-autosuggestions"; } # Simple plugin installation
-    #      #{ name = "romkatv/powerlevel10k"; tags = [ as:theme depth:1 ]; } # Installations with additional options. For the list of options, please refer to Zplug README.
-    #    ];
-    #  };
   };
 }

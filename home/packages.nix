@@ -4,7 +4,6 @@
   home.packages = with pkgs; [
     # legacyPackages.${pkgs.system}.claude-code
     kitty
-    btop
     hello
     tmux
     gnome-keyring

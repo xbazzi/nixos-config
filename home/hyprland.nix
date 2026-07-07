@@ -33,18 +33,7 @@
   };
 
   wayland.windowManager.hyprland = {
-
-    # extraConfig = ''
-    #   plugin {
-    #     csgo-vulkan-fix {
-    #       # Whether to fix the mouse position. A select few apps might be wonky with this.
-    #       fix_mouse = true
-
-    #       # Add apps with vkfix-app = initialClass, width, height
-    #       vkfix-app = cs2, 1920, 1440
-    #     }
-    #   }
-    # '';
+    configType = "hyprlang";
 
     settings = {
       "$file_browser" = "thunar";
@@ -75,7 +64,6 @@
 
         # Left click resize
         "$mod, mouse:273, resizewindow"
-        # "ALT CTRL, mouse:272, resizewindow 1"
       ];
 
       binde = [
@@ -112,9 +100,7 @@
 
         "$mod, f, fullscreen, 0"
 
-        # "$mod, d, exec, wofi --show drun"
-        "$mod, d, exec, waycast"
-        # "$mod, d, exec, wofi --show combi"
+        "$mod, d, exec, waycast show"
         "$mod, SPACE, exec, ${pkgs.wofi-emoji}/bin/wofi-emoji"
 
         "$mod, t, exec, kitty --single-instance"
@@ -131,18 +117,14 @@
 
         "$mod, i, exec, brave --disable-features=WaylandWpColorManagerV1"
         "$mod, u, exec, kitty --start-as=normal -- zsh -ic 'home'"
-        # "$mod, y, exec, kitty --start-as=normal -- zsh -ic 'repos'"
-        # "$mod, y, exec, eza -ld $HOME/repos/* --color=never | awk '{print $7}' | wofi --dmenu --prompt \"Open project:\" | xargs -I{} code {} -n && exit"
 
         "$mod, s, togglespecialworkspace, special1"
-        # "$mod, v, togglespecialworkspace, special2"
 
         "$mod, p, layoutmsg, swapwithmaster"
 
         "$mod, v, togglefloating, active"
 
         # Log out
-        # "$mod, -, exec, hyprctl dispatch exit"
         "$mod SHIFT ALT, x, exec, hyprctl dispatch exit"
 
         # Reload
@@ -158,8 +140,6 @@
 
         # Ctrl+Print → select window and copy
         "CTRL, Print, exec, grimblast copy active"
-
-        # "$mod SHIFT, s, exec, flameshot gui"
       ]
       ++ (
         # workspaces
@@ -178,9 +158,6 @@
         )
       );
 
-      # doesn't work
-      # workspace =
-      #   builtins.genList (i: "DP-3, ${toString (i + 1)}") 9;
       workspace = [
         "1, monitor:DP-3, persistent:true"
         "2, monitor:DP-3, persistent:true"
@@ -205,8 +182,6 @@
       };
 
       windowrule = [
-        # "size 1920 1440, match:class cs2"
-        # "float yes, match:class cs2"
         "float yes, match:class qalculate-gtk"
 
         "opacity 0.90, match:class Code"
@@ -217,16 +192,9 @@
 
       layerrule = [
         "no_anim on, match:namespace Waycast"
-
-        # coming soon in 1.1.0
-        # "blur on, match:namespace Waycast"
       ];
 
       decoration = {
-        # active_opacity = 1.0;
-        # inactive_opacity = 1.0;
-        # rounding = 5;
-
         blur = {
           enabled = true;
           size = 1;
@@ -236,20 +204,7 @@
           ignore_opacity = false;
           noise = 0;
           new_optimizations = true;
-          # xray = true;
         };
-
-        # blurls = "^(popup|menu)$";
-
-        # shadow = {
-        #   enabled = true;
-
-        #   ignore_window = true;
-        #   offset = "0 2";
-        #   range = 20;
-        #   render_power = 3;
-        #   color = "rgba(00000055)";
-        # };
       };
 
       animations = {
@@ -276,8 +231,6 @@
           "fadeSwitch,  0, 1,   easeOutCirc" # fade on changing activewindow and its opacity
           "fadeShadow,  1, 10,  easeOutCirc" # fade on changing activewindow for shadows
           "fadeDim,     1, 4,   fluent_decel" # the easing of the dimming of inactive windows
-          # "border,      1, 2.7, easeOutCirc"  # for animating the border's color switch speed
-          # "borderangle, 1, 30,  fluent_decel, once" # for animating the border's gradient angle - styles: once (default), loop
           "workspaces,  1, 4,   easeOutCubic, fade" # styles: slide, slidevert, fade, slidefade, slidefadevert
         ];
       };
@@ -286,9 +239,6 @@
         "awww-daemon &"
         "/home/xbazzi/scripts/awww-multi ~/Pictures/wallpapers/cities 300 &"
         ''hyprctl plugin load "$HYPR_PLUGIN_DIR/lib/libhyprexpo.so"''
-        # "eval $(gnome-keyring-daemon --start --components=secrets,ssh,gpg)"
-        # "hash dbus-update-activation-environment 2>/dev/null"
-        # "dbus-update-activation-environment --all --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
         "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
         "hyprctl setcursor Adwaita 24"
       ];

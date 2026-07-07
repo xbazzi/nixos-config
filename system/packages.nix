@@ -11,8 +11,6 @@
     # Vibrance
     libvibrant
 
-    # (inputs.nixpkgs.legacyPackages.${pkgs.system}.claude-code)
-    # modrinth-app
     claude-code
     gnumake
     ansible
@@ -26,7 +24,6 @@
     libreoffice-qt
     hunspell
     hunspellDicts.en_US
-    # kitty
     git
     wget
     vesktop
@@ -41,7 +38,6 @@
     qalculate-gtk
     htop
     dig
-    # netstat-net-tools
     prismlauncher
     inetutils
     ansible-builder
@@ -55,7 +51,6 @@
     variety
     fzf
     eza
-    # linuxPackages_latest.perf
     perf
     minicom
     wireshark
@@ -92,7 +87,6 @@
     jetbrains.clion
     google-chrome
     wootility
-    # flatpak
     stm32cubemx
 
     deadlock-mod-manager
@@ -100,11 +94,6 @@
     ntfs3g
     man-pages
     man-pages-posix
-
-    # Qt
-    # kdePackages.qt5compat
-    # libsForQt5.qt5.qtgraphicaleffects
-    # libsForQt5.qt5.qtdeclarative
   ];
 
   nixpkgs.config.allowUnfreePredicate =
@@ -119,12 +108,11 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  # Install Steam
   programs.steam = {
     enable = true;
-    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
-    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
-    localNetworkGameTransfers.openFirewall = true; # Open ports in the firewall for Steam Local Network Game Transfers
+    remotePlay.openFirewall = true;
+    dedicatedServer.openFirewall = true;
+    localNetworkGameTransfers.openFirewall = true;
   };
 
   programs.gamemode.enable = true;

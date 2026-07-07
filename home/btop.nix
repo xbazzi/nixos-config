@@ -1,10 +1,11 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
   programs.btop = {
     enable = true;
-    # color_theme = "phoenix-night";
-    color_theme = "HotPurpleTrafficLight";
-    theme_background = false;
+    settings = {
+      color_theme = lib.mkForce "HotPurpleTrafficLight";
+      theme_background = false;
+    };
   };
 }
