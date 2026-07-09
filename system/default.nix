@@ -8,7 +8,7 @@
     ./stylix.nix
     ./ghub.nix
     ./flatpak.nix
-    ./amd.nix
+    ./graphics.nix
     ./network.nix
     ./nfs.nix
     ./packages.nix

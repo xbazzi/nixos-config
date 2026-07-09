@@ -3,6 +3,7 @@
   programs.hyprland.enable = true;
   programs.hyprlock.enable = true;
   security.pam.services.hyprlock = { };
+  services.udisks2.enable = true;
 
   services.gnome.gnome-keyring.enable = true;
   services.gnome.gcr-ssh-agent.enable = false;

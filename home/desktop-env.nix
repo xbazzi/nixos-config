@@ -9,6 +9,8 @@
 */
 {
   pkgs,
+  lib,
+  config,
   ...
 }:
 
@@ -18,12 +20,30 @@
     [Configuration]
     DefaultView=ThunarDetailsView
   '';
+
+  # none of these worked. can delete at some point
+  systemd.user.services.thunar-directory-views = {
+    Unit = {
+      Description = "Set Thunar per-directory view preferences";
+      After = [ "graphical-session.target" ];
+      PartOf = [ "graphical-session.target" ];
+    };
+    Service = {
+      Type = "oneshot";
+      Environment = [ "GIO_EXTRA_MODULES=${pkgs.gvfs}/lib/gio/modules" ];
+      ExecStart = "${pkgs.glib}/bin/gio set ${config.home.homeDirectory}/Downloads metadata::thunar-view-type ThunarDetailsView";
+    };
+    Install = {
+      WantedBy = [ "graphical-session.target" ];
+    };
+  };
   home.packages = with pkgs; [
 
     # File Manager
     thunar
     thunar-volman # Removable drive support
     thunar-media-tags-plugin
+    gvfs # Virtual filesystem that lets Thunar communicate with udisks2
 
     # Essential thumbnail generators
     tumbler # Thunar's thumbnail service
