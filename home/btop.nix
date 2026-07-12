@@ -6,6 +6,7 @@
     settings = {
       color_theme = lib.mkForce "HotPurpleTrafficLight";
       theme_background = false;
+      vim_keys = true;
     };
   };
 }
