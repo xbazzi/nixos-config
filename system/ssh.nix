@@ -108,6 +108,14 @@
           User xbazzi
           IdentityFile ~/.ssh/lan_id_ed25519
           IdentitiesOnly yes
+
+      Host walle
+          HostName walle
+          ForwardAgent yes
+          User xbazzi
+          Port 1337
+          IdentityFile ~/.ssh/walle_id_ed25519
+          IdentitiesOnly yes
     '';
   };
 }
