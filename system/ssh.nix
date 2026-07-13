@@ -7,6 +7,15 @@
     extraConfig = ''
         AddKeysToAgent yes
 
+        Host abazzilinux
+          HostName abazzilinux.s
+          ForwardAgent no
+          User sx
+          Port 22
+          PubkeyAuthentication yes
+          IdentityFile ~/.ssh/office_id_ed25519
+          IdentitiesOnly yes
+
         Host fw-mgmt
           HostName fw-mgmt
           ForwardAgent yes
