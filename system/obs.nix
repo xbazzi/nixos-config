@@ -2,6 +2,7 @@
 {
   programs.obs-studio = {
     enable = true;
+    enableVirtualCamera = true;
 
     plugins = with pkgs.obs-studio-plugins; [
       wlrobs
@@ -10,6 +11,7 @@
       obs-vaapi # optional AMD hardware acceleration
       obs-gstreamer
       obs-vkcapture
+      obs-shaderfilter
     ];
   };
 }
