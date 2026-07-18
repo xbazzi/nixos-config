@@ -97,6 +97,14 @@
           IdentitiesOnly yes
           SetEnv TERM=xterm
 
+        Host pve1
+          HostName pve1-mgmt
+          ForwardAgent yes
+          User root
+          IdentityFile ~/.ssh/lan_id_ed25519
+          IdentitiesOnly yes
+          SetEnv TERM=xterm
+
       Host nas
           HostName nas
           ForwardAgent yes

@@ -113,7 +113,7 @@
         "$mod, e, exec, thunderbird"
         "$mod, r, exec, kitty -- zsh -c 'exec yazi; exec zsh'"
         "$mod, b, exec, kitty -- zsh -c 'exec btop; exec zsh'"
-        "$mod, g, exec, kitty -- zsh -c 'exec amdgpu_top; exec zsh'"
+        "$mod, g, exec, kitty -- zsh -c 'exec amdgpu_top --dark; exec zsh'"
         "$mod CTRL, n, exec, kitty --start-as=normal -- zsh -ic 'code ~/nixos-config && exit'"
 
         "$mod, i, exec, brave --disable-features=WaylandWpColorManagerV1"
