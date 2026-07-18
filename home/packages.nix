@@ -36,6 +36,7 @@
 
       # Python
       python3Packages.gpustat
+
     ]
     ++ [ inputs.awww.packages.${pkgs.stdenv.hostPlatform.system}.awww ];
 
