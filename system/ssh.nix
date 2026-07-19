@@ -133,6 +133,16 @@
           Port 1337
           IdentityFile ~/.ssh/walle_id_ed25519
           IdentitiesOnly yes
+
+      Host brocade brocade-icx 10.69.0.10
+          HostName 10.69.0.10
+          User oxidized
+          IdentityFile ~/.ssh/oxidized_brocade
+          KexAlgorithms +diffie-hellman-group1-sha1
+          HostKeyAlgorithms +ssh-rsa
+          PubkeyAcceptedAlgorithms +ssh-rsa
+          IdentitiesOnly yes
+
     '';
   };
 }
