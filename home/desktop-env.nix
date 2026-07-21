@@ -21,6 +21,21 @@
     DefaultView=ThunarDetailsView
   '';
 
+  xdg.configFile."gtk-3.0/bookmarks".text = ''
+    file:///home/xbazzi/repos
+    file:///home/xbazzi/nixos-config nixos-config
+    file:///mnt/docker-shared docker-shared
+    file:///mnt/k8s-nfs k8s-nfs
+    file:///mnt/media media
+    file:///mnt/os-images os-images
+    file:///mnt/school school
+    file:///home/xbazzi/Documents
+    file:///home/xbazzi/Music
+    file:///home/xbazzi/Pictures
+    file:///home/xbazzi/Videos
+    file:///home/xbazzi/Downloads
+  '';
+
   # none of these worked. can delete at some point
   systemd.user.services.thunar-directory-views = {
     Unit = {

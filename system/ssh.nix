@@ -100,7 +100,23 @@
         Host pve1
           HostName pve1-mgmt
           ForwardAgent yes
-          User root
+          User xbazzi
+          IdentityFile ~/.ssh/lan_id_ed25519
+          IdentitiesOnly yes
+          SetEnv TERM=xterm
+
+        Host pve2
+          HostName pve2-mgmt
+          ForwardAgent yes
+          User xbazzi
+          IdentityFile ~/.ssh/lan_id_ed25519
+          IdentitiesOnly yes
+          SetEnv TERM=xterm
+
+        Host pve3
+          HostName pve3-mgmt
+          ForwardAgent yes
+          User xbazzi
           IdentityFile ~/.ssh/lan_id_ed25519
           IdentitiesOnly yes
           SetEnv TERM=xterm
@@ -134,7 +150,7 @@
           IdentityFile ~/.ssh/walle_id_ed25519
           IdentitiesOnly yes
 
-      Host brocade brocade-icx 10.69.0.10
+      Host brocade
           HostName 10.69.0.10
           User oxidized
           IdentityFile ~/.ssh/oxidized_brocade
@@ -143,6 +159,11 @@
           PubkeyAcceptedAlgorithms +ssh-rsa
           IdentitiesOnly yes
 
+      Host backup
+        HostName 10.69.0.192
+        User ansible
+        IdentityFile ~/.ssh/ansible_ed25519
+        IdentitiesOnly yes
     '';
   };
 }

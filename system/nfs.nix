@@ -48,4 +48,17 @@
       "x-systemd.automount"
     ];
   };
+
+  fileSystems."/mnt/k8s-nfs" = {
+    device = "nas:/mnt/ALEXANDRIA/k8s/nfs";
+    fsType = "nfs";
+    options = [
+      "noauto"
+      "_netdev"
+      "rw"
+      "vers=4"
+      # On-demand mount (recommended): mounts when first accessed
+      "x-systemd.automount"
+    ];
+  };
 }

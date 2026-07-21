@@ -117,7 +117,6 @@
         "$mod CTRL, n, exec, kitty --start-as=normal -- zsh -ic 'code ~/nixos-config && exit'"
 
         "$mod, i, exec, brave --disable-features=WaylandWpColorManagerV1"
-        "$mod, u, exec, kitty --start-as=normal -- zsh -ic 'home'"
 
         "$mod, s, togglespecialworkspace, special1"
 
