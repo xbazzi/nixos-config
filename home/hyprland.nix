@@ -50,6 +50,8 @@
       env = [
         "HYPRLAND_PRIMARY_MONITOR,DP-3"
         "XCURSOR_THEME,Adwaita"
+        "KUBECONFIG,/home/xbazzi/repos/homelab/talos/kubeconfig"
+        "TALOSCONFIG,/home/xbazzi/repos/homelab/talos/_out/talosconfig"
       ];
 
       monitor = [
@@ -114,6 +116,8 @@
         "$mod, r, exec, kitty -- zsh -c 'exec yazi; exec zsh'"
         "$mod, b, exec, kitty -- zsh -c 'exec btop; exec zsh'"
         "$mod, g, exec, kitty -- zsh -c 'exec amdgpu_top --dark; exec zsh'"
+        "$mod SHIFT, k, exec, kitty -- zsh -c 'exec k9s; exec zsh'"
+        "$mod SHIFT, t, exec, kitty -- zsh -c 'exec talosctl dashboard; exec zsh'"
         "$mod CTRL, n, exec, kitty --start-as=normal -- zsh -ic 'code ~/nixos-config && exit'"
 
         "$mod, i, exec, brave --disable-features=WaylandWpColorManagerV1"
@@ -239,7 +243,7 @@
         "awww-daemon &"
         "/home/xbazzi/scripts/awww-multi ~/Pictures/wallpapers/cities 300 &"
         ''hyprctl plugin load "$HYPR_PLUGIN_DIR/lib/libhyprexpo.so"''
-        "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP"
+        "systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP KUBECONFIG TALOSCONFIG"
         "hyprctl setcursor Adwaita 24"
       ];
     };

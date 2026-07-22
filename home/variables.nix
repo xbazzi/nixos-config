@@ -36,6 +36,8 @@
     XDG_STATE_HOME = "${config.home.homeDirectory}/.local/state";
     EDITOR = "nvim";
     # TERM = "xterm-kitty";
+    KUBECONFIG = "${config.home.homeDirectory}/repos/homelab/talos/kubeconfig";
+    TALOSCONFIG = "${config.home.homeDirectory}/repos/homelab/talos/_out/talosconfig";
   };
   xdg = {
     enable = true;

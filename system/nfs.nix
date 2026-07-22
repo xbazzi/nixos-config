@@ -61,4 +61,17 @@
       "x-systemd.automount"
     ];
   };
+
+  fileSystems."/mnt/certs" = {
+    device = "nas:/mnt/ALEXANDRIA/certs";
+    fsType = "nfs";
+    options = [
+      "noauto"
+      "_netdev"
+      "rw"
+      "vers=4"
+      # On-demand mount (recommended): mounts when first accessed
+      "x-systemd.automount"
+    ];
+  };
 }

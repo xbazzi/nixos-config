@@ -37,6 +37,10 @@
       # Python
       python3Packages.gpustat
 
+      # Kubernetes / Talos
+      k9s
+      talosctl
+
     ]
     ++ [ inputs.awww.packages.${pkgs.stdenv.hostPlatform.system}.awww ];
 
